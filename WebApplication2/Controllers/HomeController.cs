@@ -11,8 +11,7 @@ namespace WebApplication2.Controllers
         public ActionResult Index()
         {
             return View();
-        }//byjyylkjlkjfdsfsdfsdfkjjk
-        //ajskjaa hahahhahahahah
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
