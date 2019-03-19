@@ -1,0 +1,44 @@
+﻿@model library.Models.user
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>signup</title>
+</head>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+      please sign up !!
+
+
+<body>
+    <div>
+        @using (Html.BeginForm("Newuser", "Library", FormMethod.Post))
+        {
+
+        <i> Name:</i> @Html.TextBoxFor(m => m.name) @Html.ValidationMessageFor(X => X.name)
+        <br />
+        <i> Age:</i> @Html.TextBoxFor(m => m.age) @Html.ValidationMessageFor(X => X.age)
+        <br />
+        <i>Id:</i> @Html.TextBoxFor(m => m.id) @Html.ValidationMessageFor(X => X.id)
+        <span style="color:red">@ViewBag.result</span>
+        <br />
+        <i>Email:</i>@Html.TextBoxFor(m => m.email) @Html.ValidationMessageFor(X => X.email)
+        <br />
+        <i> Password:</i>@Html.PasswordFor(m => m.password)  @Html.ValidationMessageFor(X => X.password)
+        <br />
+        <input id="Submit1" type="submit" value="Add User" />
+        <br />
+        }
+
+
+
+
+    </div>
+</body>
+</html>
