@@ -11,7 +11,7 @@ namespace WebApplication2.Controllers
         public ActionResult Index()
         {
             return View();
-        }
+        }//byjyy
 
         public ActionResult About()
         {
