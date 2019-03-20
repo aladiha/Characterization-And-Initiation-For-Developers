@@ -19,4 +19,5 @@ namespace WebApplication2.Models
         [StringLength(15, ErrorMessage = "password length must be btween 5 and 20 characters.", MinimumLength = 5)]
         public string password { get; set; }
     }//kjhxvjhdbxjvbjdv
+    //;lkhjgfxglhgcxv;hcmgn/.,fhj;uo,hvk
 }
