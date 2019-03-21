@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-        public ActionResult About()
+        public ActionResult Privacy()
         {
             ViewBag.Message = "Your application description page.";
 
