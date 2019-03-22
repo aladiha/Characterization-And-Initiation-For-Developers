@@ -27,25 +27,7 @@ namespace WebApplication2.Controllers
 
             return View();
         }
-        public ActionResult Register()
-        {
 
-            return View();
-        }
-
-        public ActionResult Submit()
-        {
-            User newUser = new User();
-            newUser.UserName = Request.Form["usrnm"];
-            newUser.Email = Request.Form["email"];
-            newUser.Password = Request.Form["psw"];
-
-            UserDal udal = new UserDal();
-            udal.users.Add(newUser);
-            udal.SaveChanges();
-
-            return View("User", newUser);
-        }
 
     }
 }
