@@ -228,6 +228,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\2277.jpg" />
     <Content Include="img\black.jpg" />
     <Content Include="obj\Debug\WebApplication2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\WebApplication2.dll" />
@@ -273,14 +274,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Login\LogIn.cshtml" />
-    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
     <Content Include="Views\User\User.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

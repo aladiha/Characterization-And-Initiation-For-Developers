@@ -30,43 +30,21 @@ namespace WebApplication2.Controllers
 
         public ActionResult Submit()
         {
-            Contact newContact = new Contact();//aaaaaaaaaa
+
+            Contact newContact = new Contact();
+
             newContact.name = Request.Form["name"];
             newContact.subject = Request.Form["subject"];
             newContact.massage = Request.Form["massage"];
- 
-
-
 
 
             ContactDal cdal = new ContactDal();
             cdal.contacts.Add(newContact);
-          
-
-                try
-                { 
-
-                cdal.SaveChanges();
-                }
-                catch (DbEntityValidationException e)
-                {
-                    foreach (var eve in e.EntityValidationErrors)
-                    {
-                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
-                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
-                        foreach (var ve in eve.ValidationErrors)
-                        {
-                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
-                                ve.PropertyName, ve.ErrorMessage);
-                        }
-                    }
-                    throw;
-                }
+            cdal.SaveChanges();
+            
 
 
-            return View("Index", newContact);
-
-           
+            return View("Thanks");
         }
 
 
