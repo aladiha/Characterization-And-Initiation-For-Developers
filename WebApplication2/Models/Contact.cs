@@ -10,12 +10,12 @@ namespace WebApplication2.Models
     public class Contact
     {
        
-        public string Name { get; set; }
+        public string name { get; set; }
      
-        public string Subject { get; set; }
+        public string subject { get; set; }
 
         [Key]
-        public string Message { get; set; }
+        public string massage { get; set; }
 
         
     }
