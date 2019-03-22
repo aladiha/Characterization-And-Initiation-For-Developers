@@ -147,6 +147,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\BOOKS.mdf" />
+    <Content Include="App_Data\BOOKS_log.ldf">
+      <DependentUpon>BOOKS.mdf</DependentUpon>
+    </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\main-raw-77819770-opmrjvsubkytayvdgwrgzqvikblaseeb %281%29.jpeg" />
@@ -275,7 +279,6 @@
     <Content Include="Views\Home\User.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Views\Privicy\" />
     <Folder Include="Views\User\" />
