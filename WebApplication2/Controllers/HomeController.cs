@@ -30,7 +30,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult Submit()
         {
-            Contact newContact = new Contact();
+            Contact newContact = new Contact();//aaaaaaaaaa
             newContact.Name = Request.Form["Name"];
             newContact.Subject = Request.Form["Subject"];
             newContact.Message = Request.Form["Message"];
