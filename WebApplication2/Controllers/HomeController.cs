@@ -5,7 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
 using WebApplication2.DAL;
-//kk
+
+
+
+
 namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
@@ -23,9 +26,26 @@ namespace WebApplication2.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            
 
-            return View();
+            Contact newContact = new Contact();
+            newContact.UserName = Request.Form["Name"];
+            newContact.Email = Request.Form["Email"];
+            newContact.Subject = Request.Form["Subject"];
+            newContact.Massage = Request.Form["Message"];
+ 
+
+
+
+
+            ContactDal cdal = new ContactDal();
+            cdal.contacts.Add(newContact);
+            cdal.SaveChanges();
+        
+
+            return View("Index", newContact);
+
+           
         }
         public ActionResult Register()
         {
