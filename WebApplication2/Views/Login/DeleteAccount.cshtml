@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <div>
+
+        <form action="Delete_Account" method="post">
+            Enter your password to complete deleting your account:
+            <br />
+            <input id="Text1" type="text" placeholder="Enter password" name="VarifiyPassword" /> @*@ViewData["VarifiyDelete"]*@
+            <br />
+            <input id="Submit1" type="submit" value="Delete" />
+            <br />
+        </form>
+
+    </div>
+
+</body>
+</html>

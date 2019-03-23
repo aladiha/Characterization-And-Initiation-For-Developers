@@ -142,6 +142,7 @@
     </Compile>
     <Compile Include="ModelBinders\UserBinder.cs" />
     <Compile Include="Models\AccountInfo.cs" />
+    <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\User.cs" />
@@ -293,6 +294,8 @@
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\Login\Logout.cshtml" />
     <Content Include="Views\Login\Thanks.cshtml" />
+    <Content Include="Views\Login\DeleteAccount.cshtml" />
+    <Content Include="Views\Login\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
