@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication2.Models;
 using WebApplication2.DAL;
-using System.Data.Entity.Validation;
+using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult Privacy()
         {
             ViewBag.Message = "Your application description page.";
@@ -24,7 +24,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult Contact()
         {
-                return View();
+            return View();
         }
 
         public ActionResult Submit()
@@ -40,7 +40,7 @@ namespace WebApplication2.Controllers
             ContactDal cdal = new ContactDal();
             cdal.contacts.Add(newContact);
             cdal.SaveChanges();
-            
+
 
 
             return View("Thanks");
@@ -54,7 +54,19 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-        
+
+        public ActionResult Profile()
+        {
+
+
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            return View();
+        }
 
     }
+
 }

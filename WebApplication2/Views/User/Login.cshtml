@@ -1,7 +1,6 @@
-﻿@using WebApplication2.Models;
-
+﻿
+@using WebApplication2.Models;
 @model WebApplication2.Models.User
-
 @*@{
 
         if (Session["username"] != null)
@@ -13,14 +12,11 @@
         }
 
     }*@
-
 @{
 
     ViewBag.Title = "User";
 
 }
-
-
 
 @*<style>
 
@@ -35,37 +31,23 @@
         }
 
     </style>*@
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-
 </head>
-
 <body>
-
     <div class="container">
-
         <h2>Log In</h2>
-
         <div>
-
-
 
             <br />
             <span style="color:red">@ViewBag.result</span>
             <br />
             <span style="color:red">@ViewBag.signup</span>
             <br />
-
             @using (Html.BeginForm("doLogin", "User", FormMethod.Post))
 
             {
@@ -87,15 +69,10 @@
 
 
             }
-
         </div>
 
 
 
-
-
-
-
 </body>
-
 </html>
+

@@ -7,6 +7,7 @@ using WebApplication2.Models;
 using WebApplication2.DAL;
 using WebApplication2.ModelBinders;
 using System.Web.Security;
+using System.Web.Routing;
 
 namespace WebApplication2.Controllers
 {
@@ -46,7 +47,7 @@ namespace WebApplication2.Controllers
               
                     myRole.setUser(U.UserName, "user", userValid[0].UserName);//set the user role 
                     FormsAuthentication.SetAuthCookie(U.UserName, true);
-                    return RedirectToAction("look", "Home");
+                    return RedirectToAction("Index", "Login");
                 }
                /* else
                 {
@@ -67,7 +68,9 @@ namespace WebApplication2.Controllers
             }
 
             return View("Login");
-
         }
+
+
+
     }
 }

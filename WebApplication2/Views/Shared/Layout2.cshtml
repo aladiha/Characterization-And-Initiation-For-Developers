@@ -1,5 +1,4 @@
-﻿@using WebApplication2.Models
-
+﻿@using WebApplication2.Models;
 
 
 <!DOCTYPE html>
@@ -10,13 +9,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <style>
-        .ddd {
-            color: red
-        }
-    </style>
 </head>
 <body>
+    @Html.Partial("Viewshared")
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -27,42 +22,27 @@
                 </button>
                 @Html.ActionLink("Home", "Index", "Login", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-
-
-
                     <li>@Html.ActionLink("PrivacyPolicy", "Privacy", "Login")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Login")</li>
                     <li>@Html.ActionLink("Profile", "Profile", "Login")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
 
 
-
-
                 </ul>
             </div>
         </div>
     </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
 
+    </div>
+
+    @* @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)ng*@
 </body>
 </html>
 
-
-
-@if (AccountInfo.isLoggedIn)
-{
-    <div class ="ddd">
-    <i>   User ID: </i> @AccountInfo.id <i> | User Role: </i> @AccountInfo.userRole <i> | Name: </i> @AccountInfo.userName <i>
-        &nbsp; &nbsp; &nbsp;
-    </i>
-    </div>
-}
-
-
-
-
-
-<br />
-<hr />
