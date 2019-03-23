@@ -56,8 +56,8 @@
         <p class="title">@AccountInfo.userRole</p>
         <p></p>
 
-        <p><button>Change Password</button></p>
-        <p><button>Delete Account</button></p>
+        <p><button>@Html.ActionLink("ChangePassword", "ChangePassword", "Login")</button></p>
+        <p><button>@Html.ActionLink("DeleteAccount", "DeleteAccount", "Login")</button></p>
     </div>
 
 </body>
