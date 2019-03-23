@@ -15,6 +15,34 @@ namespace WebApplication2.DAL
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>().ToTable("UsersPJ");
         }
-        public DbSet<User> users { get; set; } 
+        public DbSet<User> users { get; set; }
+
+        /*
+        public List<User> GetUserById(string id)
+        {
+            
+            return new List<User>();
+        }
+
+        public Bool DeleteUser(string id)
+        {
+            
+            savechanges();
+            return True;
+        }
+
+        public Bool UpdatePassword(string userid,string newpassword)
+        {
+
+            User us=GetUserBuId(string userid);
+            us.password=newpassword;
+
+          DeleteUser(string userid);
+            savechagneds;  
+        adduser(ur);
+          savechangeds();
+            return True;
+           }
+        */
     }
 }
