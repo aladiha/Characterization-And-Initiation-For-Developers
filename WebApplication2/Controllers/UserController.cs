@@ -28,21 +28,25 @@ namespace WebApplication2.Controllers
             return View("User", user);
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
 
-        public ActionResult Login(User U)
+        public ActionResult doLogin(LogIn U)
         {
             if (ModelState.IsValid)
             {
                 UserDal dal = new UserDal();
                 //check if the user is in the users DB (not admin) 
-                Console.WriteLine("start");
+               
                 List<User> userValid = (from u in dal.users where (u.Password == U.Password) && (u.UserName == U.UserName) select u).ToList<User>();
                 if (userValid.Count == 1)
                 {
-                    Console.WriteLine("dfs");
+              
                     myRole.setUser(U.UserName, "user", userValid[0].UserName);//set the user role 
                     FormsAuthentication.SetAuthCookie(U.UserName, true);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("look", "Home");
                 }
                /* else
                 {
@@ -58,11 +62,11 @@ namespace WebApplication2.Controllers
 
                 ViewBag.result = "1-User name or password is inccorect!";//the user inter invalid password or username
                 ViewBag.signup = "2- this username is not exist, please sign up  ";   //or he is not a user 
-                Console.WriteLine("start1");
+                
 
             }
 
-            return View("Index");
+            return View("Login");
 
         }
     }

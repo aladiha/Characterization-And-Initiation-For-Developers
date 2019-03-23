@@ -133,7 +133,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ContactDal.cs" />
     <Compile Include="DAL\UserDal.cs" />
@@ -141,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ModelBinders\UserBinder.cs" />
+    <Compile Include="Models\AccountInfo.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\User.cs" />
@@ -280,13 +280,16 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\User.cshtml" />
     <Content Include="Views\Home\Privacy.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Login1.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Home\Thanks.cshtml" />
+    <Content Include="Views\Home\Look.cshtml" />
+    <Content Include="Views\Shared\Viewshared.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Views\Privicy\" />
+    <Folder Include="Views\Userpage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

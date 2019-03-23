@@ -1,0 +1,75 @@
+﻿@using WebApplication2.Models
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (AccountInfo.isLoggedIn)
+                    {
+                        <i>   User ID: </i> @AccountInfo.id
+                        <i> | User Role: </i> @AccountInfo.userRole
+                        <i> | Name: </i> @AccountInfo.userName
+                        <i>
+                            &nbsp; &nbsp; &nbsp;
+                        </i>
+                        <li>@Html.ActionLink("PrivacyPolicy", "Privacy", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    }
+                    else
+                    { <li> @Html.ActionLink("Home", "Index", "Home", null, null)</li>}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+@if (AccountInfo.isLoggedIn)
+{
+    <i>   User ID: </i> @AccountInfo.id <i> | User Role: </i> @AccountInfo.userRole <i> | Name: </i> @AccountInfo.userName <i>
+        &nbsp; &nbsp; &nbsp;
+    </i>
+
+    @Html.ActionLink("Privacy", "Privacy", "Home", null, null)<i>  | </i>
+    @Html.ActionLink("Home", "Index", "Home", null, null)
+
+}
+else
+{
+
+
+    @Html.ActionLink("Home", "Index", "Home", null, null)
+
+}
+
+
+
+
+<br />
+<hr />
