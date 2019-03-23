@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication2.DAL;
 using WebApplication2.Models;
+using System.Web.Security;
 
 namespace WebApplication2.Controllers
 {
@@ -62,10 +63,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult Logout()
-        {
-            return View();
-        }
+       
 
     }
 

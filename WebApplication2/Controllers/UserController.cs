@@ -70,6 +70,14 @@ namespace WebApplication2.Controllers
             return View("Login");
         }
 
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            FormsAuthentication.SignOut();
+            myRole.setUser(null, null, null);//srt the role to null after the user logged out
+            return View("Index");//view the sign in page
+        }
+
 
 
     }
