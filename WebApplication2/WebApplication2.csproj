@@ -292,6 +292,7 @@
     <Content Include="Views\Login\Profile.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
     <Content Include="Views\Login\Logout.cshtml" />
+    <Content Include="Views\Login\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
