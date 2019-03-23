@@ -1,0 +1,39 @@
+﻿@using WebApplication2.Models;
+
+@model WebApplication2.Models.User
+
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+    <div>
+
+        @Html.Partial("Viewshared")
+        @** <br />
+        @if (AccountInfo.userRole.Equals("admin"))
+         {
+             @Html.ActionLink("Add New Book.", "AddBook", "Books", null, null)
+             <br />
+             @Html.ActionLink("View all users", "ViewUsers", "Lusers", null, null)
+             <br />
+             @Html.ActionLink("View My Books.", "MyBookslist", "Books", null, null)
+            
+             <br />
+            }
+        *@
+        <br />
+        @if (AccountInfo.userRole.Equals("user"))
+        {
+        <br />
+       
+        }
+        <br />
+
+    </div>
+</body>
+</html>
