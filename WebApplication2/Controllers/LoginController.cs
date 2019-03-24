@@ -59,11 +59,21 @@ namespace WebApplication2.Controllers
         public ActionResult Profile()
         {
 
+            return View();
+        }
+
+        public ActionResult ChangePassword()
+        {
 
             return View();
         }
 
-       
+        public ActionResult DeleteAccount()
+        {
+
+            return View();
+        }
+
 
     }
 

@@ -7,9 +7,9 @@ namespace WebApplication2.Models
 {
     public class AccountInfo
     {
-        public static string id//return the user id
+        public static string email//return the user id
         {
-            get { return HttpContext.Current.Session["userId"] as string; }
+            get { return HttpContext.Current.Session["email"] as string; }
             private set { }
         }
         public static bool isLoggedIn //if the user logged in return true else false

@@ -47,13 +47,7 @@ namespace WebApplication2.Controllers
         }
 
 
-        //[Authorize(Roles = "user")]
-        //[Authorize()]
-        //show the user or admin page after he logged in  
-        public ActionResult Look()
-        {
-            return View();
-        }
+    
         
 
     }
