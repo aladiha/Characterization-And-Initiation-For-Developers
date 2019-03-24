@@ -73,6 +73,7 @@ namespace WebApplication2.Controllers
             cs.oldPassword = Request.Form[""];
             cs.newPassword = Request.Form[""];
             cs.varifynewPassword = Request.Form[""];
+
             return View();
         }
 
