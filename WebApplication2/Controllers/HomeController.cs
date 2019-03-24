@@ -47,8 +47,11 @@ namespace WebApplication2.Controllers
         }
 
 
-    
-        
+        public ActionResult DeleteAccountCompleteMassage()
+        {
+            return View();
+        }
+
 
     }
 }
