@@ -121,13 +121,7 @@
         </div>
 
         </div>*@
-
-    <br />
-    <span style="color:red">@ViewBag.result</span>
-    <br />
-    <span style="color:red">@ViewBag.signup</span>
-    <br />
-    <form action="doLogin" style="max-width:500px;margin:auto" method="post">
+    <form action="Submit" style="max-width:500px;margin:auto" method="post">
         <h2>LogIn Form</h2>
         @using (Html.BeginForm("doLogin", "User", FormMethod.Post))
 
@@ -135,17 +129,17 @@
 
 
 
-            <i>Username:</i> @Html.TextBoxFor(m => m.UserName) <span style="color:red"> @Html.ValidationMessageFor(X => X.UserName) </span>
+            <i>Username:</i> @Html.TextBoxFor(m => m.UserName) @Html.ValidationMessageFor(X => X.UserName)
 
             <br />
 
-            <i>password:</i> @Html.PasswordFor(m => m.Password) <span style="color:red"> @Html.ValidationMessageFor(X => X.Password) </span>
+            <i>password:</i> @Html.PasswordFor(m => m.Password) @Html.ValidationMessageFor(X => X.Password)
 
-    <br />
-
-    <button type="submit" class="btn">sign in</button>
-    }
-</form>
+            <br />
+                                                                          
+            <button type="submit" class="btn">sign in</button>
+        }
+        </form>
 
 </body>
 </html>
