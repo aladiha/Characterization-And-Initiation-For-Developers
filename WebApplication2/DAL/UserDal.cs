@@ -39,15 +39,20 @@ namespace WebApplication2.DAL
                 return false;
         }
         
-        public bool UpdatePassword(string userid,string newpassword)
+        public bool UpdatePassword(string userid,ChangePassword cs)
         {
             List<User> us = GetUserByUserName(userid);
             if(us.Count!=0)
             {
-                us[0].Password = "" + newpassword;
-                SaveChanges();
-                return true;
+                if (cs.oldPassword.Equals(us[0].Password))
+                {
+
+                    us[0].Password = "" + cs.newPassword;
+                    SaveChanges();
+                    return true;
+                }
             }
+
             return false;
         }
         public bool VarifyPassword(string userid,string pass)

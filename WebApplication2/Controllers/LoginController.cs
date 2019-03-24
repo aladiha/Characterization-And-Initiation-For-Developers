@@ -65,16 +65,34 @@ namespace WebApplication2.Controllers
         public ActionResult ChangePassword()
         {
 
-            return View();
+            return View(new ChangePassword());
         }
-        public ActionResult Update_Password()
+        public ActionResult Update_Password(ChangePassword cs)
         {
-            ChangePassword cs = new ChangePassword();
-            cs.oldPassword = Request.Form[""];
-            cs.newPassword = Request.Form[""];
-            cs.varifynewPassword = Request.Form[""];
+            if (ModelState.IsValid)
+            {
+                var dal = new UserDal();
+                bool res = false; ;
 
-            return View();
+                if (cs.newPassword.Equals(cs.varifynewPassword))
+                {
+                    res = dal.UpdatePassword(Session["UserId"].ToString(), cs);
+                    if(res==false)
+                    {
+                        TempData["Message"] =  "Wrong old password\n";
+                        return View("ChangePassword",cs);
+                    }
+                    return View("ChangedPasswordDone");
+                }
+                else
+                {
+                    TempData["Message"] = "New password not matched with ReEntered password\n";
+                    return View("ChangePassword",cs);
+                }
+            }
+
+
+            return View("ChangePassword", cs);
         }
 
         public ActionResult DeleteAccount()

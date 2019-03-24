@@ -297,6 +297,7 @@
     <Content Include="Views\Login\DeleteAccount.cshtml" />
     <Content Include="Views\Login\ChangePassword.cshtml" />
     <Content Include="Views\Home\DeleteAccountCompleteMassage.cshtml" />
+    <Content Include="Views\Login\ChangedPasswordDone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
