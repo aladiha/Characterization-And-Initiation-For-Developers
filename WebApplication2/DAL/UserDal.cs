@@ -50,6 +50,13 @@ namespace WebApplication2.DAL
             }
             return false;
         }
-        
+        public bool VarifyPassword(string userid,string pass)
+        {
+            List<User> us = GetUserByUserName(userid);
+            if (us[0].Password.Equals(pass))
+                return true;
+            return false;
+        }
+
     }
 }

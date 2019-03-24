@@ -67,11 +67,38 @@ namespace WebApplication2.Controllers
 
             return View();
         }
+        public ActionResult Update_Password()
+        {
+            ChangePassword cs = new ChangePassword();
+            cs.oldPassword = Request.Form[""];
+            cs.newPassword = Request.Form[""];
+            cs.varifynewPassword = Request.Form[""];
+            return View();
+        }
 
         public ActionResult DeleteAccount()
         {
 
             return View();
+        }
+        public ActionResult Delete_Account()
+        {
+            
+            string VafifiyPassword= Request.Form["VarifiyPassword"];
+            var usdal = new UserDal();
+            
+            if(usdal.VarifyPassword(Session["UserId"].ToString(),VafifiyPassword))
+            {
+                usdal.DeleteUser(Session["UserId"].ToString());
+                Session["UserId"] = "";
+                return RedirectToAction("DeleteAccountCompleteMassage", "Home");
+
+            }
+            else
+            {
+                TempData["CheckPass"]="Uncureect Password!";
+                return RedirectToAction("DeleteAccount", "Login");
+            }
         }
 
 

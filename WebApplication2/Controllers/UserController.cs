@@ -54,6 +54,9 @@ namespace WebApplication2.Controllers
               
                     myRole.setUser(U.UserName, "user", userValid[0].UserName);//set the user role 
                     FormsAuthentication.SetAuthCookie(U.UserName, true);
+
+                    Session["UserId"] = userValid[0].UserName;
+                    
                     return RedirectToAction("Index", "Login");
                 }
                /* else
@@ -69,7 +72,7 @@ namespace WebApplication2.Controllers
                 }*/
 
                 ViewBag.result = "1-User name or password is inccorect!";//the user inter invalid password or username
-                ViewBag.signup = "2- this username is not exist, please sign up  ";   //or he is not a user 
+                ViewBag.signup = "2-this username is not exist, please sign up  ";   //or he is not a user 
                 
 
             }
