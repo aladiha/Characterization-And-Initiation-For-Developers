@@ -88,58 +88,48 @@
     </style>
 </head>
 <body>
-    @*<div class="container">
-        <h2>Log In</h2>
-        <div>
 
+    @*<br />
+            <span style="color:red">@ViewBag.result</span>
+            <br />
+            <span style="color:red">@ViewBag.signup</span>
+            <br />
+            <form action="doLogin" style="max-width:500px;margin:auto" method="post">
+                <h2>LogIn Form</h2>
+                @using (Html.BeginForm("doLogin", "User", FormMethod.Post))
 
-            @using (Html.BeginForm("doLogin", "User", FormMethod.Post))
-
-            {
-
-
-
-                <i>Username:</i> @Html.TextBoxFor(m => m.UserName) @Html.ValidationMessageFor(X => X.UserName)
-
-                <br />
-
-                <i>password:</i> @Html.PasswordFor(m => m.Password) @Html.ValidationMessageFor(X => X.Password)
-
-                <br />
-
-                <input id="Submit1" type="submit" value="sign in" />
-
-                <br />
+                {
 
 
 
+                    <i>Username:</i> @Html.TextBoxFor(m => m.UserName)<span style="color:red">@Html.ValidationMessageFor(X => X.UserName)</span>
+            <br />
+
+            <i>password:</i> @Html.PasswordFor(m => m.Password) <span style="color:red"> @Html.ValidationMessageFor(X => X.Password) </span>
+            <br />
+
+            <button type="submit" class="btn">sign in</button>
             }
-        </div>
-
-        </div>*@
-
-    <br />
-    <span style="color:red">@ViewBag.result</span>
-    <br />
-    <span style="color:red">@ViewBag.signup</span>
-    <br />
-    <form action="doLogin" style="max-width:500px;margin:auto" method="post">
-        <h2>LogIn Form</h2>
-        @using (Html.BeginForm("doLogin", "User", FormMethod.Post))
-
-        {
-
-
-
-            <i>Username:</i> @Html.TextBoxFor(m => m.UserName)<span style="color:red">@Html.ValidationMessageFor(X => X.UserName)</span>
-    <br />
-
-    <i>password:</i> @Html.PasswordFor(m => m.Password) <span style="color:red"> @Html.ValidationMessageFor(X => X.Password) </span>
-    <br />
-
-    <button type="submit" class="btn">sign in</button>
-    }
-</form>
+        </form>*@
+    <div class="container">
+        <h2>Log In</h2>
+        <form method="post" action="doLogin">
+            <div class="form-group">
+                <label for="txt">UserName:</label>
+                <input type="text" class="form-control" id="text" placeholder="Enter UserName" name="username">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-danger">Log In</button>
+        </form>
+    </div>
 
 </body>
 </html>
