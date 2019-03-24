@@ -26,32 +26,30 @@ namespace WebApplication2.DAL
                  select x).ToList<User>();
             return us;
         }
-/*
+
         public bool DeleteUser(string id)
         {
             List<User> us=GetUserByUserName(id);
             if (us.Count != 0)
             {
-                users.
+                users.Remove(us[0]);
                 SaveChanges();
                 return true;
-
             }
                 return false;
         }
-
-        public Bool UpdatePassword(string userid,string newpassword)
+        
+        public bool UpdatePassword(string userid,string newpassword)
         {
-
-            User us=GetUserBuId(string userid);
-            us.password=newpassword;
-
-          DeleteUser(string userid);
-            savechagneds;  
-        adduser(ur);
-          savechangeds();
-            return True;
-           }
-        */
+            List<User> us = GetUserByUserName(userid);
+            if(us.Count!=0)
+            {
+                us[0].Password = "" + newpassword;
+                SaveChanges();
+                return true;
+            }
+            return false;
+        }
+        
     }
 }
