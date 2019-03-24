@@ -23,7 +23,14 @@ namespace WebApplication2.Controllers
         public ActionResult Submit([ModelBinder(typeof(UserBinder))] User user) { 
 
             UserDal udal = new UserDal();
+            var x=udal.GetUserByUserName(user.UserName);
+            if(x.Count!=0)
+            {
+                TempData["ExistUser"] = "The User "+user.UserName +"  Does Exists!";
+                return RedirectToAction("Register","User");
+            }
             udal.users.Add(user);
+
             udal.SaveChanges();
 
             return View("User", user);
