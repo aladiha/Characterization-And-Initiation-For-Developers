@@ -17,18 +17,27 @@ namespace WebApplication2.DAL
         }
         public DbSet<User> users { get; set; }
 
-        /*
-        public List<User> GetUserById(string id)
+        
+        public List<User> GetUserByUserName(string id)
         {
-            
-            return new List<User>();
+            List<User> us =
+                (from x in users
+                 where x.UserName.Equals(id)
+                 select x).ToList<User>();
+            return us;
         }
-
-        public Bool DeleteUser(string id)
+/*
+        public bool DeleteUser(string id)
         {
-            
-            savechanges();
-            return True;
+            List<User> us=GetUserByUserName(id);
+            if (us.Count != 0)
+            {
+                users.
+                SaveChanges();
+                return true;
+
+            }
+                return false;
         }
 
         public Bool UpdatePassword(string userid,string newpassword)
