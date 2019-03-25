@@ -11,14 +11,15 @@
     <style>
 
         body {
-            background-image: url("../img/blue.jpg"); /* The image used */
+            background-image: url("../img/ha.jpg"); /* The image used */
             background-color: #cccccc; /* Used if the image is unavailable */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
-            background-size: 2000px; /* Resize the background image to cover the entire container */
+            background-size: cover; /* Resize the background image to cover the entire container */
         }
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background-color:cornsilk;
             max-width: 300px;
             margin: auto;
             text-align: center;
@@ -76,20 +77,24 @@
     
 
     <div class="card">
+        <br />
         <h3 style="color:black">Add Profile Picture</h3>
-            <br /><br />
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <image id="profileImage" src="http://lorempixel.com/100/100" />
-            <input id="imageUpload" type="file"
-                   name="profile_photo" placeholder="Photo" required="" capture>
-            <alt =@AccountInfo.userName style="width:100%">
-                <h1 style="color:black">@AccountInfo.userName</h1>
-                <p style="color:black" class="title">@AccountInfo.userRole</p>
-                <p style="color:black">@AccountInfo.email</p>
+        <br /><br />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <image id="profileImage" src="http://lorempixel.com/100/100" />
+        
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+        <alt =@AccountInfo.userName style="width:100%">
+            <h1 style="color:black">@AccountInfo.userName</h1>
+            <p style="color:black" class="title">@AccountInfo.userRole</p>
+            <p style="color:black">@AccountInfo.email</p>
 
-                <p>@Html.ActionLink("ChangePassword", "ChangePassword", "Login", null, new { @class = "btn btn-default btn-md" })</p>
-                <p>@Html.ActionLink("DeleteAccount", "DeleteAccount", "Login", null, new { @class = "btn btn-default btn-md" })</p>
-</div>
+            <p>@Html.ActionLink("ChangePassword", "ChangePassword", "Login", null, new { @class = "btn btn-default btn-md" })</p>
+            <p>@Html.ActionLink("DeleteAccount", "DeleteAccount", "Login", null, new { @class = "btn btn-default btn-md" })</p>
+    </div>
 
 </body>
 </html>

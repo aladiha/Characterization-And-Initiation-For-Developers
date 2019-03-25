@@ -97,7 +97,6 @@ namespace WebApplication2.Controllers
 
         public ActionResult DeleteAccount()
         {
-
             return View();
         }
         public ActionResult Delete_Account()

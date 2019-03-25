@@ -2,27 +2,78 @@
 @{
     Layout = null;
 }
-
+@Html.ActionLink("back to homepage", "Index", "Login")
 <!DOCTYPE html>
 
 <html>
 <head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            padding: 10px;
+            background: black;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+            .input-field:focus {
+                border: 2px solid black;
+            }
+
+        /* Set a style for the submit buttkjkjkjon */
+        .btn {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+    </style>
     <meta name="viewport" content="width=device-width" />
     <title>View</title>
 </head>
 <body>
-    <div>
+    <div align="center">
 
-        <form action="Delete_Account" method="post">
+
+        <form action="Delete_Account" style="max-width:500px;margin:auto" method="post">
             Enter your password to complete deleting your account:
+            <br /> <br /> 
+            <div class="input-container">
+                <input class="input-field" id="Text1" type="text" placeholder="Enter password" name="VarifiyPassword" /> <span style="color:red"> @TempData["CheckPass"] </span>
+            </div>
+
+            <buton id="Submit1" class="btn" type="submit" /> Delete Account </buton>
+            <br /><br />
             <br />
-            <input id="Text1" type="text" placeholder="Enter password" name="VarifiyPassword" /> <span style="color:red"> @TempData["CheckPass"] </span>
-            <br />
-            <input id="Submit1" type="submit" value="Delete" />
             <br />
         </form>
-
+        <img src="../img/menm.png" alt="Italian Trulli">
     </div>
+ 
 
 </body>
 </html>
