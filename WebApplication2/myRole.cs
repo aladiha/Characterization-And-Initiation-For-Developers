@@ -9,9 +9,9 @@ namespace WebApplication2
 {
     public class myRole : RoleProvider
     {
-        public static void setUser(string username, string myrole, string name)
+        public static void setUser(string email, string myrole, string name)
         {
-            HttpContext.Current.Session["userId"] = username;
+            HttpContext.Current.Session["Email"] = email;
             HttpContext.Current.Session["userRole"] = myrole;
             HttpContext.Current.Session["userName"] = name;
         }

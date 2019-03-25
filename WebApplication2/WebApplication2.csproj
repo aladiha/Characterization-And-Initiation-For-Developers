@@ -233,6 +233,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\2277.jpg" />
     <Content Include="img\black.jpg" />
+    <Content Include="img\blue.jpg" />
+    <Content Include="img\solid.jpg" />
+    <Content Include="img\wave.jpg" />
     <Content Include="obj\Debug\WebApplication2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\WebApplication2.dll" />
     <Content Include="obj\Debug\WebApplication2.pdb" />

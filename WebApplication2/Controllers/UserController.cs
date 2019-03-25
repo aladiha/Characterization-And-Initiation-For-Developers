@@ -52,10 +52,11 @@ namespace WebApplication2.Controllers
                 if (userValid.Count == 1)
                 {
               
-                    myRole.setUser(U.UserName, "user", userValid[0].UserName);//set the user role 
+                    myRole.setUser(userValid[0].Email, "user", userValid[0].UserName);//set the user role 
                     FormsAuthentication.SetAuthCookie(U.UserName, true);
 
                     Session["UserId"] = userValid[0].UserName;
+                    //Session["email"] = userValid[0].Email;
                     
                     return RedirectToAction("Index", "Login");
                 }

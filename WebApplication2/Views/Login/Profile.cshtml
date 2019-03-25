@@ -3,12 +3,20 @@
     ViewBag.Title = "Profile";
 }
 
-<h2>Profile</h2>
+<h2 style="color:white">Profile</h2>
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+
+        body {
+            background-image: url("../img/blue.jpg"); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: 2000px; /* Resize the background image to cover the entire container */
+        }
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
             max-width: 300px;
@@ -40,25 +48,48 @@
             font-size: 22px;
             color: black;
         }
-
+        .btn-default {
+            background-color: white
+        }
             button:hover, a:hover {
                 opacity: 0.7;
             }
+
+        .btn.btn-default {
+            /* Whatever their CSS is */
+        }
+
+    $("#profileImage").click(function(e) {
+    $("#imageUpload").click();
+    });
+        #imageUpload {
+            display: none;
+        }
+
+        #profileImage {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <h2 style="text-align:center">Profile</h2>
+    
 
     <div class="card">
-        <img src="/w3images/team2.jpg" alt=@AccountInfo.userName style="width:100%">
-        <h1>@AccountInfo.userName</h1>
-        <p class="title">@AccountInfo.userRole</p>
-        <p></p>
+        <h3 style="color:black">Add Profile Picture</h3>
+            <br /><br />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <image id="profileImage" src="http://lorempixel.com/100/100" />
+            <input id="imageUpload" type="file"
+                   name="profile_photo" placeholder="Photo" required="" capture>
+            <alt =@AccountInfo.userName style="width:100%">
+                <h1 style="color:black">@AccountInfo.userName</h1>
+                <p style="color:black" class="title">@AccountInfo.userRole</p>
+                <p style="color:black">@AccountInfo.email</p>
 
-        <p><button>@Html.ActionLink("ChangePassword", "ChangePassword", "Login")</button></p>
-        <p><button>@Html.ActionLink("DeleteAccount", "DeleteAccount", "Login")</button></p>
-    </div>
+                <p>@Html.ActionLink("ChangePassword", "ChangePassword", "Login", null, new { @class = "btn btn-default btn-md" })</p>
+                <p>@Html.ActionLink("DeleteAccount", "DeleteAccount", "Login", null, new { @class = "btn btn-default btn-md" })</p>
+</div>
 
 </body>
 </html>
