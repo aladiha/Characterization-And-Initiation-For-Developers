@@ -48,7 +48,7 @@ namespace WebApplication2.Controllers
                 UserDal dal = new UserDal();
                 //check if the user is in the users DB (not admin) 
                
-                List<User> userValid = (from u in dal.users where (u.Password == U.Password) && (u.UserName == U.UserName) select u).ToList<User>();
+                List<User> userValid = (from u in dal.users where ((u.Password == U.Password) && (u.UserName == U.UserName)) select u).ToList<User>();
                 if (userValid.Count == 1)
                 {
               
