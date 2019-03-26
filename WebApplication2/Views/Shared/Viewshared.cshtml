@@ -53,11 +53,61 @@
 
 @if (AccountInfo.isLoggedIn)
 {
-    <div class ="ddd">
-    <i>   Email: </i> @AccountInfo.email <i> | User Role: </i> @AccountInfo.userRole <i> | Name: </i> @AccountInfo.userName <i>
+<div class="ddd">
+
+    <span style="color:palegreen">
+        <i>   Email: </i>
+    </span>
+
+
+    <span style="color:lightseagreen">
+
+        <i>
+            @AccountInfo.email
+        </i>
+
+    </span>
+
+    <span style="color:red">
+
+        <i> |</i>
+
+    </span>
+
+    <span style="color:palegreen">
+
+        <i>User Role: </i>
+
+    </span>
+
+    <span style="color:lightseagreen">
+
+
+        <i>@AccountInfo.userRole</i>
+    </span>
+
+    <span style="color:red">
+
+        <i> |</i>
+    </span>
+
+    <span style="color:palegreen">
+
+        <i>Name: </i>
+    </span>
+
+    <span style="color:lightseagreen">
+
+
+        <i>@AccountInfo.userName</i>
+    </span>
+
+
+    <i>
+
         &nbsp; &nbsp; &nbsp;
     </i>
-    </div>
+</div>
 }
 
 

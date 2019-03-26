@@ -1,6 +1,4 @@
-﻿
-@using WebApplication2.Models;
-@model WebApplication2.Models.User
+﻿@model WebApplication2.Models.User
 @*@{
 
         if (Session["username"] != null)
@@ -111,16 +109,17 @@
             <button type="submit" class="btn">sign in</button>
             }
         </form>*@
-     <span style="color:red">@ViewBag.result</span>
-        <br />
-        <span style="color:red">@ViewBag.signup</span>
-        <br />
+    <br />
+    <span style="color:red">@ViewBag.result</span>
+    <br />
+
+    <br />
     <div class="container">
         <h2 style="color:white">Log In</h2>
         <form method="post" action="doLogin">
             <div class="form-group">
                 <label for="txt" style="color:white">UserName:</label>
-                <input type="text" class="form-control" id="text" placeholder="Enter UserName" name="username">
+                <input type="text" class="form-control" id="text" placeholder="Enter User Name" name="username">
             </div>
             <div class="form-group">
                 <label for="pwd" style="color:white">Password:</label>

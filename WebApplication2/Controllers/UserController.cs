@@ -56,28 +56,12 @@ namespace WebApplication2.Controllers
                     FormsAuthentication.SetAuthCookie(U.UserName, true);
 
                     Session["UserId"] = userValid[0].UserName;
-                    //Session["email"] = userValid[0].Email;
                     
                     return RedirectToAction("Index", "Login");
                 }
-               /* else
-                {
-                    //check if the user is admin in the librarian BD
-                    List<librarian> adminValid = (from u in dal.librarians where (u.password == U.password) && (u.id == U.id) select u).ToList<librarian>();
-                    if (adminValid.Count == 1)
-                    {
-                        myRole.setUser(U.id, "admin", adminValid[0].name);//set the user role  as admin 
-                        FormsAuthentication.SetAuthCookie(U.id, true);
-                        return RedirectToAction("Index", "Userpage");
-                    }
-                }*/
-
-                ViewBag.result = "1-User name or password is inccorect!";            //the user inter invalid password or username
-                ViewBag.signup = "2-this username is not exist, please sign up  ";   //or he is not a user 
-                
 
             }
-
+            ViewBag.result = "User name or password is inccorect!";
             return View("Login");
         }
 
