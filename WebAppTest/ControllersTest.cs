@@ -46,8 +46,7 @@ namespace WebAppTest
             Assert.IsNotNull(res);
         }
 
-        [TestMethod]
-        public void TestDeleteAccountCompleteMassageActi
+        
 
     }
 

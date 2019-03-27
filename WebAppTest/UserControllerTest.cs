@@ -82,6 +82,20 @@ namespace WebAppTest
              Assert.AreSame("User name or password is inccorect!", res.ViewBag.result);
 
         }
+
+        [TestMethod]
+
+        public void Register_valid()
+        {
+            User us = new User { UserName = "Tester", Password = "Tester", Email = "Teaster@gamil.com" };
+            var UsCont = new UserController();
+            var dal = new UserDal();
+            UsCont.Submit(us);
+
+            var reslut = dal.DeleteUser(us.UserName);
+
+            Assert.AreEqual(reslut, true);
+        }
     }
 
         
