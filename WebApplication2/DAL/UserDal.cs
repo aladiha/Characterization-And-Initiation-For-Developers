@@ -62,6 +62,16 @@ namespace WebApplication2.DAL
                 return true;
             return false;
         }
-
+        public bool AddUser(User us)
+        {
+            List<User> getUser = GetUserByUserName(us.UserName);
+            if(getUser.Count==0)
+            {
+                users.Add(us);
+                SaveChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }
