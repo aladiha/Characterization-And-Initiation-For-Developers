@@ -20,6 +20,8 @@ namespace WebAppTest
             ViewResult res = loginPv.Privacy() as ViewResult;
             Assert.AreEqual("Your application description page.", loginPv.ViewBag.Message);
         }
+
+
         [TestMethod]
         public void Change_Password_not_matched()
         {
@@ -30,6 +32,8 @@ namespace WebAppTest
 
             Assert.AreEqual(log.TempData["Message"], "New password not matched with ReEntered password\n");
         }
+
+
         [TestMethod]
         public void ChangePassword_Succeffully_Sunc_with_DataBase()
         {
@@ -48,6 +52,8 @@ namespace WebAppTest
             Assert.AreEqual(newuser[0].Password, ch.newPassword);
 
         }
+
+
         [TestMethod]
         public void DeleteAccount_Testing()
         {
@@ -58,6 +64,16 @@ namespace WebAppTest
 
             var result = dal.DeleteUser(user.UserName);
             Assert.AreEqual(result, true);
+        }
+
+
+        [TestMethod]
+        public void Login_Contact()
+        {
+            var log = new LoginController();
+            var x = log.Contact() as ViewResult;
+
+            Assert.IsNotNull(x);
         }
     }
 }
