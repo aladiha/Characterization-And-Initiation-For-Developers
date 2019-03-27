@@ -32,43 +32,7 @@ namespace WebAppTest
         }
 
 
-        [TestMethod]
-        public void TestLoginPrivacy()
-        {
-            var loginPv = new LoginController();
-            ViewResult res = loginPv.Privacy() as ViewResult;
-            Assert.AreEqual("Your application description page.",loginPv.ViewBag.Message);
-        }
-        [TestMethod]
-        public void Change_Password_not_matched()
-        {
-            var ch = new ChangePassword { newPassword = "123456", oldPassword = "123456", varifynewPassword = "65954654" };
-            var log = new LoginController();
 
-            var res = log.Update_Password(ch) as ViewResult;
-
-            Assert.AreEqual(log.TempData["Message"] ,"New password not matched with ReEntered password\n");
-        }
-        [TestMethod]
-        public void ChangePassword_Succeffully_Sunc_with_DataBase()
-        {
-            var dal = new UserDal();
-            var ch = new ChangePassword { newPassword = "123456", oldPassword = "Tester", varifynewPassword = "123456" };
-            var user = new User { UserName = "Tester", Password = "Tester", Email = "Tester@gmail.com" };
-            var log = new LoginController();
-
-            
-            dal.AddUser(user);
-
-            var res = log.Update_Password(ch) as ViewResult;
-
-            var newuser = dal.GetUserByUserName(user.UserName);
-            dal.DeleteUser(user.UserName);
-
-            Assert.AreEqual(newuser[0].Password,ch.newPassword);
-
-
-        }
     }
 
 }
