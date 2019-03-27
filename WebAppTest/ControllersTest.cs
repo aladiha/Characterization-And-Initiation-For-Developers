@@ -15,7 +15,7 @@ namespace WebAppTest
     {
         
         [TestMethod]
-        public void Index()
+        public void TestIndexAction()
         {
             HomeController cont = new HomeController();
             ViewResult res = cont.Index() as ViewResult;
@@ -29,6 +29,26 @@ namespace WebAppTest
             ViewResult res = cont.Privacy() as ViewResult;
             Assert.IsNotNull(res);
         }
+
+        [TestMethod]
+        public void TestRegisterAction()
+        {
+            HomeController cont = new HomeController();
+            ViewResult res = cont.Submit() as ViewResult;
+            Assert.IsNotNull(res);
+        }
+
+        [TestMethod]
+        public void TestDeleteAccountCompleteMassageAction()
+        {
+            HomeController cont = new HomeController();
+            ViewResult res = cont.DeleteAccountCompleteMassage() as ViewResult;
+            Assert.IsNotNull(res);
+        }
+
+        [TestMethod]
+        public void TestDeleteAccountCompleteMassageActi
+
     }
-    
+
 }
