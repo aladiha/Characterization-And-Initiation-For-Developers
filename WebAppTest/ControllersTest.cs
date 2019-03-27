@@ -30,13 +30,6 @@ namespace WebAppTest
             Assert.IsNotNull(res);
         }
 
-        [TestMethod]
-        public void TestRegisterAction()
-        {
-            HomeController cont = new HomeController();
-            ViewResult res = cont.Submit() as ViewResult;
-            Assert.IsNotNull(res);
-        }
 
         [TestMethod]
         public void TestDeleteAccountCompleteMassageAction()
@@ -46,8 +39,7 @@ namespace WebAppTest
             Assert.IsNotNull(res);
         }
 
-        [TestMethod]
-        public void TestDeleteAccountCompleteMassageActi
+        
 
     }
 
