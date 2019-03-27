@@ -8,17 +8,18 @@ using WebApplication2.Models;
 using WebApplication2;
 using System;
 
-namespace UnitTestProject
+namespace WebAppTest
 {
     [TestClass]
-    public class TestHomeController
+    public class ControllersTest
     {
+        
         [TestMethod]
-        public void IndexTest()
+        public void Index()
         {
-            var cont = new HomeController();
-            var res = cont.Index() as ViewResult;
-            Assert.IsNotNull(cont);
+            HomeController cont = new HomeController();
+            ViewResult res = cont.Index() as ViewResult;
+            Assert.IsNotNull(res);
         }
 
         [TestMethod]
@@ -29,5 +30,5 @@ namespace UnitTestProject
             Assert.IsNotNull(res);
         }
     }
+    
 }
-

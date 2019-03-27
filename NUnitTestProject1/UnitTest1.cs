@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebApplication2.Controllers;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using System;
 
 namespace UnitTestProject
 {
-    [TestClass]
+    [test]
     public class TestHomeController
     {
         [TestMethod]

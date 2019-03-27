@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System;
 using WebApplication2.Models;
 using WebApplication2.DAL;
+using System.Collections.Generic;
 using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace WebApplication2.Controllers
 {
@@ -15,6 +18,7 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
         public ActionResult Privacy()
         {
             ViewBag.Message = "Your application description page.";
@@ -24,7 +28,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult Contact()
         {
-                return View();
+            return View();
         }
 
         public ActionResult Submit()
