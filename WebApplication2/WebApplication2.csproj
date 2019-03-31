@@ -159,6 +159,11 @@
     </Content>
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\HtmlPage1.html" />
     <Content Include="bin\main-raw-77819770-opmrjvsubkytayvdgwrgzqvikblaseeb %281%29.jpeg" />
     <Content Include="bin\main-raw-77819770-opmrjvsubkytayvdgwrgzqvikblaseeb.jpeg" />
     <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
