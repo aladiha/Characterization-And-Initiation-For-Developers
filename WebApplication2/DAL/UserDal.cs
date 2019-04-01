@@ -55,6 +55,7 @@ namespace WebApplication2.DAL
 
             return false;
         }
+
         public bool VarifyPassword(string userid,string pass)
         {
             List<User> us = GetUserByUserName(userid);
@@ -62,6 +63,7 @@ namespace WebApplication2.DAL
                 return true;
             return false;
         }
+
         public bool AddUser(User us)
         {
             List<User> getUser = GetUserByUserName(us.UserName);

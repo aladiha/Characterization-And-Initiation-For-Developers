@@ -134,17 +134,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ContactDal.cs" />
+    <Compile Include="DAL\ProjectsDal.cs" />
     <Compile Include="DAL\UserDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelBinders\ProjectBinder.cs" />
     <Compile Include="ModelBinders\UserBinder.cs" />
     <Compile Include="Models\AccountInfo.cs" />
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\LogIn.cs" />
+    <Compile Include="Models\Project.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="myRole.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -310,6 +314,10 @@
     <Content Include="Views\Login\ChangePassword.cshtml" />
     <Content Include="Views\Home\DeleteAccountCompleteMassage.cshtml" />
     <Content Include="Views\Login\ChangedPasswordDone.cshtml" />
+    <Content Include="Views\Project\Enter.cshtml" />
+    <Content Include="Views\Login\Manage.cshtml" />
+    <Content Include="Views\Project\Project.cshtml" />
+    <Content Include="Views\Project\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

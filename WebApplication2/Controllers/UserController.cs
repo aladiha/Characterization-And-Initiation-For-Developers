@@ -24,16 +24,19 @@ namespace WebApplication2.Controllers
 
             UserDal udal = new UserDal();
             var x=udal.GetUserByUserName(user.UserName);
+
             if(x.Count!=0)
             {
                 TempData["ExistUser"] = "The User "+user.UserName +"  Does Exists!";
                 return RedirectToAction("Register","User");
             }
+
             udal.users.Add(user);
 
             udal.SaveChanges();
 
             return View("User", user);
+
         }
 
         public ActionResult Login()
@@ -64,7 +67,7 @@ namespace WebApplication2.Controllers
             ViewBag.result = "User name or password is inccorect!";
             return View("Login");
         }
-
+        
         public ActionResult Logout()
         {
             Session.Clear();
