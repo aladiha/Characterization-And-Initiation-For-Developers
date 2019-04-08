@@ -30,10 +30,15 @@ namespace WebApplication2.Controllers
             ProjectsDal pdal = new ProjectsDal();
 
 
-            pdal.projects.Add(project);
+            // if exists
+            if (pdal.AddProject(project) == false)
+            {
+                TempData["ExistUser"] = "Your project does Exists in DataBase! try other project";
+                return View("Enter");
+            }
 
-            pdal.SaveChanges();
 
+            // if not exists
             return View("Project", project);
 
         }
