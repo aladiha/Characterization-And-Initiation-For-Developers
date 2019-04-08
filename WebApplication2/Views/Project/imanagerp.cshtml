@@ -1,0 +1,53 @@
+﻿@model  WebApplication2.ViewModels.ProjectMv
+
+
+@using WebApplication2.Models
+
+@{
+    Layout = null;
+}
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyBooks</title>
+</head>
+<body>
+    <div>
+        @Html.Partial("Viewshared")
+       
+        <br />
+        <span style="color:green">@ViewBag.result</span>
+        <br />
+        <table>
+            <tr>
+                <td> id </td>
+                <td>| pro name</td>
+                <td>| name  </td>
+              
+
+            </tr>
+
+            @foreach (Project B in Model.project)
+
+            {
+              // Session["UserName"] = Model.project[0].UserName;
+
+             
+                <tr>
+                    <td> @B.Id </td>
+                    <td>| @B.ProjectName</td>
+                    <td>| @B.UserName </td>
+                   
+                   
+                </tr>
+
+
+            }
+        </table>
+    </div>
+</body>
+</html>
+
+
