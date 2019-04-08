@@ -155,6 +155,7 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ProjectVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\BOOKS.mdf" />
@@ -308,7 +309,6 @@
     <Content Include="Views\Shared\Layout2.cshtml" />
     <Content Include="Views\Login\Profile.cshtml" />
     <Content Include="Views\User\LogIn.cshtml" />
-    <Content Include="Views\Login\Logout.cshtml" />
     <Content Include="Views\Login\Thanks.cshtml" />
     <Content Include="Views\Login\DeleteAccount.cshtml" />
     <Content Include="Views\Login\ChangePassword.cshtml" />
@@ -318,6 +318,7 @@
     <Content Include="Views\Login\Manage.cshtml" />
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Project\_ViewStart.cshtml" />
+    <Content Include="Views\Project\imanagerp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

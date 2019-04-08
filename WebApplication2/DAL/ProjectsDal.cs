@@ -18,5 +18,16 @@ namespace WebApplication2.DAL
 
             public DbSet<Project> projects { get; set; }
 
+
+        public List<Project> GetProjectByUserName(string UserName)
+        {
+            List<Project> us =
+                (from x in projects
+                 where x.UserName.Equals(UserName)
+                 select x).ToList<Project>();
+            
+            return us;
         }
+
+    }
 }
