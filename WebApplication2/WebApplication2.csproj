@@ -55,6 +55,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -137,6 +139,7 @@
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ContactDal.cs" />
+    <Compile Include="DAL\NotifyDal.cs" />
     <Compile Include="DAL\ProjectsDal.cs" />
     <Compile Include="DAL\UserDal.cs" />
     <Compile Include="Global.asax.cs">
@@ -148,6 +151,7 @@
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\LogIn.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="myRole.cs" />
@@ -334,6 +338,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
