@@ -12,10 +12,10 @@ namespace WebApplication2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Project
+    public partial class Notification
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public string ProjectName { get; set; }
+        public int NotifyId { get; set; }
+        public string Status { get; set; }
+        public string Request { get; set; }
     }
 }
