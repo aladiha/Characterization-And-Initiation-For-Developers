@@ -1,20 +1,16 @@
 ﻿
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "Requests";
 }
 
-<h2>Manage Projects</h2>
-@Html.ActionLink("Create Project", "Enter", "Project")
-
-<h2>I am admin Projects</h2>
-@Html.ActionLink("View my Project", "imanagerp", "Project")
-
-
-<h2>I am a member in a Projects</h2>
-@Html.ActionLink("Create Project", "Enter", "Project")
-
 <h2>Requests</h2>
-@Html.ActionLink("Requests", "Requests", "Project")
+
+<h2>View All Requests</h2>
+@Html.ActionLink("View All Requests", "View_Requests", "Project")
+
+<h2>Send a request</h2>
+@Html.ActionLink("Sent Request", "Send_Requests", "Project")
+
 
 
 <html>
@@ -50,3 +46,10 @@
     }
 </style>
 </html>
+
+
+
+
+
+
+

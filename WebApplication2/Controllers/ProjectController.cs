@@ -39,8 +39,6 @@ namespace WebApplication2.Controllers
         {
             
             ProjectsDal pdal = new ProjectsDal();
-            // List<Project> userValid = (from u in pdal.projects where select u).ToList<User>();
-
 
             // if exists
             if (pdal.AddProject(project) == false)
@@ -53,6 +51,21 @@ namespace WebApplication2.Controllers
             // if not exists
             return View("Project", project);
 
+        }
+
+        public ActionResult Requests()
+        {
+            return View();
+        }
+
+        public ActionResult View_Requests()
+        {
+            return View();
+        }
+
+        public ActionResult Send_Requests()
+        {
+            return View();
         }
     }
 }

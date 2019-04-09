@@ -141,7 +141,9 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ContactDal.cs" />
     <Compile Include="DAL\NotifyDal.cs" />
+    <Compile Include="DAL\ProjectMembersDal.cs" />
     <Compile Include="DAL\ProjectsDal.cs" />
+    <Compile Include="DAL\RequestsDal.cs" />
     <Compile Include="DAL\UserDal.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -154,6 +156,8 @@
     <Compile Include="Models\LogIn.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\ProjectMembers.cs" />
+    <Compile Include="Models\Request.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="myRole.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -326,6 +330,7 @@
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Project\_ViewStart.cshtml" />
     <Content Include="Views\Project\imanagerp.cshtml" />
+    <Content Include="Views\Project\Requests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
