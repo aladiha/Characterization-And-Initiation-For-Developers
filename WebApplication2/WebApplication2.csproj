@@ -244,6 +244,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\Gray-swirls-abstract-HD-wallpaper-hd-wallpapers-background-wallpapers-pictures-desktop-wallpapers-samsung-phone-wallpapers-widescreen-1080p-digital-photos-1920x1080.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="img\2277.jpg" />
@@ -252,6 +253,9 @@
     <Content Include="img\blue.jpg" />
     <Content Include="img\download.jpg" />
     <Content Include="img\ha.jpg" />
+    <Content Include="img\images %281%29.jpg" />
+    <Content Include="img\images %282%29.jpg" />
+    <Content Include="img\images.jpg" />
     <Content Include="img\menm.png" />
     <Content Include="img\pexels-photo.jpg" />
     <Content Include="img\sky.jpg" />

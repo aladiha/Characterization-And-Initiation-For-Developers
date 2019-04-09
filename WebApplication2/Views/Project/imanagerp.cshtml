@@ -6,7 +6,15 @@
 @{
     Layout = null;
 }
-
+<style>
+    body{
+        border: 2px solid black;
+        padding: 30px;
+        background-image: url('../../img/images (2).jpg');
+        background-repeat: no-repeat;
+        background-size: 2000px 1000px;
+    }
+</style>
 
 <html>
 <head>
@@ -18,7 +26,7 @@
         @Html.Partial("Viewshared")
        
         <br />
-        <span style="color:green">@ViewBag.result</span>
+        <span style="color:white">@ViewBag.result</span>
         <br />
         <table>
             <tr>
