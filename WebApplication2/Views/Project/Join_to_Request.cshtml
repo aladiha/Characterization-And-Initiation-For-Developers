@@ -3,7 +3,7 @@
     ViewBag.Title = "Join_to_Request";
 }
 
-<h2>Join_to_Request</h2>
+<h2>Join to Request</h2>
 
 
 <html>
@@ -70,18 +70,29 @@
     </style>
 </head>
 <body>
-    <spam style="color:red"> @TempData["ExistUser"] </spam>
+    <spam style="color:red"> @TempData["Error"] </spam>
 
     <form action="Submit_Join_To" style="max-width:500px;margin:auto" method="post">
-        <h2>Enter Your Project Name</h2>
+        <h2>Enter Your Request's Details</h2>
 
         <div class="input-container">
             <i class="arrow"></i>
             <input class="input-field" placeholder="Project Manager" name="To_user">
-            <input class="input-field" placeholder="Project Name" name="Projectname">
-            <input class="input-field" placeholder="Discripton" name="Discription">
 
         </div>
+        <div class="input-container">
+            <input class="input-field" placeholder="Project Name" name="Projectname">
+
+        </div>
+
+        <div class="input-container">
+            <textarea id="TextArea1" rows="6" cols="50" style="overflow:auto;resize:none" name="Discription" placeholder="Enter Discription Here"></textarea>
+
+        </div>
+        
+        <br />
+
+
 
 
 

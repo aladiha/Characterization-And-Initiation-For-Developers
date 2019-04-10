@@ -84,8 +84,48 @@ namespace WebApplication2.Controllers
         public ActionResult Submit_Join_To()
         {
             var pdal = new ProjectsDal();
+            var project = SetProject(Request.Form["To_user"], Request.Form["Projectname"]);
 
-            return View("Join_to_Request");
+            if(pdal.IsNotExists(project) == false)  // if project does exist then
+            {
+                var req = SetRequest(project.UserName, Session["Username"].ToString(), Request.Form["Discription"], project.ProjectName, "Join_To_Project");
+                var reqDal = new RequestsDal();
+
+                if(reqDal.AddRequest(req)==true)
+                {
+                    // addes sucssefuly
+                    return View("Requests");
+                }
+                TempData["Error"] = "You have been sent request to join!!";
+                
+
+                return View("Join_to_Request");
+            }
+            else         // if project does not exist then 
+            {
+                TempData["Errors"] = "Project name ot project manger does not exist togther!!";
+                return View("Join_to_Request");
+            }
+
+        }
+        private Request SetRequest(string Touser,string Fromuser,string Discription,string Projectname,string type)
+        {
+            var newRequest = new Request {
+                discription = Discription,
+                from_user =Fromuser,
+                Projectname =Projectname,
+                status =0,
+                to_user =Touser,
+                request_type =type}
+            ;
+            
+            return newRequest;
+        }
+
+        private Project SetProject(string user,string projname)
+        {
+            var p = new Project{ProjectName=projname,UserName=user };
+            return p;
         }
         public ActionResult Add_Member_Request()
         {
