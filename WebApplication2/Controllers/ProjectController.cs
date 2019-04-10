@@ -94,6 +94,7 @@ namespace WebApplication2.Controllers
                 if(reqDal.AddRequest(req)==true)
                 {
                     // addes sucssefuly
+
                     return View("Requests");
                 }
                 TempData["Error"] = "You have been sent request to join!!";
@@ -127,6 +128,8 @@ namespace WebApplication2.Controllers
             var p = new Project{ProjectName=projname,UserName=user };
             return p;
         }
+
+
         public ActionResult Add_Member_Request()
         {
             return View();
