@@ -14,7 +14,8 @@ namespace WebApplication2.Models
         public string to_user { get; set; }
         public string discription { get; set; }
         public string Projectname { get; set; }
-        public string request_type { get; set; }
+        public string request_type { get; set; }  
+
         public int status { get; set; }
 
 
