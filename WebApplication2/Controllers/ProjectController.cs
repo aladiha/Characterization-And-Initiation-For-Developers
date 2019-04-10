@@ -104,7 +104,9 @@ namespace WebApplication2.Controllers
             }
             else         // if project does not exist then 
             {
-                TempData["Errors"] = "Project name ot project manger does not exist togther!!";
+                TempData["Error"] = "Project name ot project manger does not exist togther!!";
+
+
                 return View("Join_to_Request");
             }
 
@@ -133,6 +135,36 @@ namespace WebApplication2.Controllers
         public ActionResult Add_Member_Request()
         {
             return View();
+        }
+
+        public ActionResult Submit_Add_Member()
+        {
+            var pdal = new ProjectsDal();
+            var ss = new AccountInfo();
+            
+            var project = SetProject(Session["Username"].ToString(), Request.Form["Projectname"]);
+
+            if (pdal.IsNotExists(project) == false)  // if project does exist then
+            {
+                var req = SetRequest(Request.Form["To_user"], Session["Username"].ToString(), Request.Form["Discription"], project.ProjectName, "Add_Member");
+                var reqDal = new RequestsDal();
+
+                if (reqDal.AddRequest(req) == true)
+                {
+                    // addes sucssefuly
+
+                    return View("Requests");
+                }
+                TempData["Error"] = "You have been sent request to add Member!!";
+
+
+                return View("Add_Member_Request");
+            }
+            else         // if project does not exist then 
+            {
+                TempData["Error"] = "Project name && Member username does not exist togther!!";
+                return View("Add_Member_Request");
+            }
         }
 
         public ActionResult Send_Requests()
