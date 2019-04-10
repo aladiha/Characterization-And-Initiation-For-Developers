@@ -24,6 +24,7 @@ namespace WebApplication2.DAL
                      select x).ToList<Request>();
             if (r.Count == 0)
                 return true;
+
             return false;
 
         }
