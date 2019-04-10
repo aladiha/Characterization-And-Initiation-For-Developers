@@ -20,7 +20,9 @@ namespace WebApplication2.DAL
         public bool RequestIsNoExist(Request request)
         {
             var r = (from x in requests
-                     where x.Projectname.Equals(request.Projectname) && x.from_user.Equals(request.from_user) && x.request_type.Equals(request.request_type)
+                     where x.Projectname.Equals(request.Projectname)
+                     && x.from_user.Equals(request.from_user)
+                     && x.request_type.Equals(request.request_type)
                      select x).ToList<Request>();
             if (r.Count == 0)
                 return true;
@@ -39,6 +41,7 @@ namespace WebApplication2.DAL
             return false;
         }
 
+        
 
     }
 }
