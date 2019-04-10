@@ -58,7 +58,36 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+
+
+        public ActionResult My_Requests()
+        {
+            return View();
+        }
+
+        public ActionResult View_Recent_Requests()
+        {
+            return View();
+        }
+
         public ActionResult View_Requests()
+        {
+            return View();
+        }
+
+        public ActionResult Join_to_Request()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Submit_Join_To()
+        {
+            var pdal = new ProjectsDal();
+
+            return View("Join_to_Request");
+        }
+        public ActionResult Add_Member_Request()
         {
             return View();
         }

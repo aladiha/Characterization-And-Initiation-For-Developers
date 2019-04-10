@@ -331,6 +331,12 @@
     <Content Include="Views\Project\_ViewStart.cshtml" />
     <Content Include="Views\Project\imanagerp.cshtml" />
     <Content Include="Views\Project\Requests.cshtml" />
+    <Content Include="Views\Project\View_Recent_Requests.cshtml" />
+    <Content Include="Views\Project\Send_Requests.cshtml" />
+    <Content Include="Views\Project\My_Requests.cshtml" />
+    <Content Include="Views\Project\View_Requests.cshtml" />
+    <Content Include="Views\Project\Join_to_Request.cshtml" />
+    <Content Include="Views\Project\Add_Member_Request.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
