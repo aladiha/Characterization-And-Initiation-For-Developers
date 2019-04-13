@@ -50,5 +50,18 @@ namespace WebApplication2.DAL
             return us;
         }
 
+        public int GetProjectId(Project p)
+        {
+            var us = (from x in projects
+                      where x.UserName.Equals(p.UserName) && x.ProjectName.Equals(p.ProjectName)
+                      select x).ToList<Project>();
+            if (us.Count == 0)
+            {
+                return -1;
+            }
+            else
+                return us[0].Id;
+        }
+
     }
 }

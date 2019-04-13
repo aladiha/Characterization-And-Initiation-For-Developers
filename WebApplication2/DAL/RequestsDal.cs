@@ -41,6 +41,12 @@ namespace WebApplication2.DAL
             return false;
         }
 
+        public bool Leaving_Project(string projmanager,string projectname,string username)
+        {
+
+            var prjmembDal = new ProjectMembersDal();
+            return true;
+        }
         
 
     }

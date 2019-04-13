@@ -69,28 +69,20 @@ namespace WebApplication2.Controllers
         {
             var pdal = new ProjectsDal();
             string typee = Request.Form["types"];
-            Project project;
 
-            if (typee.Equals("Add_Member"))
-                project = SetProject(Session["Username"].ToString(), Request.Form["Projectname"]);
-            else
-                project = SetProject(Request.Form["To_user"], Request.Form["Projectname"]);
+            Project project = SetProjectByType(Session["Username"].ToString(), Request.Form["To_user"], Request.Form["Projectname"], typee);
+
 
             if (pdal.IsNotExists(project) == false)  // if project does exist then
             {
-                var req = SetRequest(Request.Form["To_user"], Session["Username"].ToString(), Request.Form["Discription"], project.ProjectName, typee);
-                var reqDal = new RequestsDal();
+                var membdal = new ProjectMembersDal();
+                var member = SetMember(Session["Username"].ToString(), Request.Form["To_user"], typee);
 
-                if (reqDal.AddRequest(req) == true)
-                {
-                    // addes sucssefuly
+                TempData["Error"] = AddRequestsToDb(pdal,membdal,project,member,typee, Request.Form["To_user"], Session["Username"].ToString(), Request.Form["Discription"]);
 
-                    return View("Requests");
-                }
-                TempData["Error"] = "You have been sent request to add Member!!";
-
-
-                return View("New_Request");
+                if (TempData["Error"].Equals(""))
+                    return View(); // Added Seccefuly
+                return View("New_Request");   // Faild to add
             }
             else         // if project does not exist then 
             {
@@ -99,6 +91,67 @@ namespace WebApplication2.Controllers
             }
         }
 
+
+        private string AddRequestsToDb(ProjectsDal pdal,ProjectMembersDal membdal,Project project,string member,string typee,string touser,string fromsuer,string discrip)
+        {
+            if (!typee.Equals("Leave_Project"))
+            {
+                if (membdal.IsNotExists(pdal.GetProjectId(project), member) == true)
+                {
+                    var req = SetRequest(touser, fromsuer, discrip, project.ProjectName, typee);
+                    var reqDal = new RequestsDal();
+                    if (reqDal.AddRequest(req) == true)        // addes sucssefuly
+                        return "";
+
+                    if (typee.Equals("Add_Member"))
+                        return "You have been sent request to add new membert!!";
+                    return "You have been sent request to Join to Project!!";
+                }
+                else
+                {
+                    if (typee.Equals("Add_Member"))
+                        return "You are Exists in your project!!";
+                    return "Member Exists in your project!!";
+                }
+            }
+            else
+            {
+                if (membdal.IsNotExists(pdal.GetProjectId(project), member) == false)
+                {
+                    var req = SetRequest(touser, fromsuer, discrip, project.ProjectName, typee);
+                    var reqDal = new RequestsDal();
+                    if (reqDal.AddRequest(req) == true)        // addes sucssefuly
+                        return "";
+
+                    
+                        return "You have been sent request to Leave Project!!";
+                }
+                else
+                    return "Your are not exists in project";
+
+            }
+        }
+
+        private Project SetProjectByType(string user1,string user2,string projectname,string type)
+        {
+            Project project;
+
+            if (type.Equals("Add_Member"))
+                project = SetProject(user1, projectname);
+            else
+                project = SetProject(user2, projectname);
+
+            return project;
+        }
+
+        private string SetMember(string user1, string user2,string type)
+        {
+            if (type.Equals("Add_Member"))
+                return user2;
+            else
+                return user1;
+
+        }
         public ActionResult My_Requests()
         {
             return View();
