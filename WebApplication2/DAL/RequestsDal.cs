@@ -48,6 +48,13 @@ namespace WebApplication2.DAL
             return true;
         }
         
+        public List<Request> GetAllRequestsSentByMe(string user)
+        {
+            var reqlist = (from x in requests
+                           where x.from_user.Equals(user)
+                           select x).ToList<Request>();
+            return reqlist;
+        }
 
     }
 }
