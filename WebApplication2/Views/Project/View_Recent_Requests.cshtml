@@ -54,25 +54,17 @@
             </thead>
             <tbody>
 
-                @foreach (Request x in ViewBag.reqs)
+                @foreach (Request x in ViewBag.re)
                 {
                 <tr style="color:white">
-                    <td> @x.to_user </td>
+                    <td>  @x.from_user </td>
                     <td>| @x.Projectname</td>
                     <td>| @x.request_type</td>
                     <td>| @x.discription</td>
-                    @*
-        @if (AccountInfo.isLoggedIn)
-        {
-            if (AccountInfo.userRole.Equals("admin"))
-            {
-                <td>| @Html.ActionLink("remove", "Remove", "Books", new { title = @B.title, author = @B.author }, null)</td>
-            }
-            else
-            {
-                <td> | @Html.ActionLink("Download", "DownloadList", "Books", new { title = @B.title, author = @B.author }, null)</td>
-            }
-        }*@
+                    <td>| @Html.ActionLink("Accept", "AcceptRequest", "Project", new { projectname = @x.Projectname, fuser = @x.from_user, type= @x.request_type, tuser = @x.to_user }, null)</td>
+                    <td>| @Html.ActionLink("Reject", "RejectRequest", "Project", new { projectname = @x.Projectname, fuser = @x.from_user, type = @x.request_type, tuser = @x.to_user }, null)</td>
+            
+        }
                 </tr>
                 }
             </tbody>

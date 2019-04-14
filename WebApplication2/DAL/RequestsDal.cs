@@ -79,5 +79,30 @@ namespace WebApplication2.DAL
                            select x).ToList<Request>();
             return reqlist;
         }
+
+        public bool RespondRequest(string froom,string to , string type,string pn , int status) {
+
+            var x = (from y in requests
+                     where y.from_user.Equals(froom) && y.to_user.Equals(to) && y.Projectname.Equals(pn) && y.request_type.Equals(type) && y.status == 0
+                     select y).ToList<Request>();  
+            if (x.Count > 0) {
+                x[0].status = status;
+                SaveChanges();
+                if (type == "Add Member")
+                    addMember();
+                else if (type == "Join To Project")
+                    joinProject();
+                return true;
+            }
+            return false;
+        }
+
+        private bool addMember() {
+            return false;
+        }
+
+        private bool joinProject() {
+            return false;
+        }
     }
 }

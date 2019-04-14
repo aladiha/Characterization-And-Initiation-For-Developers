@@ -167,7 +167,7 @@ namespace WebApplication2.Controllers
         {
             var rqs = new RequestsDal();
             var x = rqs.GetAllRequestsSentToMe(Session["Username"].ToString());
-            ViewBag.reqs = x;
+            ViewBag.re = x;
             return View();
         }
 
@@ -176,8 +176,29 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+        public ActionResult AcceptRequest() {
+            string tuser = Request.QueryString.Get("tuser");
+            string fuser = Request.QueryString.Get("fuser");
+            string pn = Request.QueryString.Get("projectname");
+            string type = Request.QueryString.Get("type");
+            var dl = new RequestsDal();
+            dl.RespondRequest(fuser,tuser,type,pn,1);
+            // viewbag.re=memb;
+            return View();
+        }
 
-    
+        public ActionResult RejectRequest()
+        {
+            string tuser = Request.QueryString.Get("tuser");
+            string fuser = Request.QueryString.Get("fuser");
+            string pn = Request.QueryString.Get("projectname");
+            string type = Request.QueryString.Get("type");
+            var dl = new RequestsDal();
+            dl.RespondRequest(fuser, tuser, type, pn, -1);
+            // viewbag.re=memb;
+            return View();
+        }
+
         private Request SetRequest(string Touser,string Fromuser,string Discription,string Projectname,string type)
         {
             var newRequest = new Request {
