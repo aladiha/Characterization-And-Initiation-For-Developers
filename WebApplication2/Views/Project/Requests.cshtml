@@ -3,59 +3,71 @@
     ViewBag.Title = "Requests";
 }
 
-<h2>Requests</h2>
 
-<h2>New Request</h2>
-@Html.ActionLink("New Request", "New_Request", "Project")   
-
-
-<h2>My Requests</h2>
-@Html.ActionLink("My Requests", "My_Requests", "Project")    @* in orfer to view sender requests*@
-
-
-<h2>All Requests</h2>                                         @*in order to view all send and reseved Requests*@
-@Html.ActionLink("View All Requests", "View_Requests", "Project")
-
-
-<h2>View Recently Requests</h2>                              @*in order to accept/reject recently requests*@
-@Html.ActionLink("Recently Requests", "View_Recent_Requests", "Project")
 
 
 
 
 
 <html>
-<style>
-    body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Raleway", sans-serif
-    }
+<head>
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Raleway", sans-serif
+        }
 
-    body {
-        background-image: url('../../img/download.jpg'); /* The image used */
-        background-color: #cccccc; /* Used if the image is unavailable */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
-        background-size: 2000px; /* Resize the background image to cover the entire container */
-    }
+        body {
+            background-image: url('../../img/black.jpg'); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: 2000px; /* Resize the background image to cover the entire container */
+        }
 
-    /* Full height image header */
-    .bgimg-1 {
-        background-position: center;
-        background-size: cover;
-        background-image: url("");
-        min-height: 100%;
-    }
+        h2 {
+            color: white;
+        }
 
-    .w3-bar .w3-button {
-        padding: 16px;
-    }
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("");
+            min-height: 100%;
+        }
 
-    .w3-container {
-        padding: 128px 16px;
-        color: white;
-        font-family: Tahoma;
-    }
-</style>
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
+
+        .w3-container {
+            padding: 128px 16px;
+            color: white;
+            font-family: Tahoma;
+        }
+    </style>
+</head>
+<body>
+    <div align="center" style="color:lightgreen"><h1> Requests</h1></div>
+   <br />
+    <br />
+
+    <h2>New Request</h2>
+    @Html.ActionLink("New Request", "New_Request", "Project")
+
+
+    <h2>My Requests</h2>
+    @Html.ActionLink("My Requests", "My_Requests", "Project")    @* in orfer to view sender requests*@
+
+
+    <h2>All Requests</h2>                                         @*in order to view all send and reseved Requests*@
+    @Html.ActionLink("View All Requests", "View_Requests", "Project")
+
+
+    <h2>View Recently Requests</h2>                              @*in order to accept/reject recently requests*@
+    @Html.ActionLink("Recently Requests", "View_Recent_Requests", "Project")
+
+</body>
 </html>
 
 
