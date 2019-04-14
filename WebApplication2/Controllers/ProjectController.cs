@@ -165,10 +165,11 @@ namespace WebApplication2.Controllers
 
         public ActionResult View_Recent_Requests()
         {
-            var rqs = new RequestsDal();
-            var x = rqs.GetAllRequestsSentToMe(Session["Username"].ToString());
-            ViewBag.re = x;
-            return View();
+            RequestsDal pdal = new RequestsDal();
+            var pm = new RequestsViewModel();
+            pm.ListRequests=pdal.GetAllRequestsSentToMe(Session["Username"].ToString());
+
+            return View(pm);
         }
 
         public ActionResult View_Requests()
@@ -184,7 +185,7 @@ namespace WebApplication2.Controllers
             var dl = new RequestsDal();
             dl.RespondRequest(fuser,tuser,type,pn,1);
             // viewbag.re=memb;
-            return View();
+            return View("View_Recent_Requests");
         }
 
         public ActionResult RejectRequest()

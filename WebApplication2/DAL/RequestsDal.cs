@@ -59,7 +59,7 @@ namespace WebApplication2.DAL
         public List<Request> GetAllRequestsSentToMe(string user)
         {
             var reqlist = (from x in requests
-                           where x.to_user.Equals(user)
+                           where x.to_user.Equals(user) && x.status==0
                            select x).ToList<Request>();
             return reqlist;
         }
@@ -89,20 +89,30 @@ namespace WebApplication2.DAL
                 x[0].status = status;
                 SaveChanges();
                 if (type == "Add Member")
-                    addMember();
+                    addMember(x[0]);
                 else if (type == "Join To Project")
-                    joinProject();
+                    joinProject(x[0]);
                 return true;
             }
             return false;
         }
 
-        private bool addMember() {
-            return false;
+        private bool addMember(Request req) {
+
+            var pdal = new ProjectsDal();
+            int id = pdal.GetProjectId(new Project { ProjectName = req.Projectname, UserName = req.from_user });
+            var pmember = new ProjectMembersDal();
+
+            return pmember.AddMember(new ProjectMembers {ProjectId =id,Member=req.to_user});
         }
 
-        private bool joinProject() {
-            return false;
+        private bool joinProject(Request req) {
+
+            var pdal = new ProjectsDal();
+            int id = pdal.GetProjectId(new Project { ProjectName = req.Projectname, UserName = req.from_user });
+            var pmember = new ProjectMembersDal();
+
+            return pmember.AddMember(new ProjectMembers { ProjectId = id, Member = req.to_user });
         }
     }
 }

@@ -26,6 +26,16 @@ namespace WebApplication2.DAL
             return false;
         }
 
+        public bool AddMember(ProjectMembers mem)
+        {
+            if (IsNotExists(mem.ProjectId, mem.Member)==true)
+            {
+                projectMembers.Add(mem);
+                SaveChanges();
+                return true;
+            }
+            return false;
+        }
 
     }
 }
