@@ -81,8 +81,11 @@ namespace WebApplication2.Controllers
                 TempData["Error"] = AddRequestsToDb(pdal,membdal,project,member,typee, Request.Form["To_user"], Session["Username"].ToString(), Request.Form["Discription"]);
 
                 if (TempData["Error"].Equals(""))
-                    return View(); // Added Seccefuly
-                return View("New_Request");   // Faild to add
+                {
+                    TempData["Done"] = "Your request has been sent successfuly.";
+                    return View("Requests"); // Added Seccefuly
+                }
+                    return View("New_Request");   // Faild to add
             }
             else         // if project does not exist then 
             {
@@ -94,7 +97,7 @@ namespace WebApplication2.Controllers
 
         private string AddRequestsToDb(ProjectsDal pdal,ProjectMembersDal membdal,Project project,string member,string typee,string touser,string fromsuer,string discrip)
         {
-            if (!typee.Equals("Leave_Project"))
+            if (!typee.Equals("Leave Project"))
             {
                 if (membdal.IsNotExists(pdal.GetProjectId(project), member) == true)
                 {
@@ -103,15 +106,15 @@ namespace WebApplication2.Controllers
                     if (reqDal.AddRequest(req) == true)        // addes sucssefuly
                         return "";
 
-                    if (typee.Equals("Add_Member"))
-                        return "You have been sent request to add new membert!!";
-                    return "You have been sent request to Join to Project!!";
+                    if (typee.Equals("Add Member"))
+                        return "You sent a request to add a new member!!";
+                    return "You sent a request to Join a project!!";
                 }
                 else
                 {
-                    if (typee.Equals("Add_Member"))
-                        return "You are Exists in your project!!";
-                    return "Member Exists in your project!!";
+                    if (typee.Equals("Add Member"))
+                        return "this user is already a member in this project";
+                    return "You are already a member in this project!!";
                 }
             }
             else
@@ -124,10 +127,10 @@ namespace WebApplication2.Controllers
                         return "";
 
                     
-                        return "You have been sent request to Leave Project!!";
+                        return "You sent request to Leave a Project!!";
                 }
                 else
-                    return "Your are not exists in project";
+                    return "You are not a member in this project";
 
             }
         }
@@ -136,7 +139,7 @@ namespace WebApplication2.Controllers
         {
             Project project;
 
-            if (type.Equals("Add_Member"))
+            if (type.Equals("Add Member"))
                 project = SetProject(user1, projectname);
             else
                 project = SetProject(user2, projectname);
@@ -146,7 +149,7 @@ namespace WebApplication2.Controllers
 
         private string SetMember(string user1, string user2,string type)
         {
-            if (type.Equals("Add_Member"))
+            if (type.Equals("Add Member"))
                 return user2;
             else
                 return user1;
@@ -154,11 +157,17 @@ namespace WebApplication2.Controllers
         }
         public ActionResult My_Requests()
         {
+            var rqs = new RequestsDal();
+            var x = rqs.GetAllRequestsSentByMe(Session["Username"].ToString());
+            ViewBag.reqs = x;
             return View();
         }
 
         public ActionResult View_Recent_Requests()
         {
+            var rqs = new RequestsDal();
+            var x = rqs.GetAllRequestsSentToMe(Session["Username"].ToString());
+            ViewBag.reqs = x;
             return View();
         }
 

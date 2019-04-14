@@ -1,9 +1,82 @@
-﻿
+﻿@using WebApplication2.Models;
 @{
     ViewBag.Title = "View_Recent_Requests";
 }
 
-<h2>View_Recent_Requests</h2>
+
+<h2 style="color:snow">View Recent Requests</h2>
+<br />
+<br />
 
 
-Welcome to View Recent Requests
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('../../img/black.jpg');
+            background-size: cover;
+        }
+
+
+        .header {
+            padding: 30px;
+            text-align: center;
+            color: #5a3a11;
+            font-size: 40px;
+        }
+
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="color:sandybrown">
+                    <th>Sent From</th>
+                    <th>Project Name</th>
+                    <th>Request Type</th>
+                    <th>Discription</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (Request x in ViewBag.reqs)
+                {
+                <tr style="color:white">
+                    <td> @x.to_user </td>
+                    <td>| @x.Projectname</td>
+                    <td>| @x.request_type</td>
+                    <td>| @x.discription</td>
+                    @*
+        @if (AccountInfo.isLoggedIn)
+        {
+            if (AccountInfo.userRole.Equals("admin"))
+            {
+                <td>| @Html.ActionLink("remove", "Remove", "Books", new { title = @B.title, author = @B.author }, null)</td>
+            }
+            else
+            {
+                <td> | @Html.ActionLink("Download", "DownloadList", "Books", new { title = @B.title, author = @B.author }, null)</td>
+            }
+        }*@
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
