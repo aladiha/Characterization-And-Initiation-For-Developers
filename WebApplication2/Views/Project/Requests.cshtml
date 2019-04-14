@@ -1,13 +1,27 @@
 ﻿
 @{
-    ViewBag.Title = "Project";
+    ViewBag.Title = "Requests";
 }
 
+<h2>Requests</h2>
+
+<h2>New Request</h2>
+@Html.ActionLink("New Request", "New_Request", "Project")   
 
 
-<h2>Project</h2>
+<h2>My Requests</h2>
+@Html.ActionLink("My Requests", "My_Requests", "Project")    @* in orfer to view sender requests*@
 
-Yor Project has Been Created
+
+<h2>All Requests</h2>                                         @*in order to view all send and reseved Requests*@
+@Html.ActionLink("View All Requests", "View_Requests", "Project")
+
+
+<h2>View Recently Requests</h2>                              @*in order to accept/reject recently requests*@
+@Html.ActionLink("Recently Requests", "View_Recent_Requests", "Project")
+
+
+
 
 
 <html>
@@ -17,7 +31,7 @@ Yor Project has Been Created
     }
 
     body {
-        background-image: url('../../img/sky.jpg'); /* The image used */
+        background-image: url('../../img/download.jpg'); /* The image used */
         background-color: #cccccc; /* Used if the image is unavailable */
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -43,3 +57,10 @@ Yor Project has Been Created
     }
 </style>
 </html>
+
+
+
+
+
+
+

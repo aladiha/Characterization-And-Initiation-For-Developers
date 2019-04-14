@@ -59,7 +59,7 @@ namespace WebApplication2.Controllers
                     FormsAuthentication.SetAuthCookie(U.UserName, true);
 
                     Session["UserId"] = userValid[0].UserName;
-                    
+                   
                     return RedirectToAction("Index", "Login");
                 }
 

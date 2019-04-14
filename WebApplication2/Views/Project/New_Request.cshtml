@@ -1,7 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Enter";
+    ViewBag.Title = "New_Request";
 }
+
+<h2>New Request</h2>
 
 
 <html>
@@ -17,6 +19,7 @@
             background-repeat: no-repeat; /* Do not repeat the image */
             background-size: 2000px; /* Resize the background image to cover the entire container */
         }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
@@ -67,25 +70,56 @@
     </style>
 </head>
 <body>
-    <spam style="color:red"> @TempData["ExistUser"] </spam>
+    <spam style="color:red"> @TempData["Error"] </spam>
 
-    <form action="Submit" style="max-width:500px;margin:auto" method="post">
-        <h2>Enter Your Project Name</h2>
+    <form action="Submit_Request" style="max-width:500px;margin:auto" method="post">
+        <h2>Enter Your Request's Details</h2>
 
-        <span style="color:red">@ViewBag.result</span>
+        <h5>To user:</h5>
+
         <div class="input-container">
             <i class="arrow"></i>
-            <input class="input-field" placeholder="Project" name="ProjectName">
+            <input class="input-field" placeholder="User name" name="To_user">
+
+        </div>
+
+        <h5>Project Name:</h5>
+
+        <div class="input-container">
+            <input class="input-field" placeholder="Project Name" name="Projectname">
+
+        </div>
+        <h5>Request type</h5>
+
+        <div class="input-container">
+            <i class="arrow"></i>
+
+            <select name="types">
+                <option value="Add_Member">Add Member</option>
+                <option value="Join_To_Project">Join To Project</option>
+                <option value="Leave_Project">Leave Project</option>
+            </select>
+            <br><br>
+
+        </div>
+
+        <h5>Discription:</h5>
+
+        <div class="input-container">
+            <textarea id="TextArea1" rows="6" cols="50" style="overflow:auto;resize:none" name="Discription" placeholder="Enter Discription Here"></textarea>
+
         </div>
 
 
 
-        <button type="submit" class="btn">Create</button>
+
+        <br />
+
+
+
+
+
+        <button type="submit" class="btn">Send</button>
     </form>
 </body>
 </html>
-
-
-
-
-

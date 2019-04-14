@@ -20,13 +20,7 @@ namespace WebApplication2
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             // SetInitializer<Models.User>(null);
-            SqlDependency.Start(ConfigurationManager.ConnectionStrings["NotifyDal"].ConnectionString);
-        }
-
-        protected void Application_End()
-        {
-            SqlDependency.Stop(ConfigurationManager.ConnectionStrings["NotifyDal"].ConnectionString);
-
+        
         }
     }
 }
