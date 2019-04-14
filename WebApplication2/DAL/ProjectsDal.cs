@@ -21,7 +21,7 @@ namespace WebApplication2.DAL
 
         public bool IsNotExists(Project p)
         {
-            List<Project> ps = (from x in projects
+            var ps = (from x in projects
                                 where x.ProjectName.Equals(p.ProjectName) && x.UserName.Equals(p.UserName)
                                 select x).ToList<Project>();
             if (ps.Count == 0)
