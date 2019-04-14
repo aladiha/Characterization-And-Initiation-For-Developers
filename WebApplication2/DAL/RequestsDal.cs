@@ -63,5 +63,13 @@ namespace WebApplication2.DAL
                            select x).ToList<Request>();
             return reqlist;
         }
+
+        public List<Request> GetAllRejectRequestsByUserName(string user)
+        {
+            var reqlist = (from x in requests
+                           where (x.from_user.Equals(user) || x.to_user.Equals(user)) && (x.status==-1)
+                           select x).ToList<Request>();
+            return reqlist;
+        }
     }
 }
