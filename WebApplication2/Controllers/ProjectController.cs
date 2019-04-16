@@ -189,7 +189,8 @@ namespace WebApplication2.Controllers
             var dl = new RequestsDal();
             dl.RespondRequest(fuser,tuser,type,pn,1);
             // viewbag.re=memb;
-            return View("View_Recent_Requests");
+
+            return RedirectToAction("View_Recent_Requests");
         }
 
         public ActionResult RejectRequest()
@@ -201,7 +202,8 @@ namespace WebApplication2.Controllers
             var dl = new RequestsDal();
             dl.RespondRequest(fuser, tuser, type, pn, -1);
             // viewbag.re=memb;
-            return View();
+            return RedirectToAction("View_Recent_Requests");
+
         }
 
         private Request SetRequest(string Touser,string Fromuser,string Discription,string Projectname,string type)

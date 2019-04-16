@@ -37,5 +37,25 @@ namespace WebApplication2.DAL
             return false;
         }
 
+        public List<ProjectMembers> GetProjectMember(ProjectMembers pj)
+        {
+            var y= (from x in projectMembers
+                    where x.Member.Equals(pj.Member)
+                    && x.ProjectId.Equals(pj.ProjectId)
+                    select x).ToList<ProjectMembers>();
+            return y;
+        }
+        public bool DeleteMember(ProjectMembers ff)
+        {
+
+            var pj = GetProjectMember(ff);
+
+            if (pj.Count == 0)
+                return false;
+
+            projectMembers.Remove(pj[0]);
+            SaveChanges();
+            return true;
+        }
     }
 }

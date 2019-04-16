@@ -88,10 +88,14 @@ namespace WebApplication2.DAL
             if (x.Count > 0) {
                 x[0].status = status;
                 SaveChanges();
-                if (type == "Add Member")
-                    addMember(x[0]);
-                else if (type == "Join To Project")
-                    joinProject(x[0]);
+                if (status == 1)
+                {
+                    if (type == "Add Member")
+                        return addMember(x[0]);
+                    else if (type == "Join To Project")
+                        return joinProject(x[0]);
+                    return LeaveProject(x[0]);
+                }
                 return true;
             }
             return false;
@@ -109,10 +113,20 @@ namespace WebApplication2.DAL
         private bool joinProject(Request req) {
 
             var pdal = new ProjectsDal();
-            int id = pdal.GetProjectId(new Project { ProjectName = req.Projectname, UserName = req.from_user });
+            int id = pdal.GetProjectId(new Project { ProjectName = req.Projectname, UserName = req.to_user });
             var pmember = new ProjectMembersDal();
 
-            return pmember.AddMember(new ProjectMembers { ProjectId = id, Member = req.to_user });
+            return pmember.AddMember(new ProjectMembers { ProjectId = id, Member = req.from_user});
+        }
+
+        private bool LeaveProject(Request req)
+        {
+
+            var pdal = new ProjectsDal();
+            int id = pdal.GetProjectId(new Project { ProjectName = req.Projectname, UserName = req.to_user});
+            var pmember = new ProjectMembersDal();
+
+            return pmember.DeleteMember(new ProjectMembers { ProjectId = id, Member = req.from_user });
         }
     }
 }
