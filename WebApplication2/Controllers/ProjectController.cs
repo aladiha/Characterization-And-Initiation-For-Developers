@@ -19,6 +19,10 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+        public ActionResult Project()
+        {
+            return View();
+        }
 
         public ActionResult Enter() {
 

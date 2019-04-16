@@ -54,7 +54,8 @@
                         <th>Project ID</th>
                         <th>Project Name</th>
                         <th>User Name </th>
-          
+                        <th> Link </th>
+
 
                     </tr>
                 </thead>
@@ -66,7 +67,8 @@
                         <td> @B.Id </td>
                         <td>| @B.ProjectName</td>
                         <td>| @B.UserName </td>
-                        </tr>
+                        <td>|@Html.ActionLink("Open","Project","Project") </td>
+                    </tr>
 
                         }
 </tbody>
