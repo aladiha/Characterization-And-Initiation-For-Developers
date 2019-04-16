@@ -128,5 +128,21 @@ namespace WebApplication2.DAL
 
             return pmember.DeleteMember(new ProjectMembers { ProjectId = id, Member = req.from_user });
         }
+
+       public List<Request> GetAllRequestsSentByMe_ToMe_ByStatus(int status,string user)
+        {
+            if (status != 2)
+            {
+                var x = (from y in requests
+                         where y.status == status && (y.from_user.Equals(user) || y.to_user.Equals(user))
+                         select y).ToList<Request>();
+
+                return x;
+            }
+            var k = (from y in requests
+                     where (y.from_user.Equals(user) || y.to_user.Equals(user))
+                     select y).ToList<Request>();
+            return k;
+        }
     }
 }

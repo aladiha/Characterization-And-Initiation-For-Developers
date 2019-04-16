@@ -178,7 +178,37 @@ namespace WebApplication2.Controllers
 
         public ActionResult View_Requests()
         {
+            var rqs = new RequestsDal();
+            if (TempData["Value"] == null)
+            {
+
+                var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2,Session["Username"].ToString());
+                ViewBag.reqs = x;
+            }
+            else
+            {
+                if (TempData["Value"].ToString() == "0")
+                {
+                    var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2,Session["Username"].ToString());
+                    ViewBag.reqs = x;
+                }
+                else
+                {
+
+                    int xx = int.Parse(TempData["Value"].ToString());
+                    var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(xx, Session["Username"].ToString());
+                    ViewBag.reqs = x;
+                }
+            }
             return View();
+        }
+
+        public ActionResult MangaeRequests()
+        {
+            string s= Request.QueryString.Get("Status");
+
+            TempData["Value"] = s;
+            return RedirectToAction("View_Requests");
         }
 
         public ActionResult AcceptRequest() {

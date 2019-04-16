@@ -3,5 +3,89 @@
     ViewBag.Title = "View_Requests";
 }
 
-<h2>View_Requests</h2>
+<h2 style="color:snow">View_Requests</h2>
+<br />
+<br />
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('../../img/black.jpg');
+            background-size: cover;
+        }
+
+
+        .header {
+            padding: 30px;
+            text-align: center;
+            color: #5a3a11;
+            font-size: 40px;
+        }
+
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+     @Html.ActionLink("Accepted Requests", "MangaeRequests", "Project", new { Status=1}, null)|
+     @Html.ActionLink("Rejected Requests", "MangaeRequests", "Project", new { Status=-1}, null)|
+     @Html.ActionLink("All Requests", "MangaeRequests", "Project", new {  Status=0}, null)|
+
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="color:sandybrown">
+                    <th>From user</th>
+                    <th>Sent To</th>
+                    <th>Project Name</th>
+                    <th>Request Type</th>
+                    <th>Discription</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var x in ViewBag.reqs)
+                {
+                <tr style="color:white">
+                    <td> @x.from_user </td>
+                    <td> @x.to_user </td>
+                    <td>| @x.Projectname</td>
+                    <td>| @x.request_type</td>
+                    <td>| @x.discription</td>
+
+                    @if (x.status == -1)
+                    {
+
+                        <td>rejected</td>
+                    }
+                    else if (x.status == 0)
+                    {
+
+                        <td> Pending </td>
+                    }
+                    else
+                    {
+                        <td> Accepted </td>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
