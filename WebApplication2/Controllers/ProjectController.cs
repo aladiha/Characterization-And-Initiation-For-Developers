@@ -181,16 +181,21 @@ namespace WebApplication2.Controllers
             var rqs = new RequestsDal();
             if (TempData["Value"] == null)
             {
-
-                var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2,Session["Username"].ToString());
+                var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2, Session["Username"].ToString());
                 ViewBag.reqs = x;
             }
             else
             {
-                if (TempData["Value"].ToString() == "0")
+                if (TempData["Value"].ToString().Equals("0"))
                 {
-                    var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2,Session["Username"].ToString());
+                    var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2, Session["Username"].ToString());
                     ViewBag.reqs = x;
+                }
+                else if (TempData["Value"].ToString().Equals("2"))
+                {
+                    var x = rqs.GetAllMemberShipRequests(Session["Username"].ToString());
+                    ViewBag.reqs = x;
+                
                 }
                 else
                 {
@@ -207,7 +212,7 @@ namespace WebApplication2.Controllers
         {
             string s= Request.QueryString.Get("Status");
 
-            TempData["Value"] = s;
+                TempData["Value"] = s;
             return RedirectToAction("View_Requests");
         }
 

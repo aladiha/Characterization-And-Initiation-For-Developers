@@ -75,7 +75,7 @@ namespace WebApplication2.DAL
         public List<Request> GetAllMemberShipRequests(string username)
         {
             var reqlist = (from x in requests
-                           where x.request_type.Equals("Join_To_Project") && x.to_user.Equals(username)
+                           where x.request_type.Equals("Join To Project") && x.to_user.Equals(username)
                            select x).ToList<Request>();
             return reqlist;
         }

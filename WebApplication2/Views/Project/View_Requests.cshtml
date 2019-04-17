@@ -40,9 +40,16 @@
 </head>
 <body>
 
-     @Html.ActionLink("Accepted Requests", "MangaeRequests", "Project", new { Status=1}, null)|
-     @Html.ActionLink("Rejected Requests", "MangaeRequests", "Project", new { Status=-1}, null)|
-     @Html.ActionLink("All Requests", "MangaeRequests", "Project", new {  Status=0}, null)|
+    @Html.ActionLink("Accepted Requests", "MangaeRequests", "Project", new { Status = "1" }, null)
+    ||
+    ||
+    @Html.ActionLink("Rejected Requests", "MangaeRequests", "Project", new { Status = "-1" }, null)|
+    ||
+    ||
+    @Html.ActionLink("All Requests", "MangaeRequests", "Project", new { Status = "0" }, null)|
+    ||
+    ||
+    @Html.ActionLink("MemberShip Requests", "MangaeRequests", "Project", new {Status="2" }, null)|
 
 
     <div class="container">
@@ -61,28 +68,28 @@
 
                 @foreach (var x in ViewBag.reqs)
                 {
-                <tr style="color:white">
-                    <td> @x.from_user </td>
-                    <td> @x.to_user </td>
-                    <td>| @x.Projectname</td>
-                    <td>| @x.request_type</td>
-                    <td>| @x.discription</td>
+                    <tr style="color:white">
+                        <td> @x.from_user </td>
+                        <td> @x.to_user </td>
+                        <td>| @x.Projectname</td>
+                        <td>| @x.request_type</td>
+                        <td>| @x.discription</td>
 
-                    @if (x.status == -1)
-                    {
+                        @if (x.status == -1)
+                        {
 
-                        <td>rejected</td>
-                    }
-                    else if (x.status == 0)
-                    {
+                            <td>rejected</td>
+                        }
+                        else if (x.status == 0)
+                        {
 
-                        <td> Pending </td>
-                    }
-                    else
-                    {
-                        <td> Accepted </td>
-                    }
-                </tr>
+                            <td> Pending </td>
+                        }
+                        else
+                        {
+                            <td> Accepted </td>
+                        }
+                    </tr>
                 }
             </tbody>
         </table>
