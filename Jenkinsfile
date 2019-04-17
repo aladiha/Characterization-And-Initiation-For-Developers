@@ -10,22 +10,12 @@ pipeline {
           git 'https://github.com/aladiha/nehool-project.git'
       }
    }
-   /* stage('Dotnet Restore'){
+    stage('Dotnet Restore'){
         steps{
         sh "dotnet restore"
         }
-    }*/
-    //
-stage('Restore PACKAGES') {
-   steps {
-    sh "dotnet restore --configfile NuGet.Config"
-   }
-  }
-  stage('Clean') {
-   steps {
-    sh 'dotnet clean'
-   }
-  }
+    }
+    
   stage('Build') {
    steps {
     sh 'dotnet build --configuration Release'
