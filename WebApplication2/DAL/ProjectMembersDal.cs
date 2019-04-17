@@ -16,7 +16,7 @@ namespace WebApplication2.DAL
         }
         public DbSet<ProjectMembers> projectMembers { get; set; }
 
-        public bool IsNotExists(int projectid,string memb)
+        public bool IsNotExists(int projectid, string memb)
         {
             var result = (from x in projectMembers
                           where x.ProjectId == projectid && x.Member.Equals(memb)
@@ -28,7 +28,7 @@ namespace WebApplication2.DAL
 
         public bool AddMember(ProjectMembers mem)
         {
-            if (IsNotExists(mem.ProjectId, mem.Member)==true)
+            if (IsNotExists(mem.ProjectId, mem.Member) == true)
             {
                 projectMembers.Add(mem);
                 SaveChanges();
@@ -39,10 +39,10 @@ namespace WebApplication2.DAL
 
         public List<ProjectMembers> GetProjectMember(ProjectMembers pj)
         {
-            var y= (from x in projectMembers
-                    where x.Member.Equals(pj.Member)
-                    && x.ProjectId.Equals(pj.ProjectId)
-                    select x).ToList<ProjectMembers>();
+            var y = (from x in projectMembers
+                     where x.Member.Equals(pj.Member)
+                     && x.ProjectId.Equals(pj.ProjectId)
+                     select x).ToList<ProjectMembers>();
             return y;
         }
         public bool DeleteMember(ProjectMembers ff)
