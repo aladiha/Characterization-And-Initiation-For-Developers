@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "New_Request";
+}
+
+<h2>New Request</h2>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-image: url('../../img/horror.jpg'); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            padding: 10px;
+            background: black;
+            color: white;
+            min-width: 50px;
+            text-align: left;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+            .input-field:focus {
+                border: 2px solid black;
+            }
+
+        /* Set a style for the submit buttkjkjkjon */
+        .btn {
+            background-color: grey;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+            .btn:hover {
+                opacity: 1;
+            }
+    </style>
+</head>
+<body>
+    <spam style="color:red"> @TempData["Error"] </spam>
+
+    <form action="Submit_Request" style="max-width:500px;margin:auto" method="post">
+        <h2>Enter Your Request's Details</h2>
+
+        <h5>To user:</h5>
+
+        <div class="input-container">
+            <i class="arrow"></i>
+            <input class="input-field" placeholder="User name" name="To_user">
+
+        </div>
+
+        <h5>Project Name:</h5>
+
+        <div class="input-container">
+            <input class="input-field" placeholder="Project Name" name="Projectname">
+
+        </div>
+        <h5>Request type</h5>
+
+        <div class="input-container">
+            <i class="arrow"></i>
+
+            <select name="types">
+                <option value="Add Member">Add Member</option>
+                <option value="Join To Project">Join To Project</option>
+                <option value="Leave Project">Leave Project</option>
+            </select>
+            <br><br>
+
+        </div>
+
+        <h5>Discription:</h5>
+
+        <div class="input-container">
+            <textarea id="TextArea1" rows="6" cols="50" style="overflow:auto;resize:none" name="Discription" placeholder="Enter Discription Here"></textarea>
+
+        </div>
+
+
+
+
+        <br />
+
+
+
+
+
+        <button type="submit" class="btn">Send</button>
+    </form>
+</body>
+</html>

@@ -1,7 +1,10 @@
 ﻿
 @{
-    ViewBag.Title = "Manage";
+    ViewBag.Title = "Requests";
 }
+
+
+
 
 
 
@@ -21,8 +24,8 @@
             background-size: 2000px; /* Resize the background image to cover the entire container */
         }
 
-        h2{
-            color:white;
+        h2 {
+            color: white;
         }
 
         /* Full height image header */
@@ -45,18 +48,32 @@
     </style>
 </head>
 <body>
-    <h2>New Project</h2>
-    @Html.ActionLink("Create Project", "Enter", "Project")
+    <div align="center" style="color:lightgreen"><h1> Requests</h1></div>
+   <br />
+   <span style="color:green">@TempData["Done"]</span>
+    <br />
 
-    <h2>My Projects</h2>
-    @Html.ActionLink("View my Project", "imanagerp", "Project")
+    <h2>New Request</h2>
+    @Html.ActionLink("New Request", "New_Request", "Project")
 
 
-    <h2>Participated in Projects</h2>
-    @Html.ActionLink("Create Project", "Enter", "Project")
+    <h2>My Requests</h2>
+    @Html.ActionLink("My Requests", "My_Requests", "Project")    @* in orfer to view sender requests*@
 
-    <h2>Requests</h2>
-    @Html.ActionLink("Requests", "Requests", "Project")
+
+    <h2>All Requests</h2>                                         @*in order to view all send and reseved Requests*@
+    @Html.ActionLink("View All Requests", "View_Requests", "Project")
+
+
+    <h2>View Recently Requests</h2>                              @*in order to accept/reject recently requests*@
+    @Html.ActionLink("Recently Requests", "View_Recent_Requests", "Project")
 
 </body>
 </html>
+
+
+
+
+
+
+

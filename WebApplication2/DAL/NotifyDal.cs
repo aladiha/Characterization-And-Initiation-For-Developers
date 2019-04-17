@@ -7,15 +7,14 @@ using WebApplication2.Models;
 
 namespace WebApplication2.DAL
 {
-    public class NotifyDal : DbContext
-    {
-            protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Notification>().ToTable("Notifications");
-    }
 
-    public DbSet<Notification> notifications { get; set; }
-
+     public class NotifyDal : DbContext
+    {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Notification>().ToTable("Notify");
+        }
+        public DbSet<Notification> notes { get; set; }
     }
 }

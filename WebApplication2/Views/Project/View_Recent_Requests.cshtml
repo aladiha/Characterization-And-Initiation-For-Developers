@@ -1,0 +1,77 @@
+﻿@model  WebApplication2.ViewModels.RequestsViewModel
+
+
+@{
+    ViewBag.Title = "View_Recent_Requests";
+}
+
+
+<h2 style="color:snow">View Recent Requests</h2>
+<br />
+<br />
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('../../img/black.jpg');
+            background-size: cover;
+        }
+
+
+        .header {
+            padding: 30px;
+            text-align: center;
+            color: #5a3a11;
+            font-size: 40px;
+        }
+
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="color:sandybrown">
+                    <th>Sent From</th>
+                    <th>Project Name</th>
+                    <th>Request Type</th>
+                    <th>Discription</th>
+                    <th>Respond</th>
+                    <th>Respond</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var x in Model.ListRequests)
+                {
+                    <tr style="color:white">
+
+                        <td>  @x.from_user </td>
+                        <td>| @x.Projectname</td>
+                        <td>| @x.request_type</td>
+                        <td>| @x.discription</td>
+                        <td>| @Html.ActionLink("Accept", "AcceptRequest", "Project", new { projectname = @x.Projectname, fuser = @x.from_user, type = @x.request_type, tuser = @x.to_user }, null)</td>
+                        <td>| @Html.ActionLink("Reject", "RejectRequest", "Project", new { projectname = @x.Projectname, fuser = @x.from_user, type = @x.request_type, tuser = @x.to_user }, null)</td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

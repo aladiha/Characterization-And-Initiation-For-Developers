@@ -6,48 +6,73 @@
 @{
     Layout = null;
 }
+    
+    @using WebApplication2.Models;
+    @{
+        ViewBag.Title = "My Project";
+    }
 
+<h2 style="color:snow">My Project</h2>
+    <br />
+    <br />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>MyBooks</title>
-</head>
-<body>
-    <div>
-        @Html.Partial("Viewshared")
-       
-        <br />
-        <span style="color:green">@ViewBag.result</span>
-        <br />
-        <table>
-            <tr>
-                <td> id </td>
-                <td>| pro name</td>
-                <td>| name  </td>
-              
-
-            </tr>
-
-            @foreach (Project B in Model.project)
-
-            {
-              // Session["UserName"] = Model.project[0].UserName;
-
-             
-                <tr>
-                    <td> @B.Id </td>
-                    <td>| @B.ProjectName</td>
-                    <td>| @B.UserName </td>
-                   
-                   
-                </tr>
-
-
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            body {
+                background-image: url('../../img/black.jpg');
+                background-size: cover;
             }
-        </table>
-    </div>
-</body>
+
+
+            .header {
+                padding: 30px;
+                text-align: center;
+                color: #5a3a11;
+                font-size: 40px;
+            }
+
+
+            .content {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr style="color:sandybrown">
+                        <th>Project ID</th>
+                        <th>Project Name</th>
+                        <th>User Name </th>
+                        <th>  </th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Project B in Model.project)
+                    {
+                    <tr style="color:white">
+                        <td> @B.Id </td>
+                        <td>| @B.ProjectName</td>
+                        <td>| @B.UserName </td>
+                        <td>|@Html.ActionLink("Open","Project","Project") </td>
+                    </tr>
+
+                        }
+</tbody>
+            </table>
+        </div>
+    </body>
 </html>
 
 

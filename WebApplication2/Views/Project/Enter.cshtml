@@ -6,12 +6,12 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
-            background-image: url('../../img/sky.jpg'); /* The image used */
+            background-image: url('../../img/5555.jpg'); /* The image used */
             background-color: #cccccc; /* Used if the image is unavailable */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
@@ -21,9 +21,7 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+   
 
         .input-container {
             display: -ms-flexbox; /* IE10 */
@@ -52,7 +50,7 @@
 
         /* Set a style for the submit buttkjkjkjon */
         .btn {
-            background-color: black;
+            background-color: darkslategrey;
             color: white;
             padding: 15px 20px;
             border: none;
@@ -68,15 +66,20 @@
 </head>
 <body>
     <spam style="color:red"> @TempData["ExistUser"] </spam>
-
+    <br />
+    <br />
+    <br />
+    <br />
     <form action="Submit" style="max-width:500px;margin:auto" method="post">
-        <h2>Enter Your Project Name</h2>
-
+        <h2 style="color:white">Enter Your Project Name</h2>
+        <br />
         <span style="color:red">@ViewBag.result</span>
         <div class="input-container">
             <i class="arrow"></i>
             <input class="input-field" placeholder="Project" name="ProjectName">
         </div>
+        <br />
+        <br />
 
 
 
@@ -84,6 +87,7 @@
     </form>
 </body>
 </html>
+
 
 
 
