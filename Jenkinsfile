@@ -15,10 +15,14 @@ pipeline {
         }
     }
     
+   stage('Clean') {
+        steps {
+        bat "dotnet clean"
+        }
+    }
    stage('Build'){
           steps{
-              //sh "dotnet build "
-               //bat "\"C:/Program Files/dotnet/dotnet.exe\" build \"${workspace}/WebApplication2.sln\""
+               sh "dotnet build "             
                }
     }
     stage('Run Tests'){
