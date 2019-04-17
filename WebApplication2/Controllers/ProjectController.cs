@@ -29,11 +29,20 @@ namespace WebApplication2.Controllers
 
             return View();
         }
+        
         public ActionResult imanagerp()
         {
             ProjectsDal pdal = new ProjectsDal();
             ProjectMv pm = new ProjectMv();
             pm.project = (from x in pdal.projects where (AccountInfo.userName).Equals(x.UserName) select x).ToList<Project>();
+
+            return View(pm);
+        }
+        public ActionResult ProjectMembers()
+        {
+            ProjectMembersDal pdal = new ProjectMembersDal();
+            ProjectMemberVM pm = new ProjectMemberVM();
+            pm.projectMember = (from x in pdal.projectMembers where (AccountInfo.userName).Equals(x.Member) select x).ToList<ProjectMembers>();
 
             return View(pm);
         }
