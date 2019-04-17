@@ -17,7 +17,7 @@ pipeline {
     
    stage('Build'){
           steps{
-               sh "dotnet build "
+              //sh "dotnet build "
                bat "\"C:/Program Files/dotnet/dotnet.exe\" build \"${workspace}/WebApplication2.sln\""
                }
     }
