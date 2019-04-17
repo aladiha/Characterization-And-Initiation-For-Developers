@@ -18,12 +18,12 @@ pipeline {
     
   stage('Build') {
    steps {
-    sh 'dotnet build --configuration Release'
+    sh "dotnet build"
    }
   }
-  stage('Pack') {
+  stage('Unit Tests') {
    steps {
-    sh 'dotnet pack --no-build --output nupkgs'
+    sh 'dotnet test'
    }
   }
 
