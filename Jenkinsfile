@@ -3,6 +3,7 @@ pipeline {
     agent { docker { image 'mcr.microsoft.com/dotnet/core/sdk:2.2-alpine' } }
     environment {HOME = '/tmp'} 
     stages {
+        
     // Get some code from a GitHub repository
     stage('Git') {
       steps{
@@ -15,15 +16,17 @@ pipeline {
         }
     }
     
-   stage('Build'){
-          steps{
-               sh "dotnet build"
-               }
-    }
-    stage('Run Tests'){
-          steps{
-               sh "dotnet test"
-          }
-    }
-}
-}
+  stage('Build') {
+   steps {
+    sh 'dotnet build --configuration Release'
+   }
+  }
+  stage('Pack') {
+   steps {
+    sh 'dotnet pack --no-build --output nupkgs'
+   }
+  }
+
+  }
+ }
+
