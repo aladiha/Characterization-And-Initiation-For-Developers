@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControllersTest.cs" />
+    <Compile Include="ProjectControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControllerTest.cs" />
     <Compile Include="LoginControllerTest.cs" />
