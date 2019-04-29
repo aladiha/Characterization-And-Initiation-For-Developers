@@ -181,8 +181,8 @@ namespace WebApplication2.Controllers
             var rqs = new RequestsDal();
             if (TempData["Value"] == null)
             {
-                var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2, Session["Username"].ToString());
-                ViewBag.reqs = x;
+                 var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2, Session["Username"].ToString());
+                    ViewBag.reqs = x;
             }
             else
             {
