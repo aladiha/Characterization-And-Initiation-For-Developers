@@ -28,5 +28,8 @@ namespace WebApplication2.Models
             get { return HttpContext.Current.Session["userName"] as string; }
             private set { }
         }
+
+
+        // stam for testing
     }
-}
+}   
