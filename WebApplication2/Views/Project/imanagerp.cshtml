@@ -1,11 +1,5 @@
 ﻿@model  WebApplication2.ViewModels.ProjectMv
-
-
 @using WebApplication2.Models
-
-@{
-    Layout = null;
-}
     
     @using WebApplication2.Models;
     @{
@@ -43,8 +37,6 @@
                 padding: 20px;
             }
         </style>
-
-
     </head>
     <body>
         <div class="container">
@@ -54,7 +46,8 @@
                         <th>Project ID</th>
                         <th>Project Name</th>
                         <th>User Name </th>
-          
+                        <th>  </th>
+
 
                     </tr>
                 </thead>
@@ -66,7 +59,8 @@
                         <td> @B.Id </td>
                         <td>| @B.ProjectName</td>
                         <td>| @B.UserName </td>
-                        </tr>
+                        <td>|@Html.ActionLink("Open","Project","Project") </td>
+                    </tr>
 
                         }
 </tbody>

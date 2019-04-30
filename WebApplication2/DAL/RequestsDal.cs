@@ -75,7 +75,7 @@ namespace WebApplication2.DAL
         public List<Request> GetAllMemberShipRequests(string username)
         {
             var reqlist = (from x in requests
-                           where x.request_type.Equals("Join_To_Project") && x.to_user.Equals(username)
+                           where x.request_type.Equals("Join To Project") && x.to_user.Equals(username)
                            select x).ToList<Request>();
             return reqlist;
         }
@@ -128,5 +128,28 @@ namespace WebApplication2.DAL
 
             return pmember.DeleteMember(new ProjectMembers { ProjectId = id, Member = req.from_user });
         }
+
+       public List<Request> GetAllRequestsSentByMe_ToMe_ByStatus(int status,string user)
+        {
+            if (status != 2)
+            {
+                var x = (from y in requests
+                         where y.status == status && (y.from_user.Equals(user) || y.to_user.Equals(user))
+                         select y).ToList<Request>();
+
+                return x;
+            }
+            var k = (from y in requests
+                     where (y.from_user.Equals(user) || y.to_user.Equals(user))
+                     select y).ToList<Request>();
+            return k;
+        }
     }
+
+
+
+
+
+
+
 }

@@ -1,16 +1,19 @@
-﻿@model  WebApplication2.ViewModels.RequestsViewModel
-
+﻿
+@model  WebApplication2.ViewModels.ProjectMemberVM
+@using WebApplication2.Models
 
 @{
-    ViewBag.Title = "View_Recent_Requests";
+    ViewBag.Title = "ProjectMembers";
 }
 
+<h2>ProjectMembers</h2>
 
-<h2 style="color:snow">View Recent Requests</h2>
+
+
+
+<h2 style="color:snow">My Project</h2>
 <br />
 <br />
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,39 +42,38 @@
             padding: 20px;
         }
     </style>
-
-
 </head>
 <body>
     <div class="container">
         <table class="table">
             <thead>
                 <tr style="color:sandybrown">
-                    <th>Sent From</th>
+                    <th>Project ID</th>
                     <th>Project Name</th>
-                    <th>Request Type</th>
-                    <th>Discription</th>
-                    <th>Respond</th>
-                    <th>Respond</th>
+                    <th>User Name </th>
+                    <th>  </th>
+
+
                 </tr>
             </thead>
             <tbody>
 
-                @foreach (var x in Model.ListRequests)
+                @foreach (ProjectMembers B in Model.projectMember)
                 {
                     <tr style="color:white">
-
-                        <td>  @x.from_user </td>
-                        <td>| @x.Projectname</td>
-                        <td>| @x.request_type</td>
-                        <td>| @x.discription</td>
-                        <td>| @Html.ActionLink("Accept", "AcceptRequest", "Project", new { projectname = @x.Projectname, fuser = @x.from_user, type = @x.request_type, tuser = @x.to_user }, null)</td>
-                        <td>| @Html.ActionLink("Reject", "RejectRequest", "Project", new { projectname = @x.Projectname, fuser = @x.from_user, type = @x.request_type, tuser = @x.to_user }, null)</td>
-
+                        <td> @B.Id </td>
+                        <td>| @B.ProjectId</td>
+                        <td>| @B.Member </td>
+                        <td>|@Html.ActionLink("Open", "Project", "Project") </td>
                     </tr>
+
                 }
             </tbody>
         </table>
     </div>
 </body>
 </html>
+
+
+
+

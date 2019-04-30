@@ -19,17 +19,31 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+        public ActionResult Project()
+        {
+            return View();
+        }
 
-        public ActionResult Enter() {
+        public ActionResult Enter()
+        {
 
             return View();
         }
+        
         public ActionResult imanagerp()
         {
             ProjectsDal pdal = new ProjectsDal();
             ProjectMv pm = new ProjectMv();
-             pm.project = (from x in pdal.projects where (AccountInfo.userName).Equals(x.UserName) select x).ToList<Project>();
-           
+            pm.project = (from x in pdal.projects where (AccountInfo.userName).Equals(x.UserName) select x).ToList<Project>();
+
+            return View(pm);
+        }
+        public ActionResult ProjectMembers()
+        {
+            ProjectMembersDal pdal = new ProjectMembersDal();
+            ProjectMemberVM pm = new ProjectMemberVM();
+            pm.projectMember = (from x in pdal.projectMembers where (AccountInfo.userName).Equals(x.Member) select x).ToList<ProjectMembers>();
+
             return View(pm);
         }
 
@@ -37,7 +51,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Submit([ModelBinder(typeof(ProjectBinder))] Project project)
         {
-            
+
             ProjectsDal pdal = new ProjectsDal();
 
             // if exists
@@ -78,14 +92,14 @@ namespace WebApplication2.Controllers
                 var membdal = new ProjectMembersDal();
                 var member = SetMember(Session["Username"].ToString(), Request.Form["To_user"], typee);
 
-                TempData["Error"] = AddRequestsToDb(pdal,membdal,project,member,typee, Request.Form["To_user"], Session["Username"].ToString(), Request.Form["Discription"]);
+                TempData["Error"] = AddRequestsToDb(pdal, membdal, project, member, typee, Request.Form["To_user"], Session["Username"].ToString(), Request.Form["Discription"]);
 
                 if (TempData["Error"].Equals(""))
                 {
                     TempData["Done"] = "Your request has been sent successfuly.";
                     return View("Requests"); // Added Seccefuly
                 }
-                    return View("New_Request");   // Faild to add
+                return View("New_Request");   // Faild to add
             }
             else         // if project does not exist then 
             {
@@ -95,7 +109,7 @@ namespace WebApplication2.Controllers
         }
 
 
-        private string AddRequestsToDb(ProjectsDal pdal,ProjectMembersDal membdal,Project project,string member,string typee,string touser,string fromsuer,string discrip)
+        private string AddRequestsToDb(ProjectsDal pdal, ProjectMembersDal membdal, Project project, string member, string typee, string touser, string fromsuer, string discrip)
         {
             if (!typee.Equals("Leave Project"))
             {
@@ -126,8 +140,8 @@ namespace WebApplication2.Controllers
                     if (reqDal.AddRequest(req) == true)        // addes sucssefuly
                         return "";
 
-                    
-                        return "You sent request to Leave a Project!!";
+
+                    return "You sent request to Leave a Project!!";
                 }
                 else
                     return "You are not a member in this project";
@@ -135,7 +149,7 @@ namespace WebApplication2.Controllers
             }
         }
 
-        private Project SetProjectByType(string user1,string user2,string projectname,string type)
+        private Project SetProjectByType(string user1, string user2, string projectname, string type)
         {
             Project project;
 
@@ -147,7 +161,7 @@ namespace WebApplication2.Controllers
             return project;
         }
 
-        private string SetMember(string user1, string user2,string type)
+        private string SetMember(string user1, string user2, string type)
         {
             if (type.Equals("Add Member"))
                 return user2;
@@ -167,23 +181,59 @@ namespace WebApplication2.Controllers
         {
             RequestsDal pdal = new RequestsDal();
             var pm = new RequestsViewModel();
-            pm.ListRequests=pdal.GetAllRequestsSentToMe(Session["Username"].ToString());
+            pm.ListRequests = pdal.GetAllRequestsSentToMe(Session["Username"].ToString());
 
             return View(pm);
         }
 
         public ActionResult View_Requests()
         {
+            var rqs = new RequestsDal();
+            if (TempData["Value"] == null)
+            {
+                 var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2, Session["Username"].ToString());
+                    ViewBag.reqs = x;
+            }
+            else
+            {
+                if (TempData["Value"].ToString().Equals("0"))
+                {
+                    var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(2, Session["Username"].ToString());
+                    ViewBag.reqs = x;
+                }
+                else if (TempData["Value"].ToString().Equals("2"))
+                {
+                    var x = rqs.GetAllMemberShipRequests(Session["Username"].ToString());
+                    ViewBag.reqs = x;
+
+                }
+                else
+                {
+
+                    int xx = int.Parse(TempData["Value"].ToString());
+                    var x = rqs.GetAllRequestsSentByMe_ToMe_ByStatus(xx, Session["Username"].ToString());
+                    ViewBag.reqs = x;
+                }
+            }
             return View();
         }
 
-        public ActionResult AcceptRequest() {
+        public ActionResult MangaeRequests()
+        {
+            string s = Request.QueryString.Get("Status");
+
+            TempData["Value"] = s;
+            return RedirectToAction("View_Requests");
+        }
+
+        public ActionResult AcceptRequest()
+        {
             string tuser = Request.QueryString.Get("tuser");
             string fuser = Request.QueryString.Get("fuser");
             string pn = Request.QueryString.Get("projectname");
             string type = Request.QueryString.Get("type");
             var dl = new RequestsDal();
-            dl.RespondRequest(fuser,tuser,type,pn,1);
+            dl.RespondRequest(fuser, tuser, type, pn, 1);
             // viewbag.re=memb;
 
             return RedirectToAction("View_Recent_Requests");
@@ -202,27 +252,34 @@ namespace WebApplication2.Controllers
 
         }
 
-        private Request SetRequest(string Touser,string Fromuser,string Discription,string Projectname,string type)
+        private Request SetRequest(string Touser, string Fromuser, string Discription, string Projectname, string type)
         {
-            var newRequest = new Request {
+            var newRequest = new Request
+            {
                 discription = Discription,
-                from_user =Fromuser,
-                Projectname =Projectname,
-                status =0,
-                to_user =Touser,
-                request_type =type}
+                from_user = Fromuser,
+                Projectname = Projectname,
+                status = 0,
+                to_user = Touser,
+                request_type = type
+            }
             ;
-            
+
             return newRequest;
         }
 
-        private Project SetProject(string user,string projname)
+        private Project SetProject(string user, string projname)
         {
-            var p = new Project{ProjectName=projname,UserName=user };
+            var p = new Project { ProjectName = projname, UserName = user };
             return p;
         }
 
-        
-      
+
+
     }
+
+
+
+
+
 }
