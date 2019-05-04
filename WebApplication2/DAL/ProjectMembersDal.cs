@@ -10,7 +10,7 @@ namespace WebApplication2.DAL
     public class ProjectMembersDal : DbContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        {//aaa
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ProjectMembers>().ToTable("ProjectMembers");
         }
