@@ -9,6 +9,6 @@ namespace WebApplication2.Models
     {
         public int Id { get; set; }
         public int ProjectId { get; set; }
-        public string Member { get; set; }
+        public string Member { get; set; }//ijj
     }
 }
