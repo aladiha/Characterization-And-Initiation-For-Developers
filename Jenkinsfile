@@ -18,6 +18,7 @@ pipeline {
     
   stage('Build') {
    steps {
+    Copy-Item "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0\WebApplications" "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v15.0\WebApplications" -Recurse -Force
     sh "dotnet build"
    }
   }
