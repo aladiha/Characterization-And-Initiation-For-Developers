@@ -137,6 +137,7 @@
     <ProjectReference Include="..\WebApplication2\WebApplication2.csproj">
       <Project>{7dce81b0-92c2-4c9f-af3c-a659437e6bdf}</Project>
       <Name>WebApplication2</Name>
+      <Properties>SkipValidatePackageReferences=true</Properties>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
