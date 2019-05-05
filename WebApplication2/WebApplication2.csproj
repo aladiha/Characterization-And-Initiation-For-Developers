@@ -210,6 +210,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MangeProjectController.cs" />
     <Compile Include="Controllers\NotifyController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -421,6 +422,8 @@
     <Content Include="Views\Project\New_Request.cshtml" />
     <Content Include="Views\Project\AcceptRequest.cshtml" />
     <Content Include="Views\Project\ProjectMembers.cshtml" />
+    <Content Include="Views\MangeProject\StartCreating.cshtml" />
+    <Content Include="Views\MangeProject\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
