@@ -9,72 +9,122 @@
 <html>
 <head>
     <style>
-        input[type=text] {
-            width: 2000px;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-            border: 2px solid red;
+        input[type=text], select, textarea {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
             border-radius: 4px;
+            resize: vertical;
         }
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            width: 100%
+        }
+        .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+        }
+
+        .col-75 {
+            float: left;
+            width: 100%;
+            margin-top: 6px;
+            
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+            input[type=submit]:hover {
+                background-color: #45a049;
+            }
+
+
     </style>
 </head>
 <body>
 
     <p>Text fields with borders:</p>
 
-    <form>
-        <br />
-        <label for="fname">req 1</label>
-        <br />
-        <input type="text" id="r1" name="r1">
-        <br />
+    <div class="container" style="width:2000px">
+        <form action="/action_page.php" style="width:100%">
+            <div>
+                <label for="fname">req 1</label>
+            </div>
+    <div class="col-75">
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />        <br />        <br />        <br />
+    <div>
         <label for="lname">req 2</label>
-        <br />
+    </div>
 
-        <input type="text" id="r2" name="r2">
-        <br />
+    <input type="text" id="r2" name="r2">
+    <br />
 
 
-        <label for="fname">req 3</label>
-        <br />
+    <label for="fname">req 3</label>
+    <br />
 
-        <input type="text" id="r3" name="r3">
-        <br />
+    <input type="text" id="r3" name="r3">
+    <br />
 
-        <label for="lname">req 4</label>
-        <br />
+    <label for="lname">req 4</label>
+    <br />
 
-        <input type="text" id="r4" name="r4">
+    <input type="text" id="r4" name="r4">
 
-        <br />
-        <label for="fname">req 5</label>
+    <br />
+    <label for="fname">req 5</label>
 
-        <br />
-        <input type="text" id="r5" name="r5">
-        <br />
-        <label for="lname">req 6</label>
-        <br />
-        <input type="text" id="r6" name="r6">
-        <br />
-        <label for="fname">req 7</label>
-        <br />
-        <input type="text" id="r7" name="r7">
-        <br />
-        <label for="lname">req 8</label>
-        <br />
-        <input type="text" id="r8" name="r8">
-        <br />
-        <label for="fname">req 9</label>
-        <br />
-        <input type="text" id="r9" name="r9">
-        <br />
-        <label for="lname">req 10</label>
-        <br />
-        <input type="text" id="r10" name="r10">
-        <br />
-        <button type="submit" class="btn">Submit</button>
+    <br />
+    <input type="text" id="r5" name="r5">
+    <br />
+    <label for="lname">req 6</label>
+    <br />
+    <input type="text" id="r6" name="r6">
+    <br />
+    <label for="fname">req 7</label>
+    <br />
+    <input type="text" id="r7" name="r7">
+    <br />
+    <label for="lname">req 8</label>
+    <br />
+    <input type="text" id="r8" name="r8">
+    <br />
+    <label for="fname">req 9</label>
+    <br />
+    <input type="text" id="r9" name="r9">
+    <br />
+    <label for="lname">req 10</label>
+    <br />
+    <input type="text" id="r10" name="r10">
+    <br />
+    <button type="submit" class="btn">Submit</button>
     </form>
+    </div>
 
 </body>
 </html>
