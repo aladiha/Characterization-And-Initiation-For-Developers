@@ -1,0 +1,68 @@
+﻿@using WebApplication2.Models
+@{
+    ViewBag.Title = "EditPermistions";
+}
+
+
+
+<h2 style="color:snow">Edit Permistions</h2>
+<br />
+<br />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-image: url('../../img/black.jpg');
+            background-size: cover;
+        }
+
+
+        .header {
+            padding: 30px;
+            text-align: center;
+            color: #5a3a11;
+            font-size: 40px;
+        }
+
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr style="color:sandybrown">
+                    <th>Member name</th>
+                    <th>Premission</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (ProjectMembers B in ViewBag.membPerm)
+                {
+                    <tr style="color:white">
+                        <td> @B.Member</td>
+               
+                
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

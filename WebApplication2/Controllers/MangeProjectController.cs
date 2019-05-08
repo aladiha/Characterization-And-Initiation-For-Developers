@@ -19,6 +19,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+       
 
         public ActionResult CheckRadio(FormCollection frm)
         {
@@ -28,6 +29,20 @@ namespace WebApplication2.Controllers
                 Console.WriteLine("{0}",choises[i - 1]);
             }
           
+            return View();
+        }
+        public ActionResult EditPermistions()
+        {
+            string projectid = Request.QueryString.Get("projectid");
+
+            return View();
+        }
+
+        public ActionResult DeleteProject()
+        {
+            string projectname = Request.QueryString.Get("Pname");
+            string Username = Request.QueryString.Get("Mname");
+
             return View();
         }
     }
