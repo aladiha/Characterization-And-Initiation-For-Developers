@@ -7,7 +7,7 @@ using WebApplication2.DAL;
 using WebApplication2.ModelBinders;
 using WebApplication2.Models;
 using WebApplication2.ViewModels;
-//delete project
+//delete  MY project
 namespace WebApplication2.Controllers
 {
     public class ProjectController : Controller
