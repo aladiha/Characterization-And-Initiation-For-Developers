@@ -165,6 +165,10 @@ namespace WebApplication2.Controllers
         {
             if (type.Equals("Add Member"))
 
+
+
+
+
                 return user2;
             else
                 return user1;
