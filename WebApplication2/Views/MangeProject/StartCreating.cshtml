@@ -3,128 +3,566 @@
     ViewBag.Title = "StratCreating";
 }
 
-<h2>StratCreating</h2>
+<h1 style="text-align:center">Strat Creating</h1>  
+
+                        
 
 <!DOCTYPE html>
 <html>
 <head>
     <style>
-        input[type=text], select, textarea {
-            display: inline-block;
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
+        h2{
+            font-family: "Raleway", sans-serif;
+                text-align:center;
         }
-        input[type=button], input[type=submit], input[type=reset] {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 16px 32px;
-            text-decoration: none;
-            margin: 4px 2px;
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 0.5px;
+        } 
+
+        body {
+            background-image: url("../img/bw.png"); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
+        /* The container */
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
             cursor: pointer;
-            width: 100%
-        }
-        .col-25, .col-75, input[type=submit] {
-            width: 100%;
-            margin-top: 0;
-        }
-
-        .col-75 {
-            float: left;
-            width: 100%;
-            margin-top: 6px;
-            
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
-        input[type=submit] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            float: right;
-        }
-
-            input[type=submit]:hover {
-                background-color: #45a049;
+            /* Hide the browser's default radio button */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
             }
 
+        /* Create a custom radio button */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
 
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
     </style>
 </head>
 <body>
+    <h2>Select "No" for every section you dont need to include in you'r project.</h2>
+    <form action="Submit" method="post">
+        <br />
+        <h1> הקשר ארגוני \ עסקי</h1>
+        <h3>יעדי הארגון, אסטרטגיה</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g1">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g1">
+            <span class="checkmark"></span>
+        </label>
 
-    <p>Text fields with borders:</p>
+        <h3>תרשים ומבנה ארגוני</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g2">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g2">
+            <span class="checkmark"></span>
+        </label>
+        <h3>תרשים ומבנה ארגוני</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g3">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g3">
+            <span class="checkmark"></span>
+        </label>
 
-    <div class="container" style="width:2000px">
-        <form action="/action_page.php" style="width:100%">
-            <div>
-                <label for="fname">req 1</label>
-            </div>
-    <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />        <br />        <br />        <br />
-    <div>
-        <label for="lname">req 2</label>
-    </div>
+        <br /> <hr />
+        <h1> תכנית עבודה שנתית</h1>
+        <h3>אישור (סימוכין) תקציבי / עסקי // האם הפרויקט עסקי</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g4">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g4">
+            <span class="checkmark"></span>
+        </label>
 
-    <input type="text" id="r2" name="r2">
-    <br />
+        <h3>תלות במערכות אחרות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g5">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g5">
+            <span class="checkmark"></span>
+        </label>
 
 
-    <label for="fname">req 3</label>
-    <br />
+        <br /> <hr />
+        <h1> ישימות ועלות/תועלת</h1>
+        <h3>סיכונים - ישימות הפרויקט // האם הפרויקט עסקי</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g6">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g6">
+            <span class="checkmark"></span>
+        </label>
 
-    <input type="text" id="r3" name="r3">
-    <br />
+        <h3>עלות/תועלת – ישימות עסקית</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g7">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g7">
+            <span class="checkmark"></span>
+        </label>
 
-    <label for="lname">req 4</label>
-    <br />
 
-    <input type="text" id="r4" name="r4">
+        <br /> <hr />
+        <h1> אופק הזמן</h1>
+        <h3>תוצרים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g8">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g8">
+            <span class="checkmark"></span>
+        </label>
 
-    <br />
-    <label for="fname">req 5</label>
+        <h3>מועד נטישה</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g9">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g9">
+            <span class="checkmark"></span>
+        </label>
 
-    <br />
-    <input type="text" id="r5" name="r5">
-    <br />
-    <label for="lname">req 6</label>
-    <br />
-    <input type="text" id="r6" name="r6">
-    <br />
-    <label for="fname">req 7</label>
-    <br />
-    <input type="text" id="r7" name="r7">
-    <br />
-    <label for="lname">req 8</label>
-    <br />
-    <input type="text" id="r8" name="r8">
-    <br />
-    <label for="fname">req 9</label>
-    <br />
-    <input type="text" id="r9" name="r9">
-    <br />
-    <label for="lname">req 10</label>
-    <br />
-    <input type="text" id="r10" name="r10">
-    <br />
-    <button type="submit" class="btn">Submit</button>
+        <h3>משך חיי המערכת</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g10">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g10">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>(שגרות (אובייקטים משותפים</h1>
+        <h3>שגרות מקומיות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g11">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g11">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>שגרות ארגון</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g12">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g12">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>שגרות צד שלישי</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g13">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g13">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>טבלאות קודים</h1>
+        <h3>טבלאות מקומיות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g14">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g14">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>טבלאות ארגון</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g15">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g15">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>טבלאות חיצוניות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g16">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g16">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>קבצים לוגיים</h1>
+        <h3>כללי – מודל הנתונים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g17">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g17">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>קבצים לוגיים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g18">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g18">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>(מילון פריטי-מידע (שדות</h1>
+        <h3>שדות מקומיים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g19">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g19">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>שדות ארגוניים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g20">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g20">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>שדות גלובליים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g21">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g21">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>דו"חות </h1>
+        <h3>קבוצת דו"חות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g22">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g22">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>הצלבות וחיתוכים</h1>
+        <h3>הצלבות וחיתוכים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g23">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g23">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>נפחים עומסים וביצועים </h1>
+        <h3>נפחים עומסים וביצועים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g24">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g24">
+            <span class="checkmark"></span>
+        </label>
+
+        <br /> <hr />
+        <h1>ממשקים וקישורים </h1>
+        <h3>אינדקס ורשימה כללית</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g25">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g25">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>ממשקים</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g26">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g26">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>דרישות</h1>
+        <h3>דרישות מיוחדות </h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g27">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g27">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>(נקודות פתוחות (וחלופות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g28">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g28">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>דרישות עתידיות</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g29">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g29">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>ציוד</h1>
+        <h3>ציוד קצה  </h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g30">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g30">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>ציוד מיוחד</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g31">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g31">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>ציוד מתכלה </h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g32">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g32">
+            <span class="checkmark"></span>
+        </label>
+
+
+        <br /> <hr />
+        <h1>תשתית סביבתית</h1>
+        <h3>אתר ראשי  </h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g33">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g33">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>אתר גיבוי</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g34">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g34">
+            <span class="checkmark"></span>
+        </label>
+
+        <h3>דרישות בטיחות (SAFETY)</h3>
+        <label class="container">
+            Yes
+            <input type="radio" checked="checked" name="g35">
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">
+            No
+            <input type="radio" name="g35">
+            <span class="checkmark"></span>
+        </label>
+        <br />
+        <button class="w3-button w3-block w3-teal" style="width:50% ; background-color:black ; color:white " type="submit">Confirm</button>
     </form>
-    </div>
 
 </body>
 </html>
