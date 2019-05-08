@@ -31,7 +31,7 @@ namespace WebApplication2.Controllers
         }
         
         public ActionResult imanagerp()
-        {
+        {//i can view all  my project 
             ProjectsDal pdal = new ProjectsDal();
             ProjectMv pm = new ProjectMv();
             pm.project = (from x in pdal.projects where (AccountInfo.userName).Equals(x.UserName) select x).ToList<Project>();
