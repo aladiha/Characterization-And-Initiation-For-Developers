@@ -164,6 +164,7 @@ namespace WebApplication2.Controllers
         private string SetMember(string user1, string user2, string type)
         {
             if (type.Equals("Add Member"))
+
                 return user2;
             else
                 return user1;
