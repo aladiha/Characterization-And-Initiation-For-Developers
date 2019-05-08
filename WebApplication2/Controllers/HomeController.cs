@@ -12,7 +12,7 @@ namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index()//start
         {
             return View();
         }
