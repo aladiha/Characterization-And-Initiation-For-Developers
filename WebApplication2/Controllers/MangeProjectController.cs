@@ -18,5 +18,17 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
+
+        public ActionResult CheckRadio(FormCollection frm)
+        {
+            String[] choises = new string[35];
+            for (int i = 1; i < 36; i++) {
+                choises[i-1] = frm["g"+i.ToString()].ToString();
+                Console.WriteLine("{0}",choises[i - 1]);
+            }
+          
+            return View();
+        }
     }
 }

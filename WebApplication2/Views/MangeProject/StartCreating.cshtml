@@ -98,42 +98,44 @@
     </style>
 </head>
 <body>
+
     <h2>Select "No" for every section you dont need to include in you'r project.</h2>
-    <form action="Submit" method="post">
+    @using (Html.BeginForm("CheckRadio", "mangeProject", FormMethod.Post))
+    {
         <br />
         <h1> הקשר ארגוני \ עסקי</h1>
         <h3>יעדי הארגון, אסטרטגיה</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g1">
+            <input type="radio" checked="checked" name="g1" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g1">
+            <input type="radio" name="g1" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>תרשים ומבנה ארגוני</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g2">
+            <input type="radio" checked="checked" name="g2" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g2">
+            <input type="radio" name="g2" value="No">
             <span class="checkmark"></span>
         </label>
         <h3>תרשים ומבנה ארגוני</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g3">
+            <input type="radio" checked="checked" name="g3" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g3">
+            <input type="radio" name="g3" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -142,24 +144,24 @@
         <h3>אישור (סימוכין) תקציבי / עסקי // האם הפרויקט עסקי</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g4">
+            <input type="radio" checked="checked" name="g4" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g4">
+            <input type="radio" name="g4" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>תלות במערכות אחרות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g5">
+            <input type="radio" checked="checked" name="g5" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g5">
+            <input type="radio" name="g5" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -169,24 +171,24 @@
         <h3>סיכונים - ישימות הפרויקט // האם הפרויקט עסקי</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g6">
+            <input type="radio" checked="checked" name="g6" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g6">
+            <input type="radio" name="g6" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>עלות/תועלת – ישימות עסקית</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g7">
+            <input type="radio" checked="checked" name="g7" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g7">
+            <input type="radio" name="g7" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -196,36 +198,36 @@
         <h3>תוצרים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g8">
+            <input type="radio" checked="checked" name="g8" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g8">
+            <input type="radio" name="g8" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>מועד נטישה</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g9">
+            <input type="radio" checked="checked" name="g9" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g9">
+            <input type="radio" name="g9" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>משך חיי המערכת</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g10">
+            <input type="radio" checked="checked" name="g10" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g10">
+            <input type="radio" name="g10" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -235,36 +237,36 @@
         <h3>שגרות מקומיות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g11">
+            <input type="radio" checked="checked" name="g11" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g11">
+            <input type="radio" name="g11" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>שגרות ארגון</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g12">
+            <input type="radio" checked="checked" name="g12" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g12">
+            <input type="radio" name="g12" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>שגרות צד שלישי</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g13">
+            <input type="radio" checked="checked" name="g13" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g13">
+            <input type="radio" name="g13" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -274,36 +276,36 @@
         <h3>טבלאות מקומיות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g14">
+            <input type="radio" checked="checked" name="g14" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g14">
+            <input type="radio" name="g14" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>טבלאות ארגון</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g15">
+            <input type="radio" checked="checked" name="g15" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g15">
+            <input type="radio" name="g15" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>טבלאות חיצוניות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g16">
+            <input type="radio" checked="checked" name="g16" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g16">
+            <input type="radio" name="g16" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -313,24 +315,24 @@
         <h3>כללי – מודל הנתונים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g17">
+            <input type="radio" checked="checked" name="g17" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g17">
+            <input type="radio" name="g17" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>קבצים לוגיים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g18">
+            <input type="radio" checked="checked" name="g18" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g18">
+            <input type="radio" name="g18" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -340,36 +342,36 @@
         <h3>שדות מקומיים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g19">
+            <input type="radio" checked="checked" name="g19" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g19">
+            <input type="radio" name="g19" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>שדות ארגוניים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g20">
+            <input type="radio" checked="checked" name="g20" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g20">
+            <input type="radio" name="g20" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>שדות גלובליים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g21">
+            <input type="radio" checked="checked" name="g21" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g21">
+            <input type="radio" name="g21" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -379,12 +381,12 @@
         <h3>קבוצת דו"חות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g22">
+            <input type="radio" checked="checked" name="g22" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g22">
+            <input type="radio" name="g22" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -394,12 +396,12 @@
         <h3>הצלבות וחיתוכים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g23">
+            <input type="radio" checked="checked" name="g23" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g23">
+            <input type="radio" name="g23" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -409,12 +411,12 @@
         <h3>נפחים עומסים וביצועים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g24">
+            <input type="radio" checked="checked" name="g24" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g24">
+            <input type="radio" name="g24" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -423,24 +425,24 @@
         <h3>אינדקס ורשימה כללית</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g25">
+            <input type="radio" checked="checked" name="g25" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g25">
+            <input type="radio" name="g25" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>ממשקים</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g26">
+            <input type="radio" checked="checked" name="g26" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g26">
+            <input type="radio" name="g26" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -450,36 +452,36 @@
         <h3>דרישות מיוחדות </h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g27">
+            <input type="radio" checked="checked" name="g27" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g27">
+            <input type="radio" name="g27" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>(נקודות פתוחות (וחלופות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g28">
+            <input type="radio" checked="checked" name="g28" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g28">
+            <input type="radio" name="g28" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>דרישות עתידיות</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g29">
+            <input type="radio" checked="checked" name="g29" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g29">
+            <input type="radio" name="g29" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -489,36 +491,36 @@
         <h3>ציוד קצה  </h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g30">
+            <input type="radio" checked="checked" name="g30" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g30">
+            <input type="radio" name="g30" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>ציוד מיוחד</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g31">
+            <input type="radio" checked="checked" name="g31" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g31">
+            <input type="radio" name="g31" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>ציוד מתכלה </h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g32">
+            <input type="radio" checked="checked" name="g32" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g32">
+            <input type="radio" name="g32" value="No">
             <span class="checkmark"></span>
         </label>
 
@@ -528,41 +530,42 @@
         <h3>אתר ראשי  </h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g33">
+            <input type="radio" checked="checked" name="g33" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g33">
+            <input type="radio" name="g33" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>אתר גיבוי</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g34">
+            <input type="radio" checked="checked" name="g34" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g34">
+            <input type="radio" name="g34" value="No">
             <span class="checkmark"></span>
         </label>
 
         <h3>דרישות בטיחות (SAFETY)</h3>
         <label class="container">
             Yes
-            <input type="radio" checked="checked" name="g35">
+            <input type="radio" checked="checked" name="g35" value="Yes">
             <span class="checkmark"></span>
         </label>
         <label class="container">
             No
-            <input type="radio" name="g35">
+            <input type="radio" name="g35" value="No">
             <span class="checkmark"></span>
         </label>
         <br />
         <button class="w3-button w3-block w3-teal" style="width:50% ; background-color:black ; color:white " type="submit">Confirm</button>
-    </form>
+      }
+        
 
 </body>
 </html>
