@@ -61,17 +61,18 @@ namespace WebApplication2.Controllers
 
         public ActionResult UpdatePermissions(FormCollection frm)
         {
-            var membdal = new ProjectMembersDal();
+            var membdal = new PrivateProjectsDal();
             
             int size = int.Parse(TempData["Count"].ToString());
             string[] s = new string[size];
 
             for (int i = 0; i < size; i++)
             {
-                s[i] = frm[i].ToString();
+                s[i] = frm[(i+1).ToString()].ToString();
             }
-          //  membdal.Update
-                return View();
+            membdal.UpdatedPermissions(s, int.Parse(TempData["projectId"].ToString()));
+
+            return View();
         }
 
         public ActionResult DeleteProject()

@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-    @using (Html.BeginForm("UpdatePermissions", "mangeProject", FormMethod.Post))
+    @using (Html.BeginForm("UpdatePermissions", "MangeProject", FormMethod.Post))
     {
         <div class="container">
 
@@ -66,30 +66,30 @@
                         <td> @B.User</td>
                         <td>
                             
-                            <form>
+                           @* <form>*@
                                 @{ if (B.IsPrivate == false)
                                     {
                                         <label class="radio-inline">
-                                            <input type="radio" style="color:white" name=@i.ToString() checked>On
+                                            <input type="radio" style="color:white" name=@i.ToString() value="On" checked>On
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" style="color:white" name=@i.ToString()>Off
+                                            <input type="radio" style="color:white" name=@i.ToString() value="Off">Off
                                         </label>
                                     }
                                     else
                                     {
                                         <label class="radio-inline">
-                                            <input type="radio" style="color:white" name=@i.ToString() >On
+                                            <input type="radio" style="color:white" name=@i.ToString() value="On">On
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" style="color:white" name=@i.ToString() checked >Off
+                                            <input type="radio" style="color:white" name=@i.ToString() checked value="Off">Off
                                         </label>
                                     }
 
 
                                 }
 
-                            </form>
+                            @*</form>*@
 
                         </td>
                         <td></td>

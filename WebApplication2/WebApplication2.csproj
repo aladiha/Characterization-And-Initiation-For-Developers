@@ -451,6 +451,7 @@
     <Content Include="Views\MangeProject\CheckRadio.cshtml" />
     <Content Include="Views\MangeProject\EditPermistions.cshtml" />
     <Content Include="Views\MangeProject\DeleteProject.cshtml" />
+    <Content Include="Views\MangeProject\UpdatePermissions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
