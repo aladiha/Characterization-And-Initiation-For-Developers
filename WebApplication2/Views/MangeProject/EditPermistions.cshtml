@@ -38,31 +38,74 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <table class="table">
-            <thead>
-                <tr style="color:sandybrown">
-                    <th>Member name</th>
-                    <th>Premission</th>
-                    
+    @using (Html.BeginForm("UpdatePermissions", "mangeProject", FormMethod.Post))
+    {
+        <div class="container">
 
-                </tr>
-            </thead>
-            <tbody>
+            <br />
 
-                @foreach (ProjectMembers B in ViewBag.membPerm)
-                {
-                    <tr style="color:white">
-                        <td> @B.Member</td>
-               
-                
+            <table class="table">
+                <thead>
+                    <tr style="color:sandybrown">
+                        <th>Member name</th>
+                        <th>Premission</th>
+                        <th></th>
+
+                        <th></th>
 
                     </tr>
+                </thead>
+                <tbody>
+                    @{ 
+                        int i = 1;
+                    }
+                    @foreach (PrivateProjects B in ViewBag.membs)
+                    {
+                        
+                    <tr style="color:white">
+                        <td> @B.User</td>
+                        <td>
+                            
+                            <form>
+                                @{ if (B.IsPrivate == false)
+                                    {
+                                        <label class="radio-inline">
+                                            <input type="radio" style="color:white" name=@i.ToString() checked>On
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" style="color:white" name=@i.ToString()>Off
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <label class="radio-inline">
+                                            <input type="radio" style="color:white" name=@i.ToString() >On
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" style="color:white" name=@i.ToString() checked >Off
+                                        </label>
+                                    }
 
-                }
-            </tbody>
-        </table>
-    </div>
+
+                                }
+
+                            </form>
+
+                        </td>
+                        <td></td>
+
+                        <td></td>
+                    </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
+        <button  style="background-color:black ; color:white " type="submit">Confirm</button>
+    }
+
 </body>
 </html>
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication2.DAL;
+using WebApplication2.Models;
 using Aspose.Words;
 
 
@@ -44,9 +46,28 @@ namespace WebApplication2.Controllers
 
         public ActionResult EditPermistions()
         {
+            var membdal = new PrivateProjectsDal();
             string projectid = Request.QueryString.Get("projectid");
 
+            ViewBag.membs = membdal.GetMemberByProjectId(int.Parse(projectid));
+            TempData["Count"] = (ViewBag.membs).Count;
+            TempData["projectId"] = projectid;
             return View();
+        }
+
+        public ActionResult UpdatePermissions(FormCollection frm)
+        {
+            var membdal = new ProjectMembersDal();
+            
+            int size = int.Parse(TempData["Count"].ToString());
+            string[] s = new string[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                s[i] = frm[i].ToString();
+            }
+          //  membdal.Update
+                return View();
         }
 
 
