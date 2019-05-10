@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+}
+@Html.ActionLink("back to homepage", "Index", "Login")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            padding: 10px;
+            background: black;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+            .input-field:focus {
+                border: 2px solid black;
+            }
+
+        /* Set a style for the submit buttkjkjkjon */
+        .btn {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+
+<br />
+<span style="color:red">@ViewBag.result</span>
+<br />
+<body>
+    <div align="center">
+
+
+        <form action="Delete_Project" style="max-width:500px;margin:auto" method="post">
+            Enter your password to complete deleting your Project:
+            <br /> <br />
+            <div align="center">
+                <form method="post" action="Delete_Project">
+                    <div class="form-group">
+                        <label for="txt" style="color:white">ProjectName:</label>
+                        <input type="text" class="input-field" id="text" placeholder="Enter Projectname " name="Projectname">
+                    </div>
+                    <div class="input-container">
+                        <input class="input-field" id="Text1" type="text" placeholder="Enter password" name="VarifiyPassword" /> <span style="color:red"> @TempData["CheckPass"] </span>
+                    </div>
+                    @*@ <buton id="Submit1" class="btn" type="submit" /> Delete Project </buton>*@
+                    <button type="submit" class="btn btn-danger">Delete Project</button>
+                    <br /><br />
+                    <br />
+                    <br />
+                </form>
+                <img src="../img/menm.png" alt="Italian Trulli">
+            </div>
+
+
+</body>
+</html>

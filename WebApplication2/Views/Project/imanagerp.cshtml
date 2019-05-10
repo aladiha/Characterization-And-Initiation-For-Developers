@@ -48,7 +48,7 @@
                         <th>User Name </th>
                         <th>Edit Permissions</th>
                         <th>Project Files</th>
-                        <th>Delete Project</th>>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -61,7 +61,8 @@
                         <td>|@B.UserName </td>
                         <td>|@Html.ActionLink("Edit", "EditPermistions", "MangeProject", new { projectid = B.Id }, null) </td>
                         <td>|@Html.ActionLink("Open", "StartCreating", "MangeProject") </td>
-                        <td>|@Html.ActionLink("Delete", "DeleteProject", "MangeProject", new { Pname= B.ProjectName, Mname=B.UserName}, null) </td>
+                       
+
 
 
                     </tr>

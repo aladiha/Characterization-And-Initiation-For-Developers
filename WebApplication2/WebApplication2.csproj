@@ -445,6 +445,7 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\MangeProject\CheckRadio.cshtml" />
     <Content Include="Views\MangeProject\EditPermistions.cshtml" />
+    <Content Include="Views\Project\DeleteProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
