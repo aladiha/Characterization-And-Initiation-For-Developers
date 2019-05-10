@@ -70,15 +70,15 @@ namespace WebApplication2.Controllers
 
             return View();
         }
-
-
-        public ActionResult DeleteProject()
-        {
-            string projectname = Request.QueryString.Get("Pname");
-            string Username = Request.QueryString.Get("Mname");
-
+        }
     }
-}
+
+
+
+
+       
+
+   
 
 
 
