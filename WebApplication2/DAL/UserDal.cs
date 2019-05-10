@@ -27,6 +27,7 @@ namespace WebApplication2.DAL
             return us;
         }
 
+
         public bool DeleteUser(string id)
         {
             List<User> us=GetUserByUserName(id);

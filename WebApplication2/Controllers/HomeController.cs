@@ -42,9 +42,6 @@ namespace WebApplication2.Controllers
             ContactDal cdal = new ContactDal();
             cdal.contacts.Add(newContact);
             cdal.SaveChanges();
-            
-
-
             return View("Thanks");
         }
 

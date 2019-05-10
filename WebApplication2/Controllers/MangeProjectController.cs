@@ -27,18 +27,85 @@ namespace WebApplication2.Controllers
 
         public ActionResult CheckRadio(FormCollection frm)
         {
-            String[] choises = new string[35];
+            String[] choises = new String[35];
+
             for (int i = 1; i < 36; i++) {
-                choises[i - 1] = frm["g" + i.ToString()].ToString();
-                Console.WriteLine("{0}", choises[i - 1]);
+                choises[i-1] = frm["g"+i.ToString()].ToString();
             }
-            // Initialize a Document.
+
+            String[] questions = new String[35];
+
+            questions[0] = "יעדי הארגון, אסטרטגיה";
+            questions[1] = "תרשים ומבנה ארגוני";
+            questions[2] = "השלכות או'ש";
+            questions[3] = "אישור (סימוכין) תקציבי / עסקי // האם הפרויקט עסקי.";
+            questions[4] = "תלות במערכות אחרות";
+            questions[5] = "סיכונים - ישימות הפרויקט  // האם הפרויקט עסקי";
+            questions[6] = "עלות/תועלת – ישימות עסקית";
+            questions[7] = "תוצרים";
+            questions[8] = "מועד נטישה"; 
+            questions[9] = "משך חיי המערכת";
+            questions[10] = "שגרות מקומיות";
+            questions[11] = "שגרות ארגון";
+            questions[12] = "שגרות צד שלישי";
+            questions[13] = "טבלאות מקומיות";
+            questions[14] = "טבלאות ארגון";
+            questions[15] = "טבלאות חיצוניות";
+            questions[16] = "כללי – מודל הנתונים";
+            questions[17] = "קבצים לוגיים";
+            questions[18] = "שדות מקומיים";
+            questions[19] = "שדות ארגוניים"; 
+            questions[20] = "שדות גלובליים";
+            questions[21] = "קבוצת דחות";
+            questions[22] = "הצלבות וחיתוכים";
+            questions[23] = "נפחים עומסים וביצועים";
+            questions[24] = "אינדקס ורשימה כללית"; 
+            questions[25] = "ממשקים";
+            questions[26] = "דרישות מיוחדות ";
+            questions[27] = " (נקודות פתוחות (וחלופות";
+            questions[28] = "דרישות עתידיות";
+            questions[29] = "ציוד קצה ";
+            questions[30] = "ציוד מיוחד";
+            questions[31] = "ציוד מתכלה ";
+            questions[32] = "אתר ראשי";
+            questions[33] = "אתר גיבוי";
+            questions[34] = " דרישות בטיחות (SAFETY)";
+
+
+            List<String> lastform = new List<String>();
+            for (int i = 0; i < 35; i++) {
+                if (choises[i] == "Yes") {
+                    lastform.Add(questions[i]);
+                }
+            }
+            ViewBag.value = lastform;
+            return View();
+        }
+
+        public ActionResult Submit() {
+
             Document doc = new Document();
-            // Use a document builder to add content to the document.
+
+        
             DocumentBuilder builder = new DocumentBuilder(doc);
-            builder.Writeln("Hello World!");
-            String dataDir = "C:/nehol.docx";
-            // Save the document to disk.
+           
+
+            String dataDir = "C:/file.docx";
+
+            List<String> ques = new List<String>();
+            int i = 1;
+            while (true)
+            {
+                if (Request.Form["q" + i.ToString()] != null)
+                    ques.Add(Request.Form["q" + i.ToString()]);
+                else
+                    break;
+                i++;
+            }
+
+            foreach (String q in ques) {
+                builder.Writeln(q);
+            }
             doc.Save(dataDir);
             return View();
         }
@@ -69,6 +136,7 @@ namespace WebApplication2.Controllers
             membdal.UpdatedPermissions(s, int.Parse(TempData["projectId"].ToString()));
 
             return View();
+
         }
         }
     }

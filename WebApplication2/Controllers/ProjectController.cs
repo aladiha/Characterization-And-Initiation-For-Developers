@@ -165,10 +165,6 @@ namespace WebApplication2.Controllers
         {
             if (type.Equals("Add Member"))
 
-
-
-
-
                 return user2;
             else
                 return user1;
@@ -190,6 +186,7 @@ namespace WebApplication2.Controllers
 
             return View(pm);
         }
+
 
         public ActionResult View_Requests()
         {
@@ -223,6 +220,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+
         public ActionResult MangaeRequests()
         {
             string s = Request.QueryString.Get("Status");
@@ -230,6 +228,7 @@ namespace WebApplication2.Controllers
             TempData["Value"] = s;
             return RedirectToAction("View_Requests");
         }
+
 
         public ActionResult AcceptRequest()
         {
@@ -257,6 +256,7 @@ namespace WebApplication2.Controllers
 
         }
 
+
         private Request SetRequest(string Touser, string Fromuser, string Discription, string Projectname, string type)
         {
             var newRequest = new Request
@@ -272,6 +272,7 @@ namespace WebApplication2.Controllers
 
             return newRequest;
         }
+
 
         private Project SetProject(string user, string projname)
         {
