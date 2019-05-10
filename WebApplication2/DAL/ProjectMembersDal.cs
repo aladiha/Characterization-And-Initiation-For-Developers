@@ -31,6 +31,10 @@ namespace WebApplication2.DAL
             if (IsNotExists(mem.ProjectId, mem.Member) == true)
             {
                 projectMembers.Add(mem);
+                var n = new PrivateProjects { ProjectId = mem.ProjectId, User = mem.Member, IsPrivate = false };
+                var d = new PrivateProjectsDal();
+                d.privateprojects.Add(n);
+                d.SaveChanges();
                 SaveChanges();
                 return true;
             }
@@ -56,6 +60,14 @@ namespace WebApplication2.DAL
             projectMembers.Remove(pj[0]);
             SaveChanges();
             return true;
+        }
+
+        public List<ProjectMembers> GetMemberByProjectId(int id)
+        {
+            var x = (from y in projectMembers
+                     where y.ProjectId == id
+                     select y).ToList<ProjectMembers>();
+            return x;
         }
     }
 }
