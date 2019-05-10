@@ -20,8 +20,24 @@ namespace WebApplication2.DAL
 
         public bool UpdatedPermissions(string [] perm,int projectid)
         {
-            var membdal = new ProjectMembersDal();
-            var membersss = membdal.GetMemberByProjectId(projectid);
+            var membersss = GetMemberByProjectId(projectid);
+            int i = 0;
+            foreach (var x in membersss)
+            {
+                if(perm[i].Equals("Off"))
+                {
+                    x.IsPrivate = true;
+                }
+                else
+                {
+                    x.IsPrivate = false;
+
+                }
+                i++;
+
+            }
+            
+            SaveChanges();
             return true;
         }
 
