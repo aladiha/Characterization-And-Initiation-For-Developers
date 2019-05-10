@@ -3,5 +3,128 @@
     ViewBag.Title = "CheckRadio";
 }
 
-<h2>Next Step</h2>
+<h2 style="color:snow">fill the sections</h2>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h2 {
+            font-family: "Raleway", sans-serif;
+            text-align: center;
+        }
+
+        hr {
+            display: block;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+            margin-left: auto;
+            margin-right: auto;
+            border-style: inset;
+            border-width: 0.5px;
+        }
+
+        body {
+            background-image: url("../img/black.jpg"); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
+        /* The container */
+        .container {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+            /* Hide the browser's default radio button */
+            .container input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+
+        /* Create a custom radio button */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    <form action="Submit" method="post">
+        <div align="center" style="max-width:100%">
+
+            @{ 
+                int i = 1;
+                String ques;
+                foreach (String a in ViewBag.value)
+                {
+                    ques = "q" + i.ToString();
+
+                    <label class="container" style="color:gold">
+                    @a
+                </label>
+                <br />
+            <label class="container">
+                    <textarea rows="6" cols="500" style="max-width:70%" name=@ques>Text Here</textarea>
+            </label>
+                <br />
+                <br />
+                    i = i + 1;
+            }
+              }
+            <button class="w3-button w3-block w3-teal" style="width:50% ; background-color:white ; color:black " type="submit">Confirm</button>
+        </div>
+    </form>
+
+ 
+</body>
+</html>

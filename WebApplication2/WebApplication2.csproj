@@ -238,6 +238,7 @@
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\LogIn.cs" />
+    <Compile Include="Models\manege.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\PrivateProjects.cs" />
     <Compile Include="Models\Project.cs" />
@@ -451,6 +452,7 @@
     <Content Include="Views\MangeProject\CheckRadio.cshtml" />
     <Content Include="Views\MangeProject\EditPermistions.cshtml" />
     <Content Include="Views\MangeProject\DeleteProject.cshtml" />
+    <Content Include="Views\MangeProject\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
