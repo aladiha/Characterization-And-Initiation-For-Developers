@@ -136,6 +136,7 @@ namespace WebApplication2.Controllers
             membdal.UpdatedPermissions(s, int.Parse(TempData["projectId"].ToString()));
 
             return View();
+
         }
 
 
