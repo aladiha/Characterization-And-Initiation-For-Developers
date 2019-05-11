@@ -62,8 +62,29 @@ namespace WebApplication2.DAL
             else
                 return us[0].Id;
         }
+        public bool DeleteProject(string UserName, string pname)
+        {
+            List<Project> us = GetProjectByUserName(UserName);
+            // pname = "feras1";
+            int i;
+            //if (us.Count != 0)
+            for (i = 0; i < us.Count; i++)
+            {
+                if (us[i].ProjectName == pname)
+                {
+                    projects.Remove(us[i]);
+                    SaveChanges();
+                    return true;
 
-  
+                }
+
+
+            }
+
+            return false;
+        }
+
+
 
     }
 }

@@ -280,6 +280,45 @@ namespace WebApplication2.Controllers
             return p;
         }
 
+        public ActionResult DeleteProject()
+        {
+            return View();
+        }
+        public ActionResult Delete_Project(Project name)
+        {
+            // name = "feras";
+            var p = new Project { ProjectName = name.ProjectName };
+
+            string VafifiyPassword = Request.Form["VarifiyPassword"];
+            //string projectname = Request.QueryString.Get("Pname");
+            var usdal = new UserDal();
+            var prdal = new ProjectsDal();
+
+            if (usdal.VarifyPassword(Session["UserId"].ToString(), VafifiyPassword) && prdal.DeleteProject(Session["UserId"].ToString(), p.ProjectName) == true)
+            {
+                //string projectname = Request.QueryString.Get("Pname");
+                //string Username = Request.QueryString.Get("Mname");
+
+                prdal.DeleteProject(Session["UserId"].ToString(), p.ProjectName);
+                //Session["UserId"] = "";
+                return RedirectToAction("imanagerp", "Project");
+
+
+
+
+
+            }
+            else
+
+                ViewBag.result = "Project name or password is inccorect!";
+            return View("DeleteProject");
+
+
+
+
+
+        }
+
 
 
     }
