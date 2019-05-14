@@ -22,6 +22,8 @@ namespace WebApplication2.Controllers
 
         public ActionResult StartCreating()
         {
+            string path=Server.MapPath("~/Uploads/");
+
             return View();
         }
 

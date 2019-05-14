@@ -465,7 +465,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="ProjectFiles\" />
     <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
