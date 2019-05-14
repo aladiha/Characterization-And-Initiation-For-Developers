@@ -461,10 +461,12 @@
     <Content Include="Views\MangeProject\Submit.cshtml" />
     <Content Include="Views\MangeProject\UpdatePermissions.cshtml" />
     <Content Include="Views\UploadFiles\UploadPage.cshtml" />
+    <Content Include="Views\UploadFiles\Upload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="ProjectFiles\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
