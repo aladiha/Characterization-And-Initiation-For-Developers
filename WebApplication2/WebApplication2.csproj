@@ -220,6 +220,7 @@
     <Compile Include="Controllers\MangeProjectController.cs" />
     <Compile Include="Controllers\NotifyController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\UploadFilesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ContactDal.cs" />
     <Compile Include="DAL\NotifyDal.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\ProjectMembers.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\UploadDocxFile.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="myRole.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -454,9 +456,11 @@
     <Content Include="Views\MangeProject\DeleteProject.cshtml" />
     <Content Include="Views\MangeProject\Submit.cshtml" />
     <Content Include="Views\MangeProject\UpdatePermissions.cshtml" />
+    <Content Include="Views\UploadFiles\UploadPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="ProjectFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

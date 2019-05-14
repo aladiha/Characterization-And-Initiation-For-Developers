@@ -97,7 +97,7 @@ namespace WebApplication2.Controllers
             while (true)
             {
                 if (Request.Form["q" + i.ToString()] != null)
-                    ques.Add(Request.Form["q" + i.ToString()]);
+                    ques.Add(Request.Form["q" + i.ToString()]);                                                                                         
                 else
                     break;
                 i++;

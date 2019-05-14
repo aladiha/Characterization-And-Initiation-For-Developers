@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "UploadPage";
+}
+
+<h2>Upload Files</h2>
+
+<body>
+
+    <br />
+    <span style="color:red">
+
+        @ViewBag.Message
+
+    </span>
+    <br />
+
+    @using (Html.BeginForm("Upload", "UploadFiles", FormMethod.Post, new { enctype =
+        "multipart/form-data" }))
+     {
+        <label for="File"> Upload your file</label>
+        <input type="file" name="insertfile"/>
+        <br />
+
+        <input type="submit" name="Upload" />
+
+     }
+
+
+
+</body>
+
+
