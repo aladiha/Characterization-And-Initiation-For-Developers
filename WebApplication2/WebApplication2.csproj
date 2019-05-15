@@ -19,7 +19,7 @@
     <RootNamespace>WebApplication2</RootNamespace>
     <AssemblyName>WebApplication2</AssemblyName>
     
-      <TargetFrameworkVersion>v14.0</TargetFrameworkVersion>
+      <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
   
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
