@@ -57,6 +57,7 @@ namespace WebApplication2.Controllers
                     ViewBag.Massege = "You dont have access to upload files!";
                     return View("UploadPage");
                 }
+
             }
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))
