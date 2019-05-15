@@ -303,19 +303,11 @@ namespace WebApplication2.Controllers
                 //Session["UserId"] = "";
                 return RedirectToAction("imanagerp", "Project");
 
-
-
-
-
             }
             else
 
                 ViewBag.result = "Project name or password is inccorect!";
             return View("DeleteProject");
-
-
-
-
 
         }
 

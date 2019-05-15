@@ -48,7 +48,6 @@
                         <th>User Name </th>
                         <th>Edit Permissions</th>
                         <th>Project Files</th>
-                        
                     </tr>
                 </thead>
                 <tbody>
@@ -60,18 +59,45 @@
                         <td>|@B.ProjectName</td>
                         <td>|@B.UserName </td>
                         <td>|@Html.ActionLink("Edit", "EditPermistions", "MangeProject", new { projectid = B.Id }, null) </td>
-                        <td>|@Html.ActionLink("Open", "StartCreating", "MangeProject") </td>
-                       
+                        @{
+                            var relativePath = "~/Uploads/" + B.Id.ToString() + ".docx";
+                            ViewBag.ss = relativePath;
+                            var absolutePath = HttpContext.Current.Server.MapPath(relativePath);
+                            if (!System.IO.File.Exists(absolutePath))
+                            {
+                                <td>|@Html.ActionLink("Create", "StartCreating", "MangeProject", new { projectid = B.Id }, null) </td>
+                            }
+                            else
+                            {
+                                <td>|@Html.ActionLink("Upload", "UploadPage", "MangeProject", new { projectid = B.Id }, null) 
+                                |@Html.ActionLink("Download", "DownloadAction", "MangeProject", new { projectid = B.Id }, null) </td>
 
 
-
+                            }
+                            
+                        }
                     </tr>
 
-                        }
+                            }
 </tbody>
             </table>
         </div>
+
+
+
+
+
+       <span style="color:coral">@ViewBag.ss</span>
     </body>
+
+
+
+
+
+
+
+
+
 </html>
 
 
