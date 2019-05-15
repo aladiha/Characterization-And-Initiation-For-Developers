@@ -11,7 +11,7 @@
 
 
 
-<h2 style="color:snow">My Project</h2>
+<h2 style="color:snow">Partipicated Projects</h2>
 <br />
 
 <br />
@@ -78,7 +78,32 @@
 
                         }
                     }
-                    <td>|@Html.ActionLink("Open", "Project", "Project") </td>
+
+                    @{
+                        if (B.IsPrivate == false)
+                        {
+                            var relativePath = "~/Uploads/" + B.ProjectId.ToString() + ".docx";
+                            var absolutePath = HttpContext.Current.Server.MapPath(relativePath);
+                            if (!System.IO.File.Exists(absolutePath))
+                            {
+                            <td>|@Html.ActionLink("Create", "StartCreating", "MangeProject", new { projectid = B.ProjectId }, null) </td>
+                            }
+                            else
+                            {
+                            <td>
+                                |@Html.ActionLink("Upload", "UploadPage", "MangeProject", new { projectid = B.ProjectId }, null)
+                                |@Html.ActionLink("Download", "DownloadAction", "MangeProject", new { projectid = B.ProjectId }, null)
+                            </td>
+
+
+                            }
+
+                        }
+                        else
+                        {
+                            <td>No Access to Files</td>
+                        }
+                        }
                 </tr>
 
                 }
