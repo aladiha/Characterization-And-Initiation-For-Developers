@@ -15,6 +15,7 @@ namespace WebApplication2.Controllers
     public class MangeProjectController : Controller
     {
         // GET: MangeProject
+        
         public ActionResult Index()
         {
             
@@ -24,26 +25,22 @@ namespace WebApplication2.Controllers
         public ActionResult StartCreating()
         {
             string projectid = Request.QueryString.Get("projectid");
-            string path = Server.MapPath("~/Uploads/").ToString()+projectid;
             
-            if(!Directory.Exists(path))
-            {
                 return View();
-            }
-
-            return View("Dowload");
 
         }
         public ActionResult UploadPage()
         {
+            TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
+
             return View();
         }
 
-        private bool CheckPermission(int projid)
+        private bool HasPremission()
         {
 
             var daal = new PrivateProjectsDal();
-            var x = daal.GetMemberInProjectWithPermission(projid, Session["UserName"].ToString());
+            var x = daal.GetMemberInProjectWithPermission(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString());
 
             if (x[0].IsPrivate == false)
                 return true;
@@ -52,7 +49,15 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
-            //if(CheckPermission())
+            var dal = new ProjectsDal();
+            if (dal.ExistProjectId(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString())==false)
+            {
+                if (HasPremission())
+                {
+                    ViewBag.Massege = "You dont have access to upload files!";
+                    return View("UploadPage");
+                }
+            }
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))
             {

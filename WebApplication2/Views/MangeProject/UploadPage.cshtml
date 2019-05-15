@@ -23,8 +23,8 @@
 </head>
 <body>
     <div>
-        @ViewBag.ss
-        @using (Html.BeginForm("Upload", "UploadFiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        <span style="color:red">@ViewBag.Massege</span>
+        @using (Html.BeginForm("Upload", "MangeProject", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <span>Select File:</span>
             @Html.TextBoxFor(m => m.PostedFile, new { type = "file" })

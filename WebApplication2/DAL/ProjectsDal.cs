@@ -84,7 +84,13 @@ namespace WebApplication2.DAL
             return false;
         }
 
-
+        public bool ExistProjectId(int id,string user)
+        {
+            var y = (from x in projects where x.Id == id  && x.UserName.Equals(user) select x).ToList<Project>();
+            if (y.Count == 0)
+                return false;
+            return true;
+        }
 
     }
 }
