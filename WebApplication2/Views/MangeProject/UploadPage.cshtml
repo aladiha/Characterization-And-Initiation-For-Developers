@@ -1,0 +1,44 @@
+﻿@model WebApplication2.Models.UploadDocxFile
+
+@{
+    ViewBag.Title = "UploadPage";
+}
+
+<h2>Upload Files</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span style="color:red">@ViewBag.Massege</span>
+        @using (Html.BeginForm("Upload", "MangeProject", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <span>Select File:</span>
+            @Html.TextBoxFor(m => m.PostedFile, new { type = "file" })
+            <br />
+            @Html.ValidationMessageFor(m => m.PostedFile, "", new { @class = "error" })
+            <hr />
+            <input type="submit" value="Upload" />
+            <br />
+            <span style="color:green">@Html.Raw(ViewBag.Message)</span>
+        }
+    </div>
+</body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+</html>
+
+

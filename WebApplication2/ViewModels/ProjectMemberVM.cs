@@ -15,13 +15,13 @@ namespace WebApplication2.ViewModels
 {
     public class ProjectMemberVM
     {
-        public List<ProjectMembers> projectMember = new List<Models.ProjectMembers>();//projects list
+        public List<PrivateProjects> projectMember = new List<Models.PrivateProjects>();//projects list
         //public List<Download> downs = new List<Models.Download>();//downloads list 
         public string keyWordforSearch { get; set; }
         public ProjectMemberVM()
         {
             // get the books list form the books DB
-            foreach (ProjectMembers p in (new ProjectMembersDal()).projectMembers.ToList<ProjectMembers>())
+            foreach (PrivateProjects p in (new PrivateProjectsDal()).privateprojects.ToList<PrivateProjects>())
 
             {
                 projectMember.Add(p);//add the books from books Db to the books list  

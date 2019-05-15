@@ -40,9 +40,11 @@ namespace WebApplication2.Controllers
         }
         public ActionResult ProjectMembers()
         {
-            ProjectMembersDal pdal = new ProjectMembersDal();
+           // ProjectMembersDal pdal = new ProjectMembersDal();
+            var pdal = new PrivateProjectsDal();
             ProjectMemberVM pm = new ProjectMemberVM();
-            pm.projectMember = (from x in pdal.projectMembers where (AccountInfo.userName).Equals(x.Member) select x).ToList<ProjectMembers>();
+
+            pm.projectMember = (from x in pdal.privateprojects where (AccountInfo.userName).Equals(x.User) select x).ToList<PrivateProjects>();
 
             return View(pm);
         }
@@ -303,19 +305,11 @@ namespace WebApplication2.Controllers
                 //Session["UserId"] = "";
                 return RedirectToAction("imanagerp", "Project");
 
-
-
-
-
             }
             else
 
                 ViewBag.result = "Project name or password is inccorect!";
             return View("DeleteProject");
-
-
-
-
 
         }
 
