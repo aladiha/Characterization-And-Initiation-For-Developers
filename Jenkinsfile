@@ -1,6 +1,6 @@
 pipeline {
     //Use the following docker image to run your dotnet app.
-    agent { docker { image 'mcr.microsoft.com/dotnet/framework/samples:aspnetapp' } }
+    agent { docker { image 'mcr.microsoft.com/dotnet/core/sdk:2.2' } }
     environment {HOME = '/tmp'} 
     stages {
         
