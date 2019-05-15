@@ -18,7 +18,11 @@ namespace WebApplication2.DAL
 
         public DbSet<Project> projects { get; set; }
 
-
+        public Project GetPrijectByPrjectId(int id)
+        {
+            var x = (from y in projects where y.Id == id select y).ToList<Project>();
+            return x[0];
+        }
         public bool IsNotExists(Project p)
         {
             var ps = (from x in projects

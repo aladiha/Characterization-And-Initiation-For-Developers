@@ -52,7 +52,7 @@
                 <tr style="color:sandybrown">
                     <th>Project ID</th>
                     <th>Project Name</th>
-                    <th>User Name </th>
+                    <th>Project Manager </th>
                     <th>Permission</th>
                     <th>Project Files</th>
 
@@ -60,13 +60,12 @@
                 </tr>
             </thead>
             <tbody>
-
                 @foreach (PrivateProjects B in Model.projectMember)
                 {
                 <tr style="color:white">
                     <td> @B.Id </td>
                     <td>|@B.ProjectId</td>
-                    <td>|@B.User </td>
+                    <td>|@Model.getProjectManager(B.ProjectId) </td>
                     @{ if (B.IsPrivate == false)
                         {
                             <td>|On</td>
