@@ -8,6 +8,7 @@ using WebApplication2.Models;
 using Aspose.Words;
 using Microsoft.Office.Interop.Word;
 using System.IO;
+using System.Web.Routing;
 
 namespace WebApplication2.Controllers
 {
@@ -22,12 +23,51 @@ namespace WebApplication2.Controllers
 
         public ActionResult StartCreating()
         {
-            string path=Server.MapPath("~/Uploads/");
+            string projectid = Request.QueryString.Get("projectid");
+            string path = Server.MapPath("~/Uploads/").ToString()+projectid;
+            
+            if(!Directory.Exists(path))
+            {
+                return View();
+            }
 
+            return View("Dowload");
+
+        }
+        public ActionResult UploadPage()
+        {
             return View();
         }
 
+        private bool CheckPermission(int projid)
+        {
 
+            var daal = new PrivateProjectsDal();
+            var x = daal.GetMemberInProjectWithPermission(projid, Session["UserName"].ToString());
+
+            if (x[0].IsPrivate == false)
+                return true;
+            return false;
+        }
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase postedFile)
+        {
+            //if(CheckPermission())
+            string path = Server.MapPath("~/Uploads/");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            if (postedFile != null)
+            {
+                string fileName = Path.GetFileName(postedFile.FileName);
+                postedFile.SaveAs(path + fileName);
+                ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
+            }
+
+            return View();
+        }
 
         public ActionResult CheckRadio(FormCollection frm)
         {

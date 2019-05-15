@@ -224,7 +224,6 @@
     <Compile Include="Controllers\MangeProjectController.cs" />
     <Compile Include="Controllers\NotifyController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
-    <Compile Include="Controllers\UploadFilesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\ContactDal.cs" />
     <Compile Include="DAL\NotifyDal.cs" />
@@ -460,8 +459,9 @@
     <Content Include="Views\MangeProject\DeleteProject.cshtml" />
     <Content Include="Views\MangeProject\Submit.cshtml" />
     <Content Include="Views\MangeProject\UpdatePermissions.cshtml" />
-    <Content Include="Views\UploadFiles\UploadPage.cshtml" />
-    <Content Include="Views\UploadFiles\Upload.cshtml" />
+    <Content Include="Views\MangeProject\UploadPage.cshtml" />
+    <Content Include="Views\MangeProject\Upload.cshtml" />
+    <Content Include="Views\MangeProject\Download.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

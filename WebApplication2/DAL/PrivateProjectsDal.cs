@@ -8,7 +8,7 @@ using WebApplication2.Models;
 
 namespace WebApplication2.DAL
 {
-    public class PrivateProjectsDal:DbContext
+    public class PrivateProjectsDal : DbContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -18,13 +18,13 @@ namespace WebApplication2.DAL
 
         public DbSet<PrivateProjects> privateprojects { get; set; }
 
-        public bool UpdatedPermissions(string [] perm,int projectid)
+        public bool UpdatedPermissions(string[] perm, int projectid)
         {
             var membersss = GetMemberByProjectId(projectid);
             int i = 0;
             foreach (var x in membersss)
             {
-                if(perm[i].Equals("Off"))
+                if (perm[i].Equals("Off"))
                 {
                     x.IsPrivate = true;
                 }
@@ -36,7 +36,7 @@ namespace WebApplication2.DAL
                 i++;
 
             }
-            
+
             SaveChanges();
             return true;
         }
@@ -48,5 +48,13 @@ namespace WebApplication2.DAL
                      select y).ToList<PrivateProjects>();
             return x;
         }
-    }
+
+        public List<PrivateProjects> GetMemberInProjectWithPermission(int projid,string user)
+        {
+            var x = (from y in privateprojects
+                     where y.User.Equals(user) && projid == y.ProjectId
+                     select y).ToList<PrivateProjects>();
+            return x;
+        }
+     }
 }
