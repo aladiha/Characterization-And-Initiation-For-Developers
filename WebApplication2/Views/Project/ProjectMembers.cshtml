@@ -53,21 +53,33 @@
                     <th>Project ID</th>
                     <th>Project Name</th>
                     <th>User Name </th>
-                    <th>  </th>
+                    <th>Permission</th>
+                    <th>Project Files</th>
 
 
                 </tr>
             </thead>
             <tbody>
 
-                @foreach (ProjectMembers B in Model.projectMember)
+                @foreach (PrivateProjects B in Model.projectMember)
                 {
-                    <tr style="color:white">
-                        <td> @B.Id </td>
-                        <td>| @B.ProjectId</td>
-                        <td>| @B.Member </td>
-                        <td>|@Html.ActionLink("Open", "Project", "Project") </td>
-                    </tr>
+                <tr style="color:white">
+                    <td> @B.Id </td>
+                    <td>|@B.ProjectId</td>
+                    <td>|@B.User </td>
+                    @{ if (B.IsPrivate == false)
+                        {
+                            <td>|On</td>
+
+                        }
+                        else
+                        {
+                            <td>|Off</td>
+
+                        }
+                    }
+                    <td>|@Html.ActionLink("Open", "Project", "Project") </td>
+                </tr>
 
                 }
             </tbody>
