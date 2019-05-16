@@ -28,12 +28,13 @@ namespace WebApplication2.ViewModels
             }
         }
 
-        public string getProjectManager(int i)
+        public Project getProject(int i)
         {
             var pr = (new ProjectsDal()).GetPrijectByPrjectId(i);
-            return pr.UserName;
+            return pr;
             
         }
+        
         /* public ProjectMv(string x)
          {
              keyWordforSearch = x;

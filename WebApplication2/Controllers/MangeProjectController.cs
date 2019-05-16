@@ -56,6 +56,13 @@ namespace WebApplication2.Controllers
                 Directory.CreateDirectory(path);
             }
 
+            var dir =new DirectoryInfo(path);
+            FileInfo []filename = dir.GetFiles("*.*");
+            foreach( var x in filename)
+            {
+                x.Delete();
+            }
+
             if (postedFile != null)
             {
                 string fileName = Path.GetFileName(postedFile.FileName);

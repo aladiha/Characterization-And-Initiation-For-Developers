@@ -63,9 +63,9 @@
                 @foreach (PrivateProjects B in Model.projectMember)
                 {
                 <tr style="color:white">
-                    <td> @B.Id </td>
                     <td>|@B.ProjectId</td>
-                    <td>|@Model.getProjectManager(B.ProjectId) </td>
+                    <td>|@Model.getProject(B.ProjectId).ProjectName</td>
+                    <td>|@Model.getProject(B.ProjectId).UserName </td>
                     @{ if (B.IsPrivate == false)
                         {
                             <td>|On</td>
@@ -81,18 +81,20 @@
                     @{
                         if (B.IsPrivate == false)
                         {
-                            var relativePath = "~/Uploads/" + B.ProjectId.ToString() + ".docx";
-                            var absolutePath = HttpContext.Current.Server.MapPath(relativePath);
-                            if (!System.IO.File.Exists(absolutePath))
+
+                            string path = Server.MapPath("~/Uploads/" + B.ProjectId.ToString() + "/");
+                            if (!Directory.Exists(path))
                             {
-                            <td>|@Html.ActionLink("Create", "StartCreating", "MangeProject", new { projectid = B.ProjectId }, null) </td>
+                                <td>|@Html.ActionLink("Create", "StartCreating", "MangeProject", new { projectid = B.ProjectId }, null) </td>
+
                             }
+
                             else
                             {
-                            <td>
-                                |@Html.ActionLink("Upload", "UploadPage", "MangeProject", new { projectid = B.ProjectId }, null)
-                                |@Html.ActionLink("Download", "DownloadAction", "MangeProject", new { projectid = B.ProjectId }, null)
-                            </td>
+                                <td>
+                                    |@Html.ActionLink("Upload", "UploadPage", "MangeProject", new { projectid = B.ProjectId }, null)
+                                    |@Html.ActionLink("Download", "DownloadAction", "MangeProject", new { projectid = B.ProjectId }, null)
+                                </td>
 
 
                             }
@@ -102,7 +104,7 @@
                         {
                             <td>No Access to Files</td>
                         }
-                        }
+                    }
                 </tr>
 
                 }

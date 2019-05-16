@@ -1,4 +1,5 @@
 ﻿@model  WebApplication2.ViewModels.ProjectMv
+
 @using WebApplication2.Models
     
     @using WebApplication2.Models;
@@ -60,21 +61,23 @@
                         <td>|@B.UserName </td>
                         <td>|@Html.ActionLink("Edit", "EditPermistions", "MangeProject", new { projectid = B.Id }, null) </td>
                         @{
-                            var relativePath = "~/Uploads/" + B.Id.ToString() + ".docx";
-                            ViewBag.ss = relativePath;
-                            var absolutePath = HttpContext.Current.Server.MapPath(relativePath);
-                            if (!System.IO.File.Exists(absolutePath))
+                            string path = Server.MapPath("~/Uploads/" + B.Id.ToString() + "/");
+                            if (!Directory.Exists(path))
                             {
                                 <td>|@Html.ActionLink("Create", "StartCreating", "MangeProject", new { projectid = B.Id }, null) </td>
+
                             }
+
                             else
                             {
-                                <td>|@Html.ActionLink("Upload", "UploadPage", "MangeProject", new { projectid = B.Id }, null) 
-                                |@Html.ActionLink("Download", "DownloadAction", "MangeProject", new { projectid = B.Id }, null) </td>
+                                <td>
+                                    |@Html.ActionLink("Upload", "UploadPage", "MangeProject", new { projectid = B.Id }, null)
+                                    |@Html.ActionLink("Download", "DownloadAction", "MangeProject", new { projectid = B.Id }, null)
+                                </td>
 
 
                             }
-                            
+
                         }
                     </tr>
 
