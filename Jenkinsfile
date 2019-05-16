@@ -2,7 +2,6 @@ pipeline {
     //Use the following docker image to run your dotnet app.
     agent { docker { image 'mcr.microsoft.com/dotnet/core/sdk:2.2-alpine' } }
     environment {HOME = '/tmp'} 
-    msbuild {-p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5"}
     stages {
        
     // Get some code from a GitHub repository
