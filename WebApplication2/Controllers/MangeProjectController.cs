@@ -49,16 +49,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
-            //var dal = new ProjectsDal();
-            //if (dal.ExistProjectId(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString())==false)
-            //{
-            //    if (HasPremission())
-            //    {
-            //        ViewBag.Massege = "You dont have access to upload files!";
-            //        return View("UploadPage");
-            //    }
 
-            //}
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))
             {
@@ -157,7 +148,8 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
-
+            string path = Server.MapPath("~/Uploads/");
+            doc.Save(path + TempData["Id"].ToString() + ".docx");
             ////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
