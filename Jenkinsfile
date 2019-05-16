@@ -3,7 +3,7 @@ pipeline {
     agent { docker { image 'mcr.microsoft.com/dotnet/core/sdk:2.2-alpine' } }
     environment {HOME = '/tmp'} 
     stages {
-        
+        msbuild -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5"
     // Get some code from a GitHub repository
     stage('Git') {
       steps{
@@ -18,7 +18,7 @@ pipeline {
     
   stage('Build') {
    steps {
-        msbuild -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5"
+        
     sh "dotnet build"
    }
   }
