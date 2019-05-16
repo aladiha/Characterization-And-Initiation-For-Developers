@@ -50,7 +50,7 @@ namespace WebApplication2.Controllers
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
 
-            string path = Server.MapPath("~/Uploads/");
+            string path = Server.MapPath("~/Uploads/"+ TempData["Id"]+"/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -148,8 +148,12 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
-            string path = Server.MapPath("~/Uploads/");
-            doc.Save(path + TempData["Id"].ToString() + ".docx");
+            string path = Server.MapPath("~/Uploads/"+ TempData["Id"].ToString() + "/");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            doc.Save(path+TempData["Id"].ToString()+".docx");
             ////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
