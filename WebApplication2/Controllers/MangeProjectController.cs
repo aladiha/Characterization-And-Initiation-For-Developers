@@ -24,9 +24,9 @@ namespace WebApplication2.Controllers
 
         public ActionResult StartCreating()
         {
-            string projectid = Request.QueryString.Get("projectid");
-            
-                return View();
+            TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
+
+            return View();
 
         }
         public ActionResult UploadPage()
@@ -36,29 +36,29 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        private bool HasPremission()
-        {
+        //private bool HasPremission()
+        //{
 
-            var daal = new PrivateProjectsDal();
-            var x = daal.GetMemberInProjectWithPermission(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString());
+        //    var daal = new PrivateProjectsDal();
+        //    var x = daal.GetMemberInProjectWithPermission(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString());
 
-            if (x[0].IsPrivate == false)
-                return true;
-            return false;
-        }
+        //    if (x[0].IsPrivate == false)
+        //        return true;
+        //    return false;
+        //}
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
-            var dal = new ProjectsDal();
-            if (dal.ExistProjectId(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString())==false)
-            {
-                if (HasPremission())
-                {
-                    ViewBag.Massege = "You dont have access to upload files!";
-                    return View("UploadPage");
-                }
+            //var dal = new ProjectsDal();
+            //if (dal.ExistProjectId(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString())==false)
+            //{
+            //    if (HasPremission())
+            //    {
+            //        ViewBag.Massege = "You dont have access to upload files!";
+            //        return View("UploadPage");
+            //    }
 
-            }
+            //}
             string path = Server.MapPath("~/Uploads/");
             if (!Directory.Exists(path))
             {
@@ -140,7 +140,7 @@ namespace WebApplication2.Controllers
            DocumentBuilder builder = new DocumentBuilder(doc);
            
 
-           String dataDir = "C:/file.docx";
+           String dataDir = "C:/"+ TempData["Id"].ToString()+ ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -157,58 +157,59 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
+
             ////////////////////////////////////////////////////////////////
 
-          /*  Application ap = new Application();
+            /*  Application ap = new Application();
 
-            try
-            {
+              try
+              {
 
-                Microsoft.Office.Interop.Word.Document doc = ap.Documents.Open(@"C:\Users\Aladin\Desktop\Doc2.docx", ReadOnly: false, Visible: false);
-                doc.Activate();
+                  Microsoft.Office.Interop.Word.Document doc = ap.Documents.Open(@"C:\Users\Aladin\Desktop\Doc2.docx", ReadOnly: false, Visible: false);
+                  doc.Activate();
 
-                Selection sel = ap.Selection;
+                  Selection sel = ap.Selection;
 
-                if (sel != null)
-                {
-                    switch (sel.Type)
-                    {
-                        case WdSelectionType.wdSelectionIP:
-                            sel.TypeText(DateTime.Now.ToString());
-                            sel.TypeParagraph();
-                            break;
+                  if (sel != null)
+                  {
+                      switch (sel.Type)
+                      {
+                          case WdSelectionType.wdSelectionIP:
+                              sel.TypeText(DateTime.Now.ToString());
+                              sel.TypeParagraph();
+                              break;
 
-                        default:
-                            Console.WriteLine("Selection type not handled; no writing done");
-                            break;
+                          default:
+                              Console.WriteLine("Selection type not handled; no writing done");
+                              break;
 
-                    }
+                      }
 
-                    // Remove all meta data.
-                    doc.RemoveDocumentInformation(WdRemoveDocInfoType.wdRDIAll);
+                      // Remove all meta data.
+                      doc.RemoveDocumentInformation(WdRemoveDocInfoType.wdRDIAll);
 
-                    ap.Documents.Save(NoPrompt: true, OriginalFormat: true);
+                      ap.Documents.Save(NoPrompt: true, OriginalFormat: true);
 
-                }
-                else
-                {
-                    Console.WriteLine("Unable to acquire Selection...no writing to document done..");
-                }
+                  }
+                  else
+                  {
+                      Console.WriteLine("Unable to acquire Selection...no writing to document done..");
+                  }
 
-                ap.Documents.Close(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
+                  ap.Documents.Close(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception Caught: " + ex.Message); // Could be that the document is already open (/) or Word is in Memory(?)
-            }
-            finally
-            {
-                // Ambiguity between method 'Microsoft.Office.Interop.Word._Application.Quit(ref object, ref object, ref object)' and non-method 'Microsoft.Office.Interop.Word.ApplicationEvents4_Event.Quit'. Using method group.
-                // ap.Quit( SaveChanges: false, OriginalFormat: false, RouteDocument: false );
-                ((_Application)ap).Quit(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
-                System.Runtime.InteropServices.Marshal.ReleaseComObject(ap);
-            }*/
+              }
+              catch (Exception ex)
+              {
+                  Console.WriteLine("Exception Caught: " + ex.Message); // Could be that the document is already open (/) or Word is in Memory(?)
+              }
+              finally
+              {
+                  // Ambiguity between method 'Microsoft.Office.Interop.Word._Application.Quit(ref object, ref object, ref object)' and non-method 'Microsoft.Office.Interop.Word.ApplicationEvents4_Event.Quit'. Using method group.
+                  // ap.Quit( SaveChanges: false, OriginalFormat: false, RouteDocument: false );
+                  ((_Application)ap).Quit(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
+                  System.Runtime.InteropServices.Marshal.ReleaseComObject(ap);
+              }*/
             return View();
         }
 
