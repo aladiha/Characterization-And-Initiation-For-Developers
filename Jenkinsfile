@@ -18,6 +18,7 @@ pipeline {
     
   stage('Build') {
    steps {
+        msbuild -p:FrameworkPathOverride="C:\Program Files\Reference Assemblies\Microsoft\Framework\.NETFramework\v3.5"
     sh "dotnet build"
    }
   }
