@@ -206,12 +206,13 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
+            ViewBag.File = dataDir;
             string path = Server.MapPath("~/Uploads/"+ TempData["Id"].ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path+TempData["Id"].ToString()+".docx");
+            doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
             ////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
