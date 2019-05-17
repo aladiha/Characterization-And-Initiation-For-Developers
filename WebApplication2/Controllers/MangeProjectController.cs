@@ -213,8 +213,8 @@ namespace WebApplication2.Controllers
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
-            ////////////////////////////////////////////////////////////////
+           // doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
+            //////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
 
