@@ -22,19 +22,64 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult StartCreating()
+        public ActionResult firstPart()
         {
             TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
-
             return View();
+        }
 
+        [HttpPost]
+        public ActionResult Next() {
+
+            Aspose.Words.Document doc = new Aspose.Words.Document();
+
+
+            DocumentBuilder builder = new DocumentBuilder(doc);
+
+
+            String dataDir = "C:/" + TempData["Id"].ToString() + ".docx";
+
+            List<String> ques = new List<String>();
+            int i = 1;
+            while (true)
+            {
+                if (Request.Form["i" + i.ToString()] != null)
+                    ques.Add(Request.Form["i" + i.ToString()]);
+                else
+                    break;
+                i++;
+            }
+
+            foreach (String q in ques)
+            {
+                builder.Writeln(q);
+            }
+            doc.Save(dataDir);
+            string path = Server.MapPath("~/Uploads/" + TempData["Id"].ToString() + "/");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            doc.Save(path + TempData["Id"].ToString() + ".docx");
+            TempData["doc"]=doc;
+            return View("StartCreating");
+        }
+
+
+        public ActionResult StartCreating()
+        {
+            return View();
         } 
+
+
         public ActionResult UploadPage()
         {
             TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
 
             return View();
         }
+
+
 
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
@@ -62,6 +107,9 @@ namespace WebApplication2.Controllers
 
             return View();
         }
+
+
+
         public FileResult Download()
         {
             string proid = Request.QueryString.Get("projectid");
@@ -73,6 +121,8 @@ namespace WebApplication2.Controllers
             return File(FileVirtualPath, "application/force- download", Path.GetFileName(FileVirtualPath));
 
         }
+
+
 
         public ActionResult CheckRadio(FormCollection frm)
         {
@@ -131,15 +181,15 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+
         public ActionResult Submit() {
 
-           Aspose.Words.Document doc = new Aspose.Words.Document();
+           Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
 
         
            DocumentBuilder builder = new DocumentBuilder(doc);
-           
 
-           String dataDir = "C:/"+ TempData["Id"].ToString()+ ".docx";
+            String dataDir = "C:/" + TempData["Id"].ToString() + ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
