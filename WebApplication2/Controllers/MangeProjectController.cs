@@ -28,7 +28,7 @@ namespace WebApplication2.Controllers
 
             return View();
 
-        }
+        } 
         public ActionResult UploadPage()
         {
             TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
