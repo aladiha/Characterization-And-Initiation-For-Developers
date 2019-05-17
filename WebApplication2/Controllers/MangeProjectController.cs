@@ -36,16 +36,6 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        //private bool HasPremission()
-        //{
-
-        //    var daal = new PrivateProjectsDal();
-        //    var x = daal.GetMemberInProjectWithPermission(int.Parse(TempData["Id"].ToString()), Session["Username"].ToString());
-
-        //    if (x[0].IsPrivate == false)
-        //        return true;
-        //    return false;
-        //}
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
@@ -71,6 +61,17 @@ namespace WebApplication2.Controllers
             }
 
             return View();
+        }
+        public FileResult Download()
+        {
+            string proid = Request.QueryString.Get("projectid");
+            string path = Server.MapPath("~/Uploads/" + proid + "/");
+            var dir = new DirectoryInfo(path);
+            FileInfo[] filename = dir.GetFiles("*.*");
+
+            var FileVirtualPath = path + filename[0];
+            return File(FileVirtualPath, "application/force- download", Path.GetFileName(FileVirtualPath));
+
         }
 
         public ActionResult CheckRadio(FormCollection frm)
