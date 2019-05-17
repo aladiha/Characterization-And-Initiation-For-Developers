@@ -137,9 +137,10 @@ namespace WebApplication2.Controllers
 
         
            DocumentBuilder builder = new DocumentBuilder(doc);
-           
+            var dal = new ProjectsDal();
+            var proj = dal.GetPrijectByPrjectId(int.Parse(TempData["Id"].ToString()));
 
-           String dataDir = "C:/"+ TempData["Id"].ToString()+ ".docx";
+           String dataDir = "C:/"+ proj.ProjectName+"_"+proj.UserName+ ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -156,12 +157,13 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
+            ViewBag.File = dataDir;
             string path = Server.MapPath("~/Uploads/"+ TempData["Id"].ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path+TempData["Id"].ToString()+".docx");
+            doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
             ////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
