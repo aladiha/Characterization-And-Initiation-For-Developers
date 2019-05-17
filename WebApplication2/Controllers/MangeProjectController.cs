@@ -192,8 +192,8 @@ namespace WebApplication2.Controllers
             var dal = new ProjectsDal();
             var proj = dal.GetPrijectByPrjectId(int.Parse(x.ToString()));
 
-            String dataDir = "C:/" + x.ToString() + ".docx";
-
+            String dataDir = "C:/" + TempData["Id"].ToString() + ".docx";
+           // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(TempData["Id"].ToString()));
 
             List<String> ques = new List<String>();
             int i = 1;
