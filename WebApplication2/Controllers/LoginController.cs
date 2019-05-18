@@ -8,11 +8,7 @@ using WebApplication2.Models;
 using System.Web.Security;
     
 
-
-
  
-
-
 
 
 
@@ -87,6 +83,7 @@ namespace WebApplication2.Controllers
                 {
                     res = dal.UpdatePassword(Session["UserId"].ToString(), cs);
                     if(res==false)
+
                     {
                         TempData["Message"] =  "Wrong old password\n";
                         return View("ChangePassword",cs);
@@ -103,6 +100,7 @@ namespace WebApplication2.Controllers
 
             return View("ChangePassword", cs);
         }
+
 
         public ActionResult DeleteAccount()
         {
