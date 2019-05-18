@@ -15,6 +15,7 @@ namespace WebApplication2.Controllers
     public class MangeProjectController : Controller
     {
         // GET: MangeProject
+        private static int x;
         
         public ActionResult Index()
         {
@@ -24,7 +25,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult firstPart()
         {
-            TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
+            x = int.Parse(Request.QueryString.Get("projectid"));
             return View();
         }
 
@@ -37,7 +38,7 @@ namespace WebApplication2.Controllers
             DocumentBuilder builder = new DocumentBuilder(doc);
 
 
-            String dataDir = "C:/" + TempData["Id"].ToString() + ".docx";
+            String dataDir = "C:/" + x.ToString() + ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -55,12 +56,12 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
-            string path = Server.MapPath("~/Uploads/" + TempData["Id"].ToString() + "/");
+            string path = Server.MapPath("~/Uploads/" + x.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path + TempData["Id"].ToString() + ".docx");
+            doc.Save(path + x.ToString() + ".docx");
             TempData["doc"]=doc;
             return View("StartCreating");
         }
@@ -188,6 +189,8 @@ namespace WebApplication2.Controllers
 
         
            DocumentBuilder builder = new DocumentBuilder(doc);
+            var dal = new ProjectsDal();
+            var proj = dal.GetPrijectByPrjectId(int.Parse(x.ToString()));
 
             String dataDir = "C:/" + TempData["Id"].ToString() + ".docx";
             var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(TempData["Id"].ToString()));
@@ -208,12 +211,12 @@ namespace WebApplication2.Controllers
             }
             doc.Save(dataDir);
             ViewBag.File = dataDir;
-            string path = Server.MapPath("~/Uploads/"+ TempData["Id"].ToString() + "/");
+            string path = Server.MapPath("~/Uploads/"+ x.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-           // doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
+           doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
             //////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
