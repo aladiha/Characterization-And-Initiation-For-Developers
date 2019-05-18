@@ -284,7 +284,6 @@ namespace WebApplication2.Controllers
             TempData["projectId"] = ProjectId;
             return View();
         }
-
         public ActionResult UpdatePermissions(FormCollection frm)
         {
             var membdal = new PrivateProjectsDal();
@@ -299,9 +298,7 @@ namespace WebApplication2.Controllers
             membdal.UpdatedPermissions(s, ProjectId);
 
             return View();
-
         }
-
     }
 
 }
