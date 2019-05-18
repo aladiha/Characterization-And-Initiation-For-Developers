@@ -15,7 +15,7 @@ namespace WebApplication2.Controllers
     public class MangeProjectController : Controller
     {
         // GET: MangeProject
-        private static int x;
+        private static int ProjectId;
         
         public ActionResult Index()
         {
@@ -25,7 +25,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult firstPart()
         {
-            x = int.Parse(Request.QueryString.Get("projectid"));
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
             return View();
         }
 
@@ -38,7 +38,7 @@ namespace WebApplication2.Controllers
             DocumentBuilder builder = new DocumentBuilder(doc);
 
 
-            String dataDir = "C:/" + x.ToString() + ".docx";
+            String dataDir = "C:/" + ProjectId.ToString() + ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -56,12 +56,12 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
-            string path = Server.MapPath("~/Uploads/" + x.ToString() + "/");
+            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path + x.ToString() + ".docx");
+            doc.Save(path + ProjectId.ToString() + ".docx");
             TempData["doc"]=doc;
             return View("StartCreating");
         }
@@ -75,7 +75,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult UploadPage()
         {
-            TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
 
             return View();
         }
@@ -86,7 +86,7 @@ namespace WebApplication2.Controllers
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
 
-            string path = Server.MapPath("~/Uploads/"+ TempData["Id"]+"/");
+            string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString()+"/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -94,9 +94,9 @@ namespace WebApplication2.Controllers
 
             var dir =new DirectoryInfo(path);
             FileInfo []filename = dir.GetFiles("*.*");
-            foreach( var x in filename)
+            foreach( var ff in filename)
             {
-                x.Delete();
+                ff.Delete();
             }
 
             if (postedFile != null)
@@ -113,8 +113,9 @@ namespace WebApplication2.Controllers
 
         public FileResult Download()
         {
-            string proid = Request.QueryString.Get("projectid");
-            string path = Server.MapPath("~/Uploads/" + proid + "/");
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
+                
+            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             var dir = new DirectoryInfo(path);
             FileInfo[] filename = dir.GetFiles("*.*");
 
@@ -190,10 +191,10 @@ namespace WebApplication2.Controllers
         
            DocumentBuilder builder = new DocumentBuilder(doc);
             var dal = new ProjectsDal();
-            var proj = dal.GetPrijectByPrjectId(int.Parse(x.ToString()));
+            var proj = dal.GetPrijectByPrjectId(ProjectId);
 
-            String dataDir = "C:/" + TempData["Id"].ToString() + ".docx";
-           // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(TempData["Id"].ToString()));
+            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
+           // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -211,7 +212,7 @@ namespace WebApplication2.Controllers
             }
             doc.Save(dataDir);
             ViewBag.File = dataDir;
-            string path = Server.MapPath("~/Uploads/"+ x.ToString() + "/");
+            string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -276,11 +277,11 @@ namespace WebApplication2.Controllers
         public ActionResult EditPermistions()
         {
             var membdal = new PrivateProjectsDal();
-            string projectid = Request.QueryString.Get("projectid");
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
 
-            ViewBag.membs = membdal.GetMemberByProjectId(int.Parse(projectid));
+            ViewBag.membs = membdal.GetMemberByProjectId(ProjectId);
             TempData["Count"] = (ViewBag.membs).Count;
-            TempData["projectId"] = projectid;
+            TempData["projectId"] = ProjectId;
             return View();
         }
 
@@ -295,7 +296,7 @@ namespace WebApplication2.Controllers
             {
                 s[i] = frm[(i+1).ToString()].ToString();
             }
-            membdal.UpdatedPermissions(s, int.Parse(TempData["projectId"].ToString()));
+            membdal.UpdatedPermissions(s, ProjectId);
 
             return View();
 
