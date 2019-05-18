@@ -109,8 +109,6 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-
-
         public FileResult Download()
         {
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
