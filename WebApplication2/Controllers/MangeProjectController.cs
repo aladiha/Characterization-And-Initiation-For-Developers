@@ -37,9 +37,11 @@ namespace WebApplication2.Controllers
 
 
             DocumentBuilder builder = new DocumentBuilder(doc);
+            var dal = new ProjectsDal();
+            var proj = dal.GetPrijectByPrjectId(ProjectId);
 
+            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
 
-            String dataDir = "C:/" + ProjectId.ToString() + ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -57,12 +59,13 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
             doc.Save(dataDir);
+
             string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path + ProjectId.ToString() + ".docx");
+            doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
             TempData["doc"]=doc;
             return View("StartCreating");
         }

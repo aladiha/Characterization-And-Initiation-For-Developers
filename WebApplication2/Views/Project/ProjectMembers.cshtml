@@ -85,7 +85,7 @@
                             string path = Server.MapPath("~/Uploads/" + B.ProjectId.ToString() + "/");
                             if (!Directory.Exists(path))
                             {
-                                <td>|@Html.ActionLink("Create", "StartCreating", "MangeProject", new { projectid = B.ProjectId }, null) </td>
+                                <td>|@Html.ActionLink("Create", "firstPart", "MangeProject", new { projectid = B.ProjectId }, null) </td>
 
                             }
 
