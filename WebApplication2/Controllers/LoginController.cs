@@ -6,12 +6,10 @@ using System.Web.Mvc;
 using WebApplication2.DAL;
 using WebApplication2.Models;
 using System.Web.Security;
-    
+     
+
 
  
-
-
-
 namespace WebApplication2.Controllers
 {
     public class LoginController : Controller
@@ -61,6 +59,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+
         public ActionResult Profile()
         {
 
@@ -69,7 +68,6 @@ namespace WebApplication2.Controllers
 
         public ActionResult ChangePassword()
         {
-
 
             return View(new ChangePassword());
         }
