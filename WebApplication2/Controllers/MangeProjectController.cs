@@ -80,7 +80,6 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
