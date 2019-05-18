@@ -70,6 +70,7 @@ namespace WebApplication2.Controllers
         public ActionResult ChangePassword()
         {
 
+
             return View(new ChangePassword());
         }
         public ActionResult Update_Password(ChangePassword cs)
