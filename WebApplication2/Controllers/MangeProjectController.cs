@@ -66,7 +66,6 @@ namespace WebApplication2.Controllers
             return View("StartCreating");
         }
 
-
         public ActionResult StartCreating()
         {
             return View();
