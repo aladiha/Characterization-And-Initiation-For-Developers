@@ -12,6 +12,7 @@ namespace WebApplication2.Controllers
         // GET: Notify
         public ActionResult Index()
         {
+
             return View();
 
         }
