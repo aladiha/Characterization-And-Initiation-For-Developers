@@ -9,6 +9,7 @@ namespace WebApplication2.Models
     public class User
     {
         [Key]
+
         [Required]
         //[StringLength(10, MinimumLength = 2, ErrorMessage = "leangth must be btween 2-10")]
         public string UserName { get; set; }
@@ -18,6 +19,7 @@ namespace WebApplication2.Models
         public string Email { get; set; }
 
         [Required]
+
         public string Password { get; set; }
 
        
