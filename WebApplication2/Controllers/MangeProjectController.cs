@@ -11,8 +11,10 @@ using System.IO;
 using System.Web.Routing;
 
 namespace WebApplication2.Controllers
+
 {
     public class MangeProjectController : Controller
+
     {
         // GET: MangeProject
         private static int ProjectId;
