@@ -6,10 +6,12 @@ using System.Web;
 namespace WebApplication2.Models
 {
     public partial class Project
+
     {
         public int Id { get; set; }
         public string UserName { get; set; }
         public string ProjectName { get; set; }
         
     }
+
 }
