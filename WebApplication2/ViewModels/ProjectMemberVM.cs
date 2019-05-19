@@ -8,7 +8,6 @@ using System.Web;
 
 
 
-/**/
 
 
 namespace WebApplication2.ViewModels
