@@ -10,6 +10,7 @@ namespace WebApplication2.Models
         public int Id { get; set; }
         public int ProjectId { get; set; }
         public string User { get; set; }
+
         public bool IsPrivate { get; set; }
     }
 }
