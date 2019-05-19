@@ -12,6 +12,7 @@ using WebApplication2.ViewModels;
 
 namespace WebApplication2.Controllers
 {
+
     public class ProjectController : Controller
     {
         private object dal;
@@ -25,6 +26,7 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
 
         public ActionResult Enter()
         {

@@ -12,5 +12,7 @@ namespace WebApplication2.hubs
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<NoteHub>();
             context.Clients.All.displayStatus();
          }
+
+
     }
 }

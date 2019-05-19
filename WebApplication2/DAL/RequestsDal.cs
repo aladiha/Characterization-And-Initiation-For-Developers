@@ -5,6 +5,9 @@ using System.Linq;
 using System.Web;
 using WebApplication2.Models;
 
+
+
+
 namespace WebApplication2.DAL
 {
     public class RequestsDal: DbContext
@@ -16,6 +19,7 @@ namespace WebApplication2.DAL
         }
 
         public DbSet<Request> requests { get; set; }
+
 
         public bool RequestIsNoExist(Request request)
         {
@@ -145,11 +149,6 @@ namespace WebApplication2.DAL
             return k;
         }
     }
-
-
-
-
-
 
 
 }

@@ -14,6 +14,7 @@ namespace WebApplication2.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<PrivateProjects>().ToTable("PrivateProjects");
+
         }
 
         public DbSet<PrivateProjects> privateprojects { get; set; }
