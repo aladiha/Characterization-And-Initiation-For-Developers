@@ -58,7 +58,7 @@ namespace WebApplication2.Controllers
             {
                 builder.Writeln(q);
             }
-            doc.Save(dataDir);
+          //  doc.Save(dataDir);
 
             string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
@@ -208,7 +208,7 @@ namespace WebApplication2.Controllers
             foreach (String q in ques) {
                 builder.Writeln(q);
             }
-            doc.Save(dataDir);
+           // doc.Save(dataDir);
             ViewBag.File = dataDir;
             string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
