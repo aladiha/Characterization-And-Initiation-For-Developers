@@ -17,6 +17,9 @@ namespace WebApplication2.ViewModels
             foreach (Request p in (new RequestsDal()).requests.ToList<Request>())
             {
                 ListRequests.Add(p);  
+
+
+
             }
         }
 
