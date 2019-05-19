@@ -1,0 +1,141 @@
+﻿@model WebApplication2.Models.User
+@*@{
+
+        if (Session["username"] != null)
+
+        {
+
+            return;
+
+        }
+
+
+
+    }*@
+@{
+
+    ViewBag.Title = "User";
+
+}
+
+<style>
+
+        body {
+
+            background-image: url("/img/black.jpg");
+
+            background-repeat: no-repeat;
+
+            background-size: cover;
+
+        }
+
+    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            padding: 10px;
+            background: black;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+            .input-field:focus {
+                border: 2px solid black;
+            }
+
+        /* Set a style for the submit buttkjkjkjon */
+        .btn {
+            background-color: black;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+            .btn:hover {
+                opacity: 1;
+            }
+    </style>
+</head>
+<body>
+
+    @*<br />
+            <span style="color:red">@ViewBag.result</span>
+            <br />
+            <span style="color:red">@ViewBag.signup</span>
+            <br />
+            <form action="doLogin" style="max-width:500px;margin:auto" method="post">
+                <h2>LogIn Form</h2>
+                @using (Html.BeginForm("doLogin", "User", FormMethod.Post))
+
+                {
+
+
+
+                    <i>Username:</i> @Html.TextBoxFor(m => m.UserName)<span style="color:red">@Html.ValidationMessageFor(X => X.UserName)</span>
+            <br />
+
+            <i>password:</i> @Html.PasswordFor(m => m.Password) <span style="color:red"> @Html.ValidationMessageFor(X => X.Password) </span>
+            <br />
+
+            <button type="submit" class="btn">sign in</button>
+            }
+        </form>*@
+    <br />
+    <span style="color:red">@ViewBag.result</span>
+    <br />
+
+    <br />
+    <div class="container">
+        <h2 style="color:white">Log In</h2>
+        <form method="post" action="doLogin">
+            <div class="form-group">
+                <label for="txt" style="color:white">UserName:</label>
+                <input type="text" class="form-control" id="text" placeholder="Enter User Name" name="username">
+            </div>
+            <div class="form-group">
+                <label for="pwd" style="color:white">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label" style="color:white">
+                    <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-danger">Log In</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
