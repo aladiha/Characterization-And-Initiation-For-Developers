@@ -17,6 +17,7 @@ namespace WebApplication2.DAL
 
         public DbSet<Request> requests { get; set; }
 
+
         public bool RequestIsNoExist(Request request)
         {
             var r = (from x in requests
