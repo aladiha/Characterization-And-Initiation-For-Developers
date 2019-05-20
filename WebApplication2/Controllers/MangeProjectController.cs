@@ -86,6 +86,8 @@ namespace WebApplication2.Controllers
 
             return View();
         }
+
+
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
@@ -125,8 +127,6 @@ namespace WebApplication2.Controllers
             return File(FileVirtualPath, "application/force- download", Path.GetFileName(FileVirtualPath));
 
         }
-
-
 
         public ActionResult CheckRadio(FormCollection frm)
         {
