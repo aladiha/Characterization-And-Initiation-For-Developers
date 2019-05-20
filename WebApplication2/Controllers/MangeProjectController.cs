@@ -222,6 +222,7 @@ namespace WebApplication2.Controllers
 
             string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
+
             {
                 Directory.CreateDirectory(path);
             }
