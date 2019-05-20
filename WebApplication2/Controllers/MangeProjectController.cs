@@ -97,8 +97,10 @@ namespace WebApplication2.Controllers
             }
 
             var dir =new DirectoryInfo(path);
+
             FileInfo []filename = dir.GetFiles("*.*");
-            foreach( var ff in filename)
+
+            foreach ( var ff in filename)
             {
                 ff.Delete();
             }
@@ -118,7 +120,9 @@ namespace WebApplication2.Controllers
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
                 
             string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+
             var dir = new DirectoryInfo(path);
+
             FileInfo[] filename = dir.GetFiles("*.*");
 
             var FileVirtualPath = path + filename[0];
