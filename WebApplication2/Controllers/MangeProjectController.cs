@@ -36,10 +36,6 @@ namespace WebApplication2.Controllers
         
 
 
-
-
-
-
         [HttpPost]
         public ActionResult Next() {
 
