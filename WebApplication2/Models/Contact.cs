@@ -14,7 +14,6 @@ namespace WebApplication2.Models
      
         public string subject { get; set; }
 
-
         [Key]
         public string massage { get; set; }
 
