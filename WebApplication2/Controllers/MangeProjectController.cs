@@ -111,16 +111,12 @@ namespace WebApplication2.Controllers
                 postedFile.SaveAs(path + fileName);
                 ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
             }
-
             return View();
         }
-
         public FileResult Download()
         {
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
-                
             string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
-
             var dir = new DirectoryInfo(path);
 
             FileInfo[] filename = dir.GetFiles("*.*");
