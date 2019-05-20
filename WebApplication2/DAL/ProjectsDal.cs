@@ -17,6 +17,7 @@ namespace WebApplication2.DAL
                     modelBuilder.Entity<Project>().ToTable("Projects");
             }
 
+
         public DbSet<Project> projects { get; set; }
 
 
