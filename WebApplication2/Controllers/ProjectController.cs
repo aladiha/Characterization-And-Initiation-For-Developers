@@ -8,8 +8,6 @@ using WebApplication2.ModelBinders;
 using WebApplication2.Models;
 using WebApplication2.ViewModels;
 
-
-
 namespace WebApplication2.Controllers
 {
 
