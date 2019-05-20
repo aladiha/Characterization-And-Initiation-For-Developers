@@ -135,9 +135,7 @@ namespace WebApplication2.Controllers
             for (int i = 1; i < 36; i++) {
                 choises[i-1] = frm["g"+i.ToString()].ToString();
             }
-
             String[] questions = new String[35];
-
             questions[0] = "יעדי הארגון, אסטרטגיה";
             questions[1] = "תרשים ומבנה ארגוני";
             questions[2] = "השלכות או'ש";
