@@ -231,6 +231,7 @@ namespace WebApplication2.Controllers
               try
               {
 
+
                   Microsoft.Office.Interop.Word.Document doc = ap.Documents.Open(@"C:\Users\Aladin\Desktop\Doc2.docx", ReadOnly: false, Visible: false);
                   doc.Activate();
 
