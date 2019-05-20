@@ -17,6 +17,8 @@ namespace WebApplication2.DAL
         }
         public DbSet<ProjectMembers> projectMembers { get; set; }
 
+
+
         public bool IsNotExists(int projectid, string memb)
         {
             var result = (from x in projectMembers
@@ -26,6 +28,7 @@ namespace WebApplication2.DAL
                 return true;
             return false;
         }
+
 
         public bool AddMember(ProjectMembers mem)
         {
