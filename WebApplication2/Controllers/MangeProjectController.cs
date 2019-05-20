@@ -216,6 +216,8 @@ namespace WebApplication2.Controllers
                 builder.Writeln(q);
             }
            // doc.Save(dataDir);
+
+
             ViewBag.File = dataDir;
 
             string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString() + "/");
