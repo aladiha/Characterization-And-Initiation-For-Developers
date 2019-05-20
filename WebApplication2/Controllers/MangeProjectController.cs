@@ -33,8 +33,6 @@ namespace WebApplication2.Controllers
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
             return View();
         }
-        
-
 
         [HttpPost]
         public ActionResult Next() {
