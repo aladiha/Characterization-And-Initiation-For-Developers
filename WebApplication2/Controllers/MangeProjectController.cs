@@ -253,7 +253,6 @@ namespace WebApplication2.Controllers
                               break;
 
                       }
-
                       // Remove all meta data.
                       doc.RemoveDocumentInformation(WdRemoveDocInfoType.wdRDIAll);
 
