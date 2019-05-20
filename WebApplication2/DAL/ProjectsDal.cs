@@ -8,6 +8,7 @@ using WebApplication2.Models;
 
 namespace WebApplication2.DAL
 {
+
     public class ProjectsDal : DbContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
