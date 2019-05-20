@@ -9,7 +9,6 @@ namespace WebApplication2.Models
     public class manege
 
     {
-
         public string Description { get; set; }
 
         [Key]
