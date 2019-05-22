@@ -10,11 +10,14 @@ namespace WebApplication2.DAL
     public class ProjectMembersDal : DbContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {//aaaaaaaa
+        {
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<ProjectMembers>().ToTable("ProjectMembers");
         }
         public DbSet<ProjectMembers> projectMembers { get; set; }
+
+
 
         public bool IsNotExists(int projectid, string memb)
         {
@@ -25,6 +28,7 @@ namespace WebApplication2.DAL
                 return true;
             return false;
         }
+
 
         public bool AddMember(ProjectMembers mem)
         {

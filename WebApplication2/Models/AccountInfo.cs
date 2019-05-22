@@ -23,6 +23,7 @@ namespace WebApplication2.Models
             private set { }
         }
 
+
         public static string userName //return the user role (admin or user) 
         {
             get { return HttpContext.Current.Session["userName"] as string; }

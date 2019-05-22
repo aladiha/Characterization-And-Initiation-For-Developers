@@ -133,9 +133,8 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Pipelines, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -466,16 +465,10 @@
     <Content Include="Views\MangeProject\UploadPage.cshtml" />
     <Content Include="Views\MangeProject\firstPart.cshtml" />
     <Content Include="Views\MangeProject\Download.cshtml" />
-    <Content Include="Uploads\19\Car Devolopment_m7mdgmeal.docx" />
-    <Content Include="Uploads\1\3.docx" />
-    <Content Include="Uploads\3\project-part3.docx" />
-    <Content Include="Uploads\4\4.docx" />
-    <Content Include="Uploads\5\5.docx" />
-    <Content Include="Uploads\6\6.docx" />
-    <Content Include="Uploads\7\6.docx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -35,6 +35,9 @@ namespace WebApplication2.ViewModels
 
                 downs.Add(u);//add the books in the downloads list from the DB into the download list 
             }*/
+
+
+
         }
     }
 

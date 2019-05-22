@@ -10,6 +10,8 @@ namespace WebApplication2.ModelBinders
     public class UserBinder : IModelBinder
     {
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
+
+
         {
             HttpContextBase objContext = controllerContext.HttpContext;
            

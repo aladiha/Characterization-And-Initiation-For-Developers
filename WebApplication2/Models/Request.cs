@@ -8,6 +8,7 @@ namespace WebApplication2.Models
 {
     public class Request
     {
+
         [Key]
         public int key { get; set; }
         public string from_user { get; set; }
@@ -17,6 +18,7 @@ namespace WebApplication2.Models
         public string request_type { get; set; }  
 
         public int status { get; set; }
+
 
 
         // if status 0: then the request not accepted or rejected -> in proccess

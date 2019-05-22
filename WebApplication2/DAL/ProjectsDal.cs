@@ -5,9 +5,9 @@ using System.Linq;
 using System.Web;
 using WebApplication2.Models;
 
-
 namespace WebApplication2.DAL
 {
+
     public class ProjectsDal : DbContext
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -16,7 +16,9 @@ namespace WebApplication2.DAL
                     modelBuilder.Entity<Project>().ToTable("Projects");
             }
 
+
         public DbSet<Project> projects { get; set; }
+
 
         public Project GetPrijectByPrjectId(int id)
         {
@@ -44,6 +46,8 @@ namespace WebApplication2.DAL
 
             return false;
         }
+
+
         public List<Project> GetProjectByUserName(string UserName)
         {
             List<Project> us =
@@ -66,6 +70,7 @@ namespace WebApplication2.DAL
             else
                 return us[0].Id;
         }
+
         public bool DeleteProject(string UserName, string pname)
         {
             List<Project> us = GetProjectByUserName(UserName);
@@ -87,7 +92,6 @@ namespace WebApplication2.DAL
 
             return false;
         }
-
         public bool ExistProjectId(int id,string user)
         {
             var y = (from x in projects where x.Id == id  && x.UserName.Equals(user) select x).ToList<Project>();
@@ -95,6 +99,5 @@ namespace WebApplication2.DAL
                 return false;
             return true;
         }
-
     }
 }
