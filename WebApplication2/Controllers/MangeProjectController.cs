@@ -10,30 +10,43 @@ using Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Web.Routing;
 
+
+
+
 namespace WebApplication2.Controllers
+
 {
     public class MangeProjectController : Controller
+
     {
         // GET: MangeProject
-        private static int x;
+        private static int ProjectId;
 
         public ActionResult Index()
         {
+
             return View();
         }
 
         public ActionResult firstPart()
         {
-            x = int.Parse(Request.QueryString.Get("projectid"));
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
             return View();
         }
 
         [HttpPost]
         public ActionResult Next()
         {
+
             Aspose.Words.Document doc = new Aspose.Words.Document();
+
+
             DocumentBuilder builder = new DocumentBuilder(doc);
-            String dataDir = "C:/" + x.ToString() + ".docx";
+            var dal = new ProjectsDal();
+            var proj = dal.GetPrijectByPrjectId(ProjectId);
+
+            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
+
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -50,17 +63,17 @@ namespace WebApplication2.Controllers
             {
                 builder.Writeln(q);
             }
-            doc.Save(dataDir);
-            string path = Server.MapPath("~/Uploads/" + x.ToString() + "/");
+            //  doc.Save(dataDir);
+
+            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path + x.ToString() + ".docx");
+            doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
             TempData["doc"] = doc;
             return View("StartCreating");
         }
-
 
         public ActionResult StartCreating()
         {
@@ -70,28 +83,29 @@ namespace WebApplication2.Controllers
 
         public ActionResult UploadPage()
         {
-            TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
 
             return View();
         }
-
 
 
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
 
-            string path = Server.MapPath("~/Uploads/" + TempData["Id"] + "/");
+            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
             var dir = new DirectoryInfo(path);
+
             FileInfo[] filename = dir.GetFiles("*.*");
-            foreach (var x in filename)
+
+            foreach (var ff in filename)
             {
-                x.Delete();
+                ff.Delete();
             }
 
             if (postedFile != null)
@@ -100,25 +114,20 @@ namespace WebApplication2.Controllers
                 postedFile.SaveAs(path + fileName);
                 ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
             }
-
             return View();
         }
-
-
-
         public FileResult Download()
         {
-            string proid = Request.QueryString.Get("projectid");
-            string path = Server.MapPath("~/Uploads/" + proid + "/");
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
+            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             var dir = new DirectoryInfo(path);
+
             FileInfo[] filename = dir.GetFiles("*.*");
 
             var FileVirtualPath = path + filename[0];
             return File(FileVirtualPath, "application/force- download", Path.GetFileName(FileVirtualPath));
 
         }
-
-
 
         public ActionResult CheckRadio(FormCollection frm)
         {
@@ -128,9 +137,7 @@ namespace WebApplication2.Controllers
             {
                 choises[i - 1] = frm["g" + i.ToString()].ToString();
             }
-
             String[] questions = new String[35];
-
             questions[0] = "יעדי הארגון, אסטרטגיה";
             questions[1] = "תרשים ומבנה ארגוני";
             questions[2] = "השלכות או'ש";
@@ -189,10 +196,10 @@ namespace WebApplication2.Controllers
 
             DocumentBuilder builder = new DocumentBuilder(doc);
             var dal = new ProjectsDal();
-            var proj = dal.GetPrijectByPrjectId(int.Parse(x.ToString()));
+            var proj = dal.GetPrijectByPrjectId(ProjectId);
 
-            String dataDir = "C:/" + x.ToString() + ".docx";
-            // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(TempData["Id"].ToString()));
+            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
+            // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -209,9 +216,12 @@ namespace WebApplication2.Controllers
             {
                 builder.Writeln(q);
             }
-            doc.Save(dataDir);
+            // doc.Save(dataDir);
+
+
             ViewBag.File = dataDir;
-            string path = Server.MapPath("~/Uploads/" + x.ToString() + "/");
+
+            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -223,6 +233,7 @@ namespace WebApplication2.Controllers
 
               try
               {
+
 
                   Microsoft.Office.Interop.Word.Document doc = ap.Documents.Open(@"C:\Users\Aladin\Desktop\Doc2.docx", ReadOnly: false, Visible: false);
                   doc.Activate();
@@ -243,7 +254,6 @@ namespace WebApplication2.Controllers
                               break;
 
                       }
-
                       // Remove all meta data.
                       doc.RemoveDocumentInformation(WdRemoveDocInfoType.wdRDIAll);
 
@@ -276,14 +286,13 @@ namespace WebApplication2.Controllers
         public ActionResult EditPermistions()
         {
             var membdal = new PrivateProjectsDal();
-            string projectid = Request.QueryString.Get("projectid");
+            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
 
-            ViewBag.membs = membdal.GetMemberByProjectId(int.Parse(projectid));
+            ViewBag.membs = membdal.GetMemberByProjectId(ProjectId);
             TempData["Count"] = (ViewBag.membs).Count;
-            TempData["projectId"] = projectid;
+            TempData["projectId"] = ProjectId;
             return View();
         }
-
         public ActionResult UpdatePermissions(FormCollection frm)
         {
             var membdal = new PrivateProjectsDal();
@@ -295,11 +304,12 @@ namespace WebApplication2.Controllers
             {
                 s[i] = frm[(i + 1).ToString()].ToString();
             }
-            membdal.UpdatedPermissions(s, int.Parse(TempData["projectId"].ToString()));
+            membdal.UpdatedPermissions(s, ProjectId);
 
             return View();
-
         }
+
+
 
     }
 
