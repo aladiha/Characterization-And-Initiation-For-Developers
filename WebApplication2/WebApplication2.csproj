@@ -221,6 +221,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AutomaticFillController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MangeProjectController.cs" />
@@ -417,7 +418,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -459,12 +460,13 @@
     <Content Include="Views\MangeProject\CheckRadio.cshtml" />
     <Content Include="Views\MangeProject\EditPermistions.cshtml" />
     <Content Include="Views\MangeProject\DeleteProject.cshtml" />
-    <Content Include="Views\MangeProject\Submit.cshtml" />
     <Content Include="Views\MangeProject\UpdatePermissions.cshtml" />
     <Content Include="Views\MangeProject\Upload.cshtml" />
     <Content Include="Views\MangeProject\UploadPage.cshtml" />
     <Content Include="Views\MangeProject\firstPart.cshtml" />
     <Content Include="Views\MangeProject\Download.cshtml" />
+    <Content Include="Views\AutomaticFill\Index.cshtml" />
+    <Content Include="Views\User\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

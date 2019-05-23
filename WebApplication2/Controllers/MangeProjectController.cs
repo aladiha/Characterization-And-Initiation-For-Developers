@@ -191,42 +191,42 @@ namespace WebApplication2.Controllers
         public ActionResult Submit()
         {
 
-            Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
+              Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
 
 
-            DocumentBuilder builder = new DocumentBuilder(doc);
-            var dal = new ProjectsDal();
-            var proj = dal.GetPrijectByPrjectId(ProjectId);
+                DocumentBuilder builder = new DocumentBuilder(doc);
+                var dal = new ProjectsDal();
+                var proj = dal.GetPrijectByPrjectId(ProjectId);
 
-            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
-            // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
+                String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
+                // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
 
-            List<String> ques = new List<String>();
-            int i = 1;
-            while (true)
-            {
-                if (Request.Form["q" + i.ToString()] != null)
-                    ques.Add(Request.Form["q" + i.ToString()]);
-                else
-                    break;
-                i++;
-            }
+                List<String> ques = new List<String>();
+                int i = 1;
+                while (true)
+                {
+                    if (Request.Form["q" + i.ToString()] != null)
+                        ques.Add(Request.Form["q" + i.ToString()]);
+                    else
+                        break;
+                    i++;
+                }
 
-            foreach (String q in ques)
-            {
-                builder.Writeln(q);
-            }
-            // doc.Save(dataDir);
+                foreach (String q in ques)
+                {
+                    builder.Writeln(q);
+                }
+                // doc.Save(dataDir);
 
 
-            ViewBag.File = dataDir;
+                ViewBag.File = dataDir;
 
-            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
+                string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
             //////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
@@ -279,7 +279,7 @@ namespace WebApplication2.Controllers
                   ((_Application)ap).Quit(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
                   System.Runtime.InteropServices.Marshal.ReleaseComObject(ap);
               }*/
-            return View();
+            return RedirectToAction("Index", "AutomaticFill");
         }
 
 
