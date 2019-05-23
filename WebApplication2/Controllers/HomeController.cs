@@ -14,10 +14,10 @@ namespace WebApplication2.Controllers
     {
         public ActionResult Index()
         {
-            return View();//
+            return View();
         }
 
-        public ActionResult Privacy()////////////
+        public ActionResult Privacy()
         {
             ViewBag.Message = "Your application description page.";
             return View();
