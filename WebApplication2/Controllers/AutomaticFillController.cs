@@ -14,6 +14,11 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-       
+
+        public ActionResult GetChoise()
+        {
+            return View();
+        }
+        
     }
 }

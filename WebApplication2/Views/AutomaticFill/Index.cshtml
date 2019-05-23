@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
+
 @Html.ActionLink("back to my projects", "imanagerp", "Project")
 
 
@@ -240,7 +241,7 @@
     </style>
 </head>
 <body>
-    <form action="GetChoise" method="post">
+    <form action="GetChoise" method="post" id="myform1">
         <div class="container">
 
             <h2>what kind of poject you are building?</h2>
@@ -269,8 +270,8 @@
             </ul>
         </div>
         <div class="mydiv">
-            <a class="effect1" href="#">
-                submit
+            <a class="effect1" href="#" onclick="document.getElementById('myform1').submit()">
+                  Submit
                 <span class="bg"></span>
             </a>
         </div>

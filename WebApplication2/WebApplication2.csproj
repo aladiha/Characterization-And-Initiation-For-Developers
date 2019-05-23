@@ -467,6 +467,7 @@
     <Content Include="Views\MangeProject\Download.cshtml" />
     <Content Include="Views\AutomaticFill\Index.cshtml" />
     <Content Include="Views\User\_ViewStart.cshtml" />
+    <Content Include="Views\AutomaticFill\GetChoise.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
