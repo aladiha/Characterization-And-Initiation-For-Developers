@@ -49,6 +49,9 @@
     <Reference Include="Cake.OpenCoverToCoberturaConverter, Version=0.1.2.3, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Cake.OpenCoverToCoberturaConverter.0.1.2.3\lib\net46\Cake.OpenCoverToCoberturaConverter.dll</HintPath>
     </Reference>
+    <PackageReference Include="Microsoft.AspNet.Mvc">
+      <Version>5.2.7</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
     <PackageReference Include="xunit.runner.console">
       <Version>2.4.1</Version>

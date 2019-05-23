@@ -1,12 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WebApplication2.Controllers;
-
 using WebApplication2.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-
 using WebApplication2;
 using System;
 using WebApplication2.DAL;
