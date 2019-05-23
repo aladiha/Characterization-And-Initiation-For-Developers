@@ -10,42 +10,30 @@ using Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Web.Routing;
 
-
-
-
 namespace WebApplication2.Controllers
-
 {
     public class MangeProjectController : Controller
-
     {
         // GET: MangeProject
-        private static int ProjectId;
-        
+        private static int x;
+
         public ActionResult Index()
         {
-            
             return View();
         }
 
         public ActionResult firstPart()
         {
-            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
+            x = int.Parse(Request.QueryString.Get("projectid"));
             return View();
         }
 
         [HttpPost]
-        public ActionResult Next() {
-
+        public ActionResult Next()
+        {
             Aspose.Words.Document doc = new Aspose.Words.Document();
-
-
             DocumentBuilder builder = new DocumentBuilder(doc);
-            var dal = new ProjectsDal();
-            var proj = dal.GetPrijectByPrjectId(ProjectId);
-
-            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
-
+            String dataDir = "C:/" + x.ToString() + ".docx";
 
             List<String> ques = new List<String>();
             int i = 1;
@@ -62,49 +50,48 @@ namespace WebApplication2.Controllers
             {
                 builder.Writeln(q);
             }
-          //  doc.Save(dataDir);
-
-            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+            doc.Save(dataDir);
+            string path = Server.MapPath("~/Uploads/" + x.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
-            TempData["doc"]=doc;
+            doc.Save(path + x.ToString() + ".docx");
+            TempData["doc"] = doc;
             return View("StartCreating");
         }
+
 
         public ActionResult StartCreating()
         {
             return View();
-        } 
+        }
 
 
         public ActionResult UploadPage()
         {
-            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
+            TempData["Id"] = int.Parse(Request.QueryString.Get("projectid"));
 
             return View();
         }
+
 
 
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
 
-            string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString()+"/");
+            string path = Server.MapPath("~/Uploads/" + TempData["Id"] + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
-            var dir =new DirectoryInfo(path);
-
-            FileInfo []filename = dir.GetFiles("*.*");
-
-            foreach ( var ff in filename)
+            var dir = new DirectoryInfo(path);
+            FileInfo[] filename = dir.GetFiles("*.*");
+            foreach (var x in filename)
             {
-                ff.Delete();
+                x.Delete();
             }
 
             if (postedFile != null)
@@ -113,14 +100,17 @@ namespace WebApplication2.Controllers
                 postedFile.SaveAs(path + fileName);
                 ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
             }
+
             return View();
         }
+
+
+
         public FileResult Download()
         {
-            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
-            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+            string proid = Request.QueryString.Get("projectid");
+            string path = Server.MapPath("~/Uploads/" + proid + "/");
             var dir = new DirectoryInfo(path);
-
             FileInfo[] filename = dir.GetFiles("*.*");
 
             var FileVirtualPath = path + filename[0];
@@ -128,14 +118,19 @@ namespace WebApplication2.Controllers
 
         }
 
+
+
         public ActionResult CheckRadio(FormCollection frm)
         {
             String[] choises = new String[35];
 
-            for (int i = 1; i < 36; i++) {
-                choises[i-1] = frm["g"+i.ToString()].ToString();
+            for (int i = 1; i < 36; i++)
+            {
+                choises[i - 1] = frm["g" + i.ToString()].ToString();
             }
+
             String[] questions = new String[35];
+
             questions[0] = "יעדי הארגון, אסטרטגיה";
             questions[1] = "תרשים ומבנה ארגוני";
             questions[2] = "השלכות או'ש";
@@ -144,7 +139,7 @@ namespace WebApplication2.Controllers
             questions[5] = "סיכונים - ישימות הפרויקט  // האם הפרויקט עסקי";
             questions[6] = "עלות/תועלת – ישימות עסקית";
             questions[7] = "תוצרים";
-            questions[8] = "מועד נטישה"; 
+            questions[8] = "מועד נטישה";
             questions[9] = "משך חיי המערכת";
             questions[10] = "שגרות מקומיות";
             questions[11] = "שגרות ארגון";
@@ -155,12 +150,12 @@ namespace WebApplication2.Controllers
             questions[16] = "כללי – מודל הנתונים";
             questions[17] = "קבצים לוגיים";
             questions[18] = "שדות מקומיים";
-            questions[19] = "שדות ארגוניים"; 
+            questions[19] = "שדות ארגוניים";
             questions[20] = "שדות גלובליים";
             questions[21] = "קבוצת דחות";
             questions[22] = "הצלבות וחיתוכים";
             questions[23] = "נפחים עומסים וביצועים";
-            questions[24] = "אינדקס ורשימה כללית"; 
+            questions[24] = "אינדקס ורשימה כללית";
             questions[25] = "ממשקים";
             questions[26] = "דרישות מיוחדות ";
             questions[27] = " (נקודות פתוחות (וחלופות";
@@ -174,8 +169,10 @@ namespace WebApplication2.Controllers
 
 
             List<String> lastform = new List<String>();
-            for (int i = 0; i < 35; i++) {
-                if (choises[i] == "Yes") {
+            for (int i = 0; i < 35; i++)
+            {
+                if (choises[i] == "Yes")
+                {
                     lastform.Add(questions[i]);
                 }
             }
@@ -184,50 +181,48 @@ namespace WebApplication2.Controllers
         }
 
 
-        public ActionResult Submit() {
+        public ActionResult Submit()
+        {
 
-           Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
+            Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
 
-        
-           DocumentBuilder builder = new DocumentBuilder(doc);
+
+            DocumentBuilder builder = new DocumentBuilder(doc);
             var dal = new ProjectsDal();
-            var proj = dal.GetPrijectByPrjectId(ProjectId);
+            var proj = dal.GetPrijectByPrjectId(int.Parse(x.ToString()));
 
-            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
-           // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
+            String dataDir = "C:/" + x.ToString() + ".docx";
+            // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(TempData["Id"].ToString()));
 
             List<String> ques = new List<String>();
             int i = 1;
             while (true)
             {
                 if (Request.Form["q" + i.ToString()] != null)
-                    ques.Add(Request.Form["q" + i.ToString()]);                                                                                         
+                    ques.Add(Request.Form["q" + i.ToString()]);
                 else
                     break;
                 i++;
             }
 
-            foreach (String q in ques) {
+            foreach (String q in ques)
+            {
                 builder.Writeln(q);
             }
-           // doc.Save(dataDir);
-
-
+            doc.Save(dataDir);
             ViewBag.File = dataDir;
-
-            string path = Server.MapPath("~/Uploads/"+ ProjectId.ToString() + "/");
+            string path = Server.MapPath("~/Uploads/" + x.ToString() + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-           doc.Save(path+proj.ProjectName+"_"+proj.UserName+".docx");
+            doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
             //////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
 
               try
               {
-
 
                   Microsoft.Office.Interop.Word.Document doc = ap.Documents.Open(@"C:\Users\Aladin\Desktop\Doc2.docx", ReadOnly: false, Visible: false);
                   doc.Activate();
@@ -248,6 +243,7 @@ namespace WebApplication2.Controllers
                               break;
 
                       }
+
                       // Remove all meta data.
                       doc.RemoveDocumentInformation(WdRemoveDocInfoType.wdRDIAll);
 
@@ -280,30 +276,30 @@ namespace WebApplication2.Controllers
         public ActionResult EditPermistions()
         {
             var membdal = new PrivateProjectsDal();
-            ProjectId = int.Parse(Request.QueryString.Get("projectid"));
+            string projectid = Request.QueryString.Get("projectid");
 
-            ViewBag.membs = membdal.GetMemberByProjectId(ProjectId);
+            ViewBag.membs = membdal.GetMemberByProjectId(int.Parse(projectid));
             TempData["Count"] = (ViewBag.membs).Count;
-            TempData["projectId"] = ProjectId;
+            TempData["projectId"] = projectid;
             return View();
         }
+
         public ActionResult UpdatePermissions(FormCollection frm)
         {
             var membdal = new PrivateProjectsDal();
-            
+
             int size = int.Parse(TempData["Count"].ToString());
             string[] s = new string[size];
 
             for (int i = 0; i < size; i++)
             {
-                s[i] = frm[(i+1).ToString()].ToString();
+                s[i] = frm[(i + 1).ToString()].ToString();
             }
-            membdal.UpdatedPermissions(s, ProjectId);
+            membdal.UpdatedPermissions(s, int.Parse(TempData["projectId"].ToString()));
 
             return View();
+
         }
-
-
 
     }
 
@@ -312,9 +308,9 @@ namespace WebApplication2.Controllers
 
 
 
-       
 
-   
+
+
 
 
 
