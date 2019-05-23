@@ -15,7 +15,6 @@ namespace WebApplication2.Controllers
         public ActionResult Index()
         {
             return View();//
-            mmmmjklj
         }
 
         public ActionResult Privacy()////////////
