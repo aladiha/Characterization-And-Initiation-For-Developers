@@ -442,7 +442,6 @@
     <Content Include="Views\Home\DeleteAccountCompleteMassage.cshtml" />
     <Content Include="Views\Login\ChangedPasswordDone.cshtml" />
     <Content Include="Views\Project\Enter.cshtml" />
-    <Content Include="Views\Login\Manage.cshtml" />
     <Content Include="Views\Project\Project.cshtml" />
     <Content Include="Views\Project\_ViewStart.cshtml" />
     <Content Include="Views\Project\imanagerp.cshtml" />
@@ -468,6 +467,7 @@
     <Content Include="Views\AutomaticFill\Index.cshtml" />
     <Content Include="Views\User\_ViewStart.cshtml" />
     <Content Include="Views\AutomaticFill\GetChoise.cshtml" />
+    <Content Include="Views\Project\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

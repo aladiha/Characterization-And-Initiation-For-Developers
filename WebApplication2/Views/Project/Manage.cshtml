@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Manage";
+}
+
+
+
+
+<html>
+<head>
+
+    <style>
+
+        body {
+            background-image: url('../../img/black.jpg'); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: 2000px; /* Resize the background image to cover the entire container */
+        }
+
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .lili {
+            font-size: 20px;
+            width: 10em;
+            height: 2em;
+            color: orange;
+            border-left: 0.08em solid;
+            position: relative;
+            margin-top: 2em;
+            cursor: pointer;
+            position: relative;
+            left: 40%;
+        }
+
+            .lili::before,
+            .lili::after {
+                content: '';
+                position: absolute;
+                width: inherit;
+                border-left: inherit;
+                z-index: -1;
+            }
+
+            .lili::before {
+                height: 80%;
+                top: 10%;
+                left: calc(-0.15em - 0.08em * 2);
+                filter: brightness(0.8);
+            }
+
+            .lili::after {
+                height: 60%;
+                top: 20%;
+                left: calc(-0.15em * 2 - 0.08em * 3);
+                filter: brightness(0.6);
+            }
+
+            .lili span {
+                position: relative;
+                height: 120%;
+                top: -10%;
+                box-sizing: border-box;
+                border: 0.08em solid;
+                background-color: #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: sans-serif;
+                text-transform: capitalize;
+                transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
+                transition: 0.3s;
+            }
+
+            .lili:hover span {
+                transform: translateX(0.15em);
+            }
+    </style>
+</head>
+<body>
+    <p align="center">
+        <ul>
+            <li class=" lili" onclick="@("window.location.href='" + @Url.Action("Enter", "Project") + "'");"> <span>Create Project</span></li>
+   
+            <li class=" lili" onclick="@("window.location.href='" + @Url.Action("imanagerp", "Project") + "'");"> <span>Admin Projects</span></li>
+            <li class=" lili" onclick="@("window.location.href='" + @Url.Action("ProjectMembers", "Project") + "'");"> <span>Member Projects</span></li>
+            <li class=" lili" onclick="@("window.location.href='" + @Url.Action("Requests" , "Project") + "'");"> <span>Requests</span></li>
+            <li class=" lili" onclick="@("window.location.href='" + @Url.Action("DeleteProject", "Project") + "'");"> <span>Delete A Project</span></li>
+        </ul>
+    </p>
+
+
+</body>
+
+</html>

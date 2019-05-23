@@ -314,7 +314,11 @@ namespace WebApplication2.Controllers
 
         }
 
+        public ActionResult Manage()
+        {
 
+            return View();
+        }
 
     }
 
