@@ -344,6 +344,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img2\cat.jpg" />
+    <Content Include="img2\dolphin.jpg" />
+    <Content Include="img2\monkey.jpg" />
+    <Content Include="img2\parrot.jpg" />
+    <Content Include="img2\swan.jpg" />
+    <Content Include="img2\tiger.jpg" />
     <Content Include="img\5555.jpg" />
     <Content Include="img\bw.png" />
     <Content Include="img\connect.jpg" />
