@@ -21,6 +21,7 @@ namespace WebApplication2.Controllers
     {
         // GET: MangeProject
         private static int ProjectId;
+        
 
         public ActionResult Index()
         {
@@ -30,7 +31,29 @@ namespace WebApplication2.Controllers
 
         public ActionResult firstPart()
         {
+            string[] ss=new string[50];
+
+            List<string> consff = new List<string>();
+            consff.Add("לקוח\\מומחה יישום" + "^" + "" + "לקוח \\ משתמש עיקרי" + "@" + "מומחה(י) היישום" + "@" + "צוותי משתמשים");
+            consff.Add("יעדים ומטרות" + "^" + "יעדים כלליים" + "@" + "מטרות מעשיות" + "@" + "מטרות עתידיות");
+            consff.Add("בעיות" + "^" + "תמצית הבעיות במצב הקיים" + "@" + "בעיות שהמערכת פותרת/אמורה לפתור" + "@" + "בעיות שהמערכת יוצרת/עשויה ליצור"+"@"+ "בעיות שיידחו");
+            consff.Add("מאפיינים כלליים" + "^" + "מצב קיים" + "@" + "אופי המערכת וסוגה" + "@" + "אילוצים" + "@"+ "מילון מונחים");
+            consff.Add("תיחום פנימי" + "^" + "יאור כללי של המערכת" + "@" + "תתי-מערכת");
+            consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
+            consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+
+
+
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
+            
             return View();
         }
 
@@ -59,6 +82,31 @@ namespace WebApplication2.Controllers
                 i++;
             }
 
+            List<string> consff = new List<string>();
+            consff.Add("לקוח\\מומחה יישום" + "^" + "" + "לקוח \\ משתמש עיקרי" + "@" + "מומחה(י) היישום" + "@" + "צוותי משתמשים");
+            consff.Add("יעדים ומטרות" + "^" + "יעדים כלליים" + "@" + "מטרות מעשיות" + "@" + "מטרות עתידיות");
+            consff.Add("בעיות" + "^" + "תמצית הבעיות במצב הקיים" + "@" + "בעיות שהמערכת פותרת/אמורה לפתור" + "@" + "בעיות שהמערכת יוצרת/עשויה ליצור" + "@" + "בעיות שיידחו");
+            consff.Add("מאפיינים כלליים" + "^" + "מצב קיים" + "@" + "אופי המערכת וסוגה" + "@" + "אילוצים" + "@" + "מילון מונחים");
+            consff.Add("תיחום פנימי" + "^" + "יאור כללי של המערכת" + "@" + "תתי-מערכת");
+            consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
+            consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
+
+            builder.Font.LocaleIdBi = 1037;
+            for (i=0; i < consff.Count; i++)
+            {
+                builder.ParagraphFormat.Bidi = true;
+                builder.Font.Bidi = true;
+
+                string[] parser = consff[i].ToString().Split('^');
+                string title = parser[0];
+                string[] subtitle = parser[1].Split('@');
+                builder.Writeln(title);
+                foreach (var x in subtitle)
+                    builder.Writeln(x);
+                builder.Font.Bidi = false;
+                builder.Writeln(ques[i]);
+
+            }
             foreach (String q in ques)
             {
                 builder.Writeln(q);
