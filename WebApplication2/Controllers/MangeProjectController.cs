@@ -91,26 +91,24 @@ namespace WebApplication2.Controllers
             consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
             consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
 
-            builder.Font.LocaleIdBi = 1037;
+                    builder.Writeln("***********************************");
+
             for (i=0; i < consff.Count; i++)
             {
-                builder.ParagraphFormat.Bidi = true;
+                builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
                 builder.Font.Bidi = true;
 
                 string[] parser = consff[i].ToString().Split('^');
                 string title = parser[0];
                 string[] subtitle = parser[1].Split('@');
                 builder.Writeln(title);
+
                 foreach (var x in subtitle)
                     builder.Writeln(x);
-                builder.Font.Bidi = false;
                 builder.Writeln(ques[i]);
 
             }
-            foreach (String q in ques)
-            {
-                builder.Writeln(q);
-            }
+
             //  doc.Save(dataDir);
 
             string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
