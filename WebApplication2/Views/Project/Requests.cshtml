@@ -10,7 +10,7 @@
 
 
         body {
-            background-image: url('../../img/black.jpg'); /* The image used */
+            background-image: url('../../img/whwh.png'); /* The image used */
             background-color: #cccccc; /* Used if the image is unavailable */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Do not repeat the image */
@@ -90,15 +90,17 @@
     </style>
 </head>
 <body>
-    <div align="center" style="color:white"><h1> Requests</h1></div>
+    <div align="center"><h1> Requests</h1></div>
     <br />
     <br />
     <br />
-    <div class="containers" >
+    <div class="containers">
+         <img src="~/img/connect.jpg" alt="Smiley face" style="float:left;width:450px;height:450px;">
         <p align="center"><button class="skewBtn purple" onclick="@("window.location.href='" + @Url.Action("New_Request", "Project") + "'");">New Request</button></p><br />
         <p align="center"><button class="skewBtn blue" onclick="@("window.location.href='" + @Url.Action("My_Requests", "Project") + "'");">My Requests</button></p><br />
         <p align="center"><button class="skewBtn lorange" onclick="@("window.location.href='" + @Url.Action("View_Requests", "Project") + "'");">All Requests</button></p><br />
         <p align="center"><button class="skewBtn brick" onclick="@("window.location.href='" + @Url.Action("View_Recent_Requests", "Project") + "'");">Recent Requests</button></p>
+        
     </div>
 
 
