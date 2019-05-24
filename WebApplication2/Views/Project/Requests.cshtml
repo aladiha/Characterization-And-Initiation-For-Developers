@@ -4,17 +4,10 @@
 }
 
 
-
-
-
-
-
 <html>
 <head>
     <style>
-        body, h1, h2, h3, h4, h5, h6 {
-            font-family: "Raleway", sans-serif
-        }
+
 
         body {
             background-image: url('../../img/black.jpg'); /* The image used */
@@ -24,49 +17,92 @@
             background-size: 2000px; /* Resize the background image to cover the entire container */
         }
 
-        h2 {
-            color: white;
+        .containers {
+            
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70vh;   
+            
+           
         }
 
-        /* Full height image header */
-        .bgimg-1 {
-            background-position: center;
-            background-size: cover;
-            background-image: url("");
-            min-height: 100%;
+            .containers .skewBtn {
+                width: 250px;
+                height: 80px;
+                outline: none;
+                cursor: pointer;
+                background: none;
+                transition: .5s;
+                font-size: 20px;
+                border-radius: 5px;
+                font-family: "Lato",sans-serif;
+            }
+
+                .containers .skewBtn:hover {
+                    border: none;
+                    color: white;
+                    font-size: 28px;
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+
+        /* Buttons */
+        .purple {
+            border: 2px solid #21750e;
+            color: #21750e;
         }
 
-        .w3-bar .w3-button {
-            padding: 16px;
+            .purple:hover {
+                background-color: #21750e;
+                transition: all 0.3s ease-in-out;
+            }
+
+        .blue {
+            border: 2px solid #1976D2;
+            color: #1976D2;
         }
 
-        .w3-container {
-            padding: 128px 16px;
-            color: white;
-            font-family: Tahoma;
+            .blue:hover {
+                background-color: #1976D2;
+                transition: all 0.3s ease-in-out;
+            }
+
+        .lorange {
+            border: 2px solid #FBC02D;
+            color: #FBC02D;
         }
+
+            .lorange:hover {
+                background-color: #FBC02D;
+                transition: all 0.3s ease-in-out;
+            }
+
+        .brick {
+            border: 2px solid #FF5722;
+            color: #FF5722;
+        }
+
+            .brick:hover {
+                background-color: #FF5722;
+                transition: all 0.3s ease-in-out;
+            }
+
     </style>
 </head>
 <body>
-    <div align="center" style="color:lightgreen"><h1> Requests</h1></div>
-   <br />
-   <span style="color:green">@TempData["Done"]</span>
+    <div align="center" style="color:white"><h1> Requests</h1></div>
     <br />
-
-    <h2>New Request</h2>
-    @Html.ActionLink("New Request", "New_Request", "Project")
-
-
-    <h2>My Requests</h2>
-    @Html.ActionLink("My Requests", "My_Requests", "Project")    @* in orfer to view sender requests*@
-
-
-    <h2>All Requests</h2>                                         @*in order to view all send and reseved Requests*@
-    @Html.ActionLink("View All Requests", "View_Requests", "Project")
+    <br />
+    <br />
+    <div class="containers" >
+        <p align="center"><button class="skewBtn purple" onclick="@("window.location.href='" + @Url.Action("New_Request", "Project") + "'");">New Request</button></p><br />
+        <p align="center"><button class="skewBtn blue" onclick="@("window.location.href='" + @Url.Action("My_Requests", "Project") + "'");">My Requests</button></p><br />
+        <p align="center"><button class="skewBtn lorange" onclick="@("window.location.href='" + @Url.Action("View_Requests", "Project") + "'");">All Requests</button></p><br />
+        <p align="center"><button class="skewBtn brick" onclick="@("window.location.href='" + @Url.Action("View_Recent_Requests", "Project") + "'");">Recent Requests</button></p>
+    </div>
 
 
-    <h2>View Recently Requests</h2>                              @*in order to accept/reject recently requests*@
-    @Html.ActionLink("Recently Requests", "View_Recent_Requests", "Project")
+   
 
 </body>
 </html>
