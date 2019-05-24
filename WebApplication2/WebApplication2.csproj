@@ -466,7 +466,7 @@
     <Content Include="Views\MangeProject\UploadPage.cshtml" />
     <Content Include="Views\MangeProject\firstPart.cshtml" />
     <Content Include="Views\MangeProject\Download.cshtml" />
-    <Content Include="Views\AutomaticFill\Index.cshtml" />
+    <Content Include="Views\AutomaticFill\Start.cshtml" />
     <Content Include="Views\User\_ViewStart.cshtml" />
     <Content Include="Views\AutomaticFill\GetChoise.cshtml" />
     <Content Include="Views\Project\Manage.cshtml" />

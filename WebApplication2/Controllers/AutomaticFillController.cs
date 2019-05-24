@@ -9,7 +9,7 @@ namespace WebApplication2.Controllers
     public class AutomaticFillController : Controller
     {
         // GET: AutomaticFill
-        public ActionResult Index()
+        public ActionResult Start()
         {
             return View();
         }

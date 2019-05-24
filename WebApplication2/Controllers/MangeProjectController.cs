@@ -279,7 +279,7 @@ namespace WebApplication2.Controllers
                   ((_Application)ap).Quit(SaveChanges: false, OriginalFormat: false, RouteDocument: false);
                   System.Runtime.InteropServices.Marshal.ReleaseComObject(ap);
               }*/
-            return RedirectToAction("Index", "AutomaticFill");
+            return RedirectToAction("Start", "AutomaticFill");
         }
 
 
