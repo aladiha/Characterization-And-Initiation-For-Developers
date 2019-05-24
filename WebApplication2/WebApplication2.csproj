@@ -346,6 +346,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\5555.jpg" />
     <Content Include="img\bw.png" />
+    <Content Include="img\connect.jpg" />
     <Content Include="img\Gray-swirls-abstract-HD-wallpaper-hd-wallpapers-background-wallpapers-pictures-desktop-wallpapers-samsung-phone-wallpapers-widescreen-1080p-digital-photos-1920x1080.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -365,6 +366,7 @@
     <Content Include="img\sky.jpg" />
     <Content Include="img\solid.jpg" />
     <Content Include="img\wave.jpg" />
+    <Content Include="img\whwh.png" />
     <Content Include="obj\Debug\WebApplication2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\WebApplication2.dll" />
     <Content Include="obj\Debug\WebApplication2.pdb" />
