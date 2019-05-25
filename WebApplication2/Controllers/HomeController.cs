@@ -35,7 +35,7 @@ namespace WebApplication2.Controllers
             newContact.name = Request.Form["name"];
             newContact.subject = Request.Form["subject"];
             newContact.massage = Request.Form["massage"];
-
+            
 
             ContactDal cdal = new ContactDal();
             cdal.contacts.Add(newContact);

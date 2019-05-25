@@ -15,10 +15,23 @@ namespace WebApplication2.Controllers
         }
 
 
-        public ActionResult GetChoise()
+        public ActionResult GetChoise(FormCollection frm)
+        {
+            string ba;
+            ba=frm["App"].ToString();
+
+            if (ba == "Ios")
+                return View("Ios");
+            else if (ba == "Web")
+                return View("Web");
+            else
+                return View("Android");
+        }
+
+        public ActionResult Database()
         {
             return View();
         }
-        
+
     }
 }

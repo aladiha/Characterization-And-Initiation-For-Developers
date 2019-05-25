@@ -474,8 +474,11 @@
     <Content Include="Views\MangeProject\Download.cshtml" />
     <Content Include="Views\AutomaticFill\Start.cshtml" />
     <Content Include="Views\User\_ViewStart.cshtml" />
-    <Content Include="Views\AutomaticFill\GetChoise.cshtml" />
+    <Content Include="Views\AutomaticFill\Ios.cshtml" />
     <Content Include="Views\Project\Manage.cshtml" />
+    <Content Include="Views\AutomaticFill\Database.cshtml" />
+    <Content Include="Views\AutomaticFill\Android.cshtml" />
+    <Content Include="Views\AutomaticFill\Web.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
