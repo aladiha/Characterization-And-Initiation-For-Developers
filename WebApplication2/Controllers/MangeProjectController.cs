@@ -9,6 +9,7 @@ using Aspose.Words;
 using Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Web.Routing;
+using System.Drawing;
 //
 
 
@@ -33,22 +34,7 @@ namespace WebApplication2.Controllers
         {
             string[] ss=new string[50];
 
-            List<string> consff = new List<string>();
-            consff.Add("לקוח\\מומחה יישום" + "^" + "" + "לקוח \\ משתמש עיקרי" + "@" + "מומחה(י) היישום" + "@" + "צוותי משתמשים");
-            consff.Add("יעדים ומטרות" + "^" + "יעדים כלליים" + "@" + "מטרות מעשיות" + "@" + "מטרות עתידיות");
-            consff.Add("בעיות" + "^" + "תמצית הבעיות במצב הקיים" + "@" + "בעיות שהמערכת פותרת/אמורה לפתור" + "@" + "בעיות שהמערכת יוצרת/עשויה ליצור"+"@"+ "בעיות שיידחו");
-            consff.Add("מאפיינים כלליים" + "^" + "מצב קיים" + "@" + "אופי המערכת וסוגה" + "@" + "אילוצים" + "@"+ "מילון מונחים");
-            consff.Add("תיחום פנימי" + "^" + "יאור כללי של המערכת" + "@" + "תתי-מערכת");
-            consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
-            consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
-            consff.Add("" + "^" + "" + "@" + "" + "@" + "");
+
 
 
 
@@ -91,24 +77,77 @@ namespace WebApplication2.Controllers
             consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
             consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
 
-                    builder.Writeln("***********************************");
+            consff.Add("(מהלכים (פרוצדורות בקרה"+"^");
 
-            for (i=0; i < consff.Count; i++)
+            consff.Add("מערכת הפעלה" + "^" + "בסיס הנתונים – DBMS" + "^" + "כלי פיתוח ותחזוקה");
+            consff.Add("תוכנות מדף" + "^" + "תוכנות שירות" + "@" + "תוכנות יישום");
+            consff.Add("כלי תפעול וייצור " + "^" + "כלים למפעיל ואחראי ייצור" + "@" + "כלי שליטה ובקרה למנהל המערכת");
+            consff.Add("תקשורת" + "^" + "תקשורת פרטית מקומית" + "@" + "תקשורת פרטית רחבה" + "@" + "רשת ציבורית");
+            consff.Add("(נקודות פתוחות (וחלופות" + "^");
+            consff.Add("גורמים מעורבים" + "^" + "צוותים מקצועיים – צוותי הפיתוח" + "@" + "סיוע טכני" + "@" + "ספקים וגורמי חוץ");
+            consff.Add("תכנית עבודה" + "^" + "שיטת הפיתוח" + "@" + "תכנית פיתוח כללית" + "@" + "תכנית פרטנית");
+            consff.Add("שירות ותחזוקה" + "^" + "מרכז תמיכה – HELPDESK (CALL CENTER)" + "@" + "תחזוקת היישום" + "@" + "תחזוקת תשתית וטכנולוגיה" + "@" + "מימוש שוטף" + "@" + "עלויות שוטפות");
+            consff.Add("השתלבות בארגון – הנעת המערכת" + "^" + "הטמעת המערכת" + "@" + " (הסבות (הגירה" + "@" + "או\"ש" + "@" + "מדריך למשתמש");
+            consff.Add("חוסן ואמינות" + "^" + "תכנית בדיקה" + "@" + "זמינות ושרידות");
+
+            builder.Writeln("***********************************");
+
+            builder.ListFormat.ApplyBulletDefault();
+            
+
+            builder.Bold = true;
+            builder.Font.Bold = true;
+            builder.Font.Name = "David";
+
+
+            int j = 0;
+            for (i = 0; i < consff.Count; i++)
             {
+
                 builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
                 builder.Font.Bidi = true;
 
+               // builder.Font.Bold =true;
+                builder.Font.Underline = Underline.Single;
+                builder.Font.Color = Color.Black;
+
                 string[] parser = consff[i].ToString().Split('^');
                 string title = parser[0];
-                string[] subtitle = parser[1].Split('@');
-                builder.Writeln(title);
 
-                foreach (var x in subtitle)
-                    builder.Writeln(x);
+
+
+                builder.Writeln(title);
+                
+
+                int l1, l2;
+                l1 = parser.Length;
+                if (l1>1)
+                {
+                    l2 = parser[1].Split('^').Length;
+                    if(l2!=0)
+                    {
+                        builder.ListFormat.ListIndent();
+
+                        builder.Font.Bold = false;
+                        builder.Font.Underline = Underline.None;
+                        string[] subtitle = parser[1].Split('@');
+                        
+                        foreach (var x in subtitle)
+                            builder.Writeln(j+")"+x);
+                        builder.ListFormat.ListOutdent();
+                    }
+                    else
+                    {
+                        builder.Writeln(parser[1]);
+                        builder.Writeln(parser[2]);
+                    }
+                }
+                builder.Font.Bold = false;
+                builder.Font.Color = Color.Blue;
+
                 builder.Writeln(ques[i]);
 
             }
-
             //  doc.Save(dataDir);
 
             string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
@@ -245,9 +284,11 @@ namespace WebApplication2.Controllers
                 var proj = dal.GetPrijectByPrjectId(ProjectId);
 
                 String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
-                // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
+            // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
+            builder.Writeln("***********************************");
+            builder.Writeln("***********************************");
 
-                List<String> ques = new List<String>();
+            List<String> ques = new List<String>();
                 int i = 1;
                 while (true)
                 {
@@ -262,10 +303,12 @@ namespace WebApplication2.Controllers
                 {
                     builder.Writeln(q);
                 }
-                // doc.Save(dataDir);
+            // doc.Save(dataDir);
 
+            builder.Writeln("***********************************");
+            builder.Writeln("***********************************");
 
-                ViewBag.File = dataDir;
+            ViewBag.File = dataDir;
 
                 string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
                 if (!Directory.Exists(path))
