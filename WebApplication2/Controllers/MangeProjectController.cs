@@ -92,32 +92,35 @@ namespace WebApplication2.Controllers
 
             builder.Writeln("***********************************");
 
-            builder.ListFormat.ApplyBulletDefault();
-            
 
+            builder.Write("עִבְרִית");
             builder.Bold = true;
             builder.Font.Bold = true;
             builder.Font.Name = "David";
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+            builder.ParagraphFormat.Bidi = true;
+            builder.Font.Bidi = true;
 
 
-            int j = 0;
+
             for (i = 0; i < consff.Count; i++)
             {
+                builder.ListFormat.ApplyBulletDefault();
 
-                builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
                 builder.Font.Bidi = true;
 
                // builder.Font.Bold =true;
                 builder.Font.Underline = Underline.Single;
                 builder.Font.Color = Color.Black;
-
+                builder.ListFormat.ListLevelNumber = 0;
                 string[] parser = consff[i].ToString().Split('^');
                 string title = parser[0];
 
-
+                
 
                 builder.Writeln(title);
-                
+                builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+
 
                 int l1, l2;
                 l1 = parser.Length;
@@ -126,6 +129,7 @@ namespace WebApplication2.Controllers
                     l2 = parser[1].Split('^').Length;
                     if(l2!=0)
                     {
+
                         builder.ListFormat.ListIndent();
 
                         builder.Font.Bold = false;
@@ -133,7 +137,7 @@ namespace WebApplication2.Controllers
                         string[] subtitle = parser[1].Split('@');
                         
                         foreach (var x in subtitle)
-                            builder.Writeln(j+")"+x);
+                            builder.Writeln(x);
                         builder.ListFormat.ListOutdent();
                     }
                     else
@@ -145,7 +149,15 @@ namespace WebApplication2.Controllers
                 builder.Font.Bold = false;
                 builder.Font.Color = Color.Blue;
 
+                builder.Writeln();
+
+                builder.ListFormat.List = null;
+
                 builder.Writeln(ques[i]);
+
+                builder.Writeln();
+                builder.Writeln();
+
 
             }
             //  doc.Save(dataDir);
@@ -299,7 +311,16 @@ namespace WebApplication2.Controllers
                     i++;
                 }
 
-                foreach (String q in ques)
+            builder.ParagraphFormat.Bidi = true;
+
+            builder.Bold = true;
+            builder.Font.Bold = true;
+            builder.Font.Name = "David";
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+            builder.ParagraphFormat.Bidi = true;
+            builder.Font.Bidi = true;
+
+            foreach (String q in ques)
                 {
                     builder.Writeln(q);
                 }
