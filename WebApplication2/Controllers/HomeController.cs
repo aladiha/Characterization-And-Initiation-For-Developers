@@ -19,7 +19,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult Privacy()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application description page.";//
             return View();
         }
 
