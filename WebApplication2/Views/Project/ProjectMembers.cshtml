@@ -82,7 +82,8 @@
                         if (B.IsPrivate == false)
                         {
 
-                            string path = Server.MapPath("~/Uploads/" + B.ProjectId.ToString() + "/");
+                            var x = B.GetProject(B.ProjectId.ToString());
+                            string path = Server.MapPath("~/Uploads/" + x.UserName+"_"+x.ProjectName + "/");
                             if (!Directory.Exists(path))
                             {
                                 <td>|@Html.ActionLink("Create", "firstPart", "MangeProject", new { projectid = B.ProjectId }, null) </td>

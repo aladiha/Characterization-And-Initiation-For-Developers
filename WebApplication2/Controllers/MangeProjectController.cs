@@ -54,7 +54,8 @@ namespace WebApplication2.Controllers
             var dal = new ProjectsDal();
             var proj = dal.GetPrijectByPrjectId(ProjectId);
 
-            String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
+
+            String ProjectNameNOwner = proj.UserName + "_" + proj.ProjectName;
 
 
             List<String> ques = new List<String>();
@@ -77,27 +78,26 @@ namespace WebApplication2.Controllers
             consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
             consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
 
-            consff.Add("(מהלכים (פרוצדורות בקרה"+"^");
+            consff.Add("(מהלכים (פרוצדורות בקרה");
 
             consff.Add("מערכת הפעלה" + "^" + "בסיס הנתונים – DBMS" + "^" + "כלי פיתוח ותחזוקה");
             consff.Add("תוכנות מדף" + "^" + "תוכנות שירות" + "@" + "תוכנות יישום");
             consff.Add("כלי תפעול וייצור " + "^" + "כלים למפעיל ואחראי ייצור" + "@" + "כלי שליטה ובקרה למנהל המערכת");
             consff.Add("תקשורת" + "^" + "תקשורת פרטית מקומית" + "@" + "תקשורת פרטית רחבה" + "@" + "רשת ציבורית");
-            consff.Add("(נקודות פתוחות (וחלופות" + "^");
+            consff.Add("(נקודות פתוחות (וחלופות");
             consff.Add("גורמים מעורבים" + "^" + "צוותים מקצועיים – צוותי הפיתוח" + "@" + "סיוע טכני" + "@" + "ספקים וגורמי חוץ");
             consff.Add("תכנית עבודה" + "^" + "שיטת הפיתוח" + "@" + "תכנית פיתוח כללית" + "@" + "תכנית פרטנית");
             consff.Add("שירות ותחזוקה" + "^" + "מרכז תמיכה – HELPDESK (CALL CENTER)" + "@" + "תחזוקת היישום" + "@" + "תחזוקת תשתית וטכנולוגיה" + "@" + "מימוש שוטף" + "@" + "עלויות שוטפות");
             consff.Add("השתלבות בארגון – הנעת המערכת" + "^" + "הטמעת המערכת" + "@" + " (הסבות (הגירה" + "@" + "או\"ש" + "@" + "מדריך למשתמש");
             consff.Add("חוסן ואמינות" + "^" + "תכנית בדיקה" + "@" + "זמינות ושרידות");
 
-            builder.Writeln("***********************************");
 
 
-            builder.Write("עִבְרִית");
-            builder.Bold = true;
+            builder.Font.NameBi="David";
             builder.Font.Bold = true;
-            builder.Font.Name = "David";
-            builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+            builder.Bold = true;
+            //builder.Font.Name = "David";
+          //  builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
             builder.ParagraphFormat.Bidi = true;
             builder.Font.Bidi = true;
 
@@ -107,23 +107,18 @@ namespace WebApplication2.Controllers
             {
                 builder.ListFormat.ApplyBulletDefault();
 
-                builder.Font.Bidi = true;
-
-               // builder.Font.Bold =true;
                 builder.Font.Underline = Underline.Single;
                 builder.Font.Color = Color.Black;
-                builder.ListFormat.ListLevelNumber = 0;
+
                 string[] parser = consff[i].ToString().Split('^');
                 string title = parser[0];
 
-                
-
                 builder.Writeln(title);
-                builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
-
 
                 int l1, l2;
+
                 l1 = parser.Length;
+
                 if (l1>1)
                 {
                     l2 = parser[1].Split('^').Length;
@@ -134,6 +129,7 @@ namespace WebApplication2.Controllers
 
                         builder.Font.Bold = false;
                         builder.Font.Underline = Underline.None;
+
                         string[] subtitle = parser[1].Split('@');
                         
                         foreach (var x in subtitle)
@@ -142,14 +138,13 @@ namespace WebApplication2.Controllers
                     }
                     else
                     {
+                        
                         builder.Writeln(parser[1]);
                         builder.Writeln(parser[2]);
                     }
                 }
-                builder.Font.Bold = false;
-                builder.Font.Color = Color.Blue;
 
-                builder.Writeln();
+                builder.Font.Color = Color.Blue;
 
                 builder.ListFormat.List = null;
 
@@ -157,17 +152,18 @@ namespace WebApplication2.Controllers
 
                 builder.Writeln();
                 builder.Writeln();
+                builder.Writeln();
 
 
             }
             //  doc.Save(dataDir);
 
-            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+            string path = Server.MapPath("~/Uploads/" + ProjectNameNOwner + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
+            doc.Save(path + ProjectNameNOwner + ".docx");
             TempData["doc"] = doc;
             return View("StartCreating");
         }
@@ -189,8 +185,8 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Upload(HttpPostedFileBase postedFile)
         {
-
-            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+            var x = (new ProjectsDal()).GetPrijectByPrjectId(ProjectId);
+            string path = Server.MapPath("~/Uploads/" + x.UserName+"_"+x.ProjectName + "/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
@@ -216,7 +212,10 @@ namespace WebApplication2.Controllers
         public FileResult Download()
         {
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
-            string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+
+            var x = (new ProjectsDal()).GetPrijectByPrjectId(ProjectId);
+            string path = Server.MapPath("~/Uploads/" + x.UserName + "_" + x.ProjectName + "/");
+
             var dir = new DirectoryInfo(path);
 
             FileInfo[] filename = dir.GetFiles("*.*");
@@ -288,55 +287,54 @@ namespace WebApplication2.Controllers
         public ActionResult Submit()
         {
 
-              Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
+            Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
 
 
-                DocumentBuilder builder = new DocumentBuilder(doc);
-                var dal = new ProjectsDal();
-                var proj = dal.GetPrijectByPrjectId(ProjectId);
-
-                String dataDir = "C:/" + proj.ProjectName + "_" + proj.UserName + ".docx";
+            DocumentBuilder builder = new DocumentBuilder(doc);
+            var dal = new ProjectsDal();
+            var proj = dal.GetPrijectByPrjectId(ProjectId);
+            String ProjectNameOwner = proj.UserName + "_" + proj.ProjectName;
+                String dataDir = "C:/" + ProjectNameOwner + ".docx";
             // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
-            builder.Writeln("***********************************");
-            builder.Writeln("***********************************");
+           
 
             List<String> ques = new List<String>();
-                int i = 1;
-                while (true)
-                {
-                    if (Request.Form["q" + i.ToString()] != null)
-                        ques.Add(Request.Form["q" + i.ToString()]);
-                    else
-                        break;
-                    i++;
-                }
-
-            builder.ParagraphFormat.Bidi = true;
+            int i = 1;
+            while (true)
+            {
+                if (Request.Form["q" + i.ToString()] != null)
+                    ques.Add(Request.Form["q" + i.ToString()]);
+                else
+                    break;
+                i++;
+            }
 
             builder.Bold = true;
-            builder.Font.Bold = true;
-            builder.Font.Name = "David";
-            builder.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+            builder.Font.NameBi="David";
+
+             builder.Font.Bold = true;
+            // builder.Font.Name = "David";
+          //  builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
             builder.ParagraphFormat.Bidi = true;
             builder.Font.Bidi = true;
+
+
 
             foreach (String q in ques)
                 {
                     builder.Writeln(q);
                 }
-            // doc.Save(dataDir);
 
-            builder.Writeln("***********************************");
-            builder.Writeln("***********************************");
+
 
             ViewBag.File = dataDir;
 
-                string path = Server.MapPath("~/Uploads/" + ProjectId.ToString() + "/");
+                string path = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
-                doc.Save(path + proj.ProjectName + "_" + proj.UserName + ".docx");
+                doc.Save(path + ProjectNameOwner + ".docx");
             //////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
