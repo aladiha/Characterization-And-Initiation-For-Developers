@@ -61,7 +61,7 @@
                         <td>|@B.UserName </td>
                         <td>|@Html.ActionLink("Edit", "EditPermistions", "MangeProject", new { projectid = B.Id }, null) </td>
                         @{
-                            string path = Server.MapPath("~/Uploads/" + B.Id.ToString() + "/");
+                            string path = Server.MapPath("~/Uploads/" + B.UserName+"_"+B.ProjectName + "/");
                             if (!Directory.Exists(path))
                             {
                                 <td>|@Html.ActionLink("Create", "firstPart", "MangeProject", new { projectid = B.Id }, null) </td>
