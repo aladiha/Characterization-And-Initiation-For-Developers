@@ -76,69 +76,80 @@ namespace WebApplication2.Controllers
             consff.Add("מאפיינים כלליים" + "^" + "מצב קיים" + "@" + "אופי המערכת וסוגה" + "@" + "אילוצים" + "@" + "מילון מונחים");
             consff.Add("תיחום פנימי" + "^" + "יאור כללי של המערכת" + "@" + "תתי-מערכת");
             consff.Add("תהליכים" + "^" + "שמות תהליכים" + "@" + "שמות תתי תהליכים");
-            consff.Add("(מודולים (תכניות" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
+            consff.Add("מודולים (תכניות)" + "^" + "תכניות מקור – SOURCE MODULES" + "@" + "תכניות ביצוע – EXECUTABLE MODULES");
 
-            consff.Add("(מהלכים (פרוצדורות בקרה");
-
+            consff.Add("מהלכים (פרוצדורות במקרה)");
             consff.Add("מערכת הפעלה" + "^" + "בסיס הנתונים – DBMS" + "^" + "כלי פיתוח ותחזוקה");
             consff.Add("תוכנות מדף" + "^" + "תוכנות שירות" + "@" + "תוכנות יישום");
             consff.Add("כלי תפעול וייצור " + "^" + "כלים למפעיל ואחראי ייצור" + "@" + "כלי שליטה ובקרה למנהל המערכת");
             consff.Add("תקשורת" + "^" + "תקשורת פרטית מקומית" + "@" + "תקשורת פרטית רחבה" + "@" + "רשת ציבורית");
-            consff.Add("(נקודות פתוחות (וחלופות");
+            consff.Add("נקודות פתוחות (וחליפות)");
             consff.Add("גורמים מעורבים" + "^" + "צוותים מקצועיים – צוותי הפיתוח" + "@" + "סיוע טכני" + "@" + "ספקים וגורמי חוץ");
             consff.Add("תכנית עבודה" + "^" + "שיטת הפיתוח" + "@" + "תכנית פיתוח כללית" + "@" + "תכנית פרטנית");
-            consff.Add("שירות ותחזוקה" + "^" + "מרכז תמיכה – HELPDESK (CALL CENTER)" + "@" + "תחזוקת היישום" + "@" + "תחזוקת תשתית וטכנולוגיה" + "@" + "מימוש שוטף" + "@" + "עלויות שוטפות");
-            consff.Add("השתלבות בארגון – הנעת המערכת" + "^" + "הטמעת המערכת" + "@" + " (הסבות (הגירה" + "@" + "או\"ש" + "@" + "מדריך למשתמש");
+
+            consff.Add("שירות ותחזוקה" + "^" + "מרכז תמיכה) – HELPDESK (CALL CENTER" + "@" + "תחזוקת היישום" + "@" + "תחזוקת תשתית וטכנולוגיה" + "@" + "מימוש שוטף" + "@" + "עלויות שוטפות");
+            consff.Add("השתלבות בארגון – הנעת המערכת" + "^" + "הטמעת המערכת" + "@" +  "הסבות(הגירה)"+ "@" + "או\"ש" + "@" + "מדריך למשתמש");
             consff.Add("חוסן ואמינות" + "^" + "תכנית בדיקה" + "@" + "זמינות ושרידות");
 
-
-
             builder.Font.NameBi="David";
-            builder.Font.Bold = true;
-            builder.Bold = true;
-            //builder.Font.Name = "David";
-          //  builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+            builder.Font.Name = "David";
+
+
+
             builder.ParagraphFormat.Bidi = true;
-            builder.Font.Bidi = true;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
 
 
 
             for (i = 0; i < consff.Count; i++)
             {
+
+
+                
+                string[] parser = consff[i].Split('^');
+                string title = parser[0];
+
                 builder.ListFormat.ApplyBulletDefault();
+
+                builder.Font.SizeBi = 14;
+                builder.Font.Size = 14;
 
                 builder.Font.Underline = Underline.Single;
                 builder.Font.Color = Color.Black;
 
-                string[] parser = consff[i].ToString().Split('^');
-                string title = parser[0];
+                builder.Font.BoldBi = true;
+                builder.Font.Bold = true;
 
                 builder.Writeln(title);
 
-                int l1, l2;
+                int l1;
 
                 l1 = parser.Length;
 
-                if (l1>1)
+                if (l1 == 2)
                 {
-                    l2 = parser[1].Split('^').Length;
-                    if(l2!=0)
+
+                    string[] subtitle = parser[1].Split('@');
+
+                    builder.ListFormat.ListIndent();
+
+                    builder.Font.Underline = Underline.None;
+
+                    builder.Font.Size = 12;
+                    builder.Font.SizeBi = 12;
+
+                    builder.Font.BoldBi = false;
+                    builder.Font.Bold = false;
+
+                    foreach (var x in subtitle)
+                        builder.Writeln(x);
+
+                    builder.ListFormat.ListOutdent();
+                }
+                else
+                {
+                    if (l1 != 1)
                     {
-
-                        builder.ListFormat.ListIndent();
-
-                        builder.Font.Bold = false;
-                        builder.Font.Underline = Underline.None;
-
-                        string[] subtitle = parser[1].Split('@');
-                        
-                        foreach (var x in subtitle)
-                            builder.Writeln(x);
-                        builder.ListFormat.ListOutdent();
-                    }
-                    else
-                    {
-                        
                         builder.Writeln(parser[1]);
                         builder.Writeln(parser[2]);
                     }
@@ -147,14 +158,21 @@ namespace WebApplication2.Controllers
                 builder.Font.Color = Color.Blue;
 
                 builder.ListFormat.List = null;
+                builder.Font.Underline = Underline.None;
 
-                builder.Writeln(ques[i]);
+                builder.Font.Size = 12;
+                builder.Font.SizeBi = 12;
+
+                builder.Font.BoldBi = false;
+                builder.Font.Bold = false;
+                if(l1==2)
+                builder.Writeln("                     " + ques[i]+ "                     ");
+                else
+                builder.Writeln("          " + ques[i]+"           ");
 
                 builder.Writeln();
                 builder.Writeln();
                 builder.Writeln();
-
-
             }
             //  doc.Save(dataDir);
 
