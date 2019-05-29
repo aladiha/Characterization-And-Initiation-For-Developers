@@ -3,5 +3,148 @@
     ViewBag.Title = "Web";
 }
 
-<h2>Web</h2>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Pure CSS Letterpress Effect</title>
+
+    <style type="text/css">
+
+        * {
+            margin, padding: 0;
+        }
+
+        body {
+            background: #474747 url(bg.png);
+            margin: 70px;
+        }
+
+        h1 a {
+            display: block;
+            text-decoration: none;
+            font: 50px Helvetica, Arial, Sans-Serif;
+            letter-spacing: -5px;
+            color: white;
+            text-shadow: 0px 3px 8px #2a2a2a;
+        }
+
+            h1 a:hover {
+                color: #a0a0a0;
+                text-shadow: 0px 5px 8px #2a2a2a;
+            }
+
+        h2 {
+            font: 40px Tahoma, Helvetica, Arial, Sans-Serif;
+            text-align: center;
+            color: #222;
+            text-shadow: 0px 2px 3px #555;
+        }
+
+        pre {
+            width: 1000px;
+            margin: 0 auto;
+            background: #222;
+            padding: 20px;
+            font-size: 22px;
+            color: #a0a0a0;
+            text-shadow: 0px 2px 3px #171717;
+            -webkit-box-shadow: 0px 2px 3px #555;
+            -moz-box-shadow: 0px 2px 3px #555;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+        }
+
+
+        .containers {
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70vh;
+        }
+
+            .containers .skewBtn {
+                width: 270px;
+                height: 80px;
+                outline: none;
+                cursor: pointer;
+                background: none;
+                transition: .5s;
+                font-size: 20px;
+                border-radius: 5px;
+                font-family: "Lato",sans-serif;
+            }
+
+                .containers .skewBtn:hover {
+                    border: none;
+                    color: black;
+                    font-size: 28px;
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+
+        /* Buttons */
+        .white {
+            border: 2px solid white;
+            color: white;
+        }
+
+            .white:hover {
+                background-color: white;
+                transition: all 0.3s ease-in-out;
+            }
+    </style>
+</head>
+
+<body>
+
+    <h1><a>We found some information on the net</a></h1>
+    <h2>MySql</h2><br />
+                  <pre><br />
+MySQL is the world's most popular open source database. Whether you are a fast 
+   <br />growing web property, technology ISV or large enterprise, MySQL can 
+   <br />cost-effectivelyhelp you deliver high performance, scalable database applications.
+   <br /><br />MySQL Community Edition is the freely downloadable 
+   <br />version of the world's most popular open source database
+   <br /><br />Commercial customers have the flexibility of choosing from multiple editions 
+   <br />to meet specific business and technical requirements:<ul class="containers">
+   <li>MySQL Standard Edition</li>
+   <li>MySQL Enterprise Edition</li>
+   <li>MySQL Cluster Carrier Grade Edition</li>
+   <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+</ul><br /></pre>
+    <br />
+    <br />
+    <h2>Microsoft SQL Server Express</h2><br />
+    <pre><br />
+
+Core Data is the second main iOS storage technology available to app developers. 
+    <br />Depending on the type of data and the amount of data you need to manage and store, 
+    <br />both SQLite and Core Data have their pros and cons. Core Data focuses more on objects 
+    <br />than the traditional table database methods. With Core Data, you are actually storing 
+    <br />contents of an object which is represented by a class in Objective-C.
+    <br /><br />Although they are fundamentally different, Core data:<ul class="containers">
+    <li>Uses more memory than SQLite</li>
+    <li>Uses more storage space than SQLite</li>
+    <li>Faster in fetching records than SQLite.</li>
+    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button></ul></pre>
+    <br />
+    <br />
+    <h2>
+        Microsoft Access
+    </h2><br />
+    <pre><br />
+
+There’s a new(ish) player in town called Realm. Realm was designed to be faster 
+    <br />and more efficient than the previous database solutions. This new solution is 
+    <br />a cross-platform mobile database called Realm. It is available in Objective-C and Swift, 
+    <br />and it’s designed for iOS and Android.
+    <br /><br />The major upsides of Realm are:<ul class="containers">
+    <li>It’s absolutely free of charge,</li>
+    <li>Fast, and easy to use.</li>
+    <li>Unlimited use.</li>
+    <li>Work on its own persistence engine for speed and performance.</li>
+    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+</ul><br /></pre>
+</body>
+</html>
