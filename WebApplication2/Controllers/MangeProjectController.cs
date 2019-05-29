@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using WebApplication2.DAL;
 using WebApplication2.Models;
 using Aspose.Words;
-using Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Web.Routing;
 using System.Drawing;
@@ -46,8 +45,8 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Next()
         {
-
-            Aspose.Words.Document doc = new Aspose.Words.Document();
+           
+            Document doc = new Document();
 
 
             DocumentBuilder builder = new DocumentBuilder(doc);
@@ -181,7 +180,7 @@ namespace WebApplication2.Controllers
                 Directory.CreateDirectory(path);
             }
             doc.Save(path + ProjectNameNOwner + ".docx");
-            TempData["doc"] = doc;
+            TempData["doc"] = (path + ProjectNameNOwner + ".docx");
             return View("StartCreating");
         }
 
@@ -305,11 +304,12 @@ namespace WebApplication2.Controllers
 
         public ActionResult Submit()
         {
-
-            Aspose.Words.Document doc = (Aspose.Words.Document)TempData["doc"];
+          
+            Document doc =  new Document(TempData["doc"].ToString());
 
 
             DocumentBuilder builder = new DocumentBuilder(doc);
+            builder.MoveToDocumentEnd();
             var dal = new ProjectsDal();
             var proj = dal.GetPrijectByPrjectId(ProjectId);
             String ProjectNameOwner = proj.UserName + "_" + proj.ProjectName;
@@ -332,8 +332,6 @@ namespace WebApplication2.Controllers
             builder.Font.NameBi = "David";
             builder.Font.Name = "David";
 
-
-
             builder.ParagraphFormat.Bidi = true;
             builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
 
@@ -342,11 +340,12 @@ namespace WebApplication2.Controllers
 
             int ssss = x.Count;
             int ffff = ques.Count;
+            
             for(i=0;i<ques.Count;i++)
             {
                 // the qestions:
 
-
+                builder.ListFormat.ApplyBulletDefault();
                 builder.Font.SizeBi = 14;
                 builder.Font.Size = 14;
 
@@ -356,12 +355,10 @@ namespace WebApplication2.Controllers
                 builder.Font.BoldBi = true;
                 builder.Font.Bold = true;
 
-                builder.ListFormat.ApplyBulletDefault();
+                //builder.ListFormat.ApplyBulletDefault();
 
 
                 builder.Writeln(x[i]);
-
-
 
 
 
