@@ -7,6 +7,7 @@ using WebApplication2.Models;
 
 using WebApplication2.DAL;
 using System.Data.Entity.Validation;
+using Aspose.Words;
 
 namespace WebApplication2.Controllers
 {
@@ -14,6 +15,15 @@ namespace WebApplication2.Controllers
     {
         public ActionResult Index()
         {
+            String lic = @"c:\Aspose.Words.lic";
+            try
+            {
+                License license = new License();
+                license.SetLicense(lic);
+            }
+            catch (Exception e) {
+                Console.WriteLine("{0}",e);
+            }
             return View();
         }
 
