@@ -158,6 +158,7 @@ namespace WebApplication2.Controllers
                 builder.Font.Color = Color.Blue;
 
                 builder.ListFormat.List = null;
+                
                 builder.Font.Underline = Underline.None;
 
                 builder.Font.Size = 12;
@@ -170,8 +171,6 @@ namespace WebApplication2.Controllers
                 else
                 builder.Writeln("          " + ques[i]+"           ");
 
-                builder.Writeln();
-                builder.Writeln();
                 builder.Writeln();
             }
             //  doc.Save(dataDir);
@@ -246,7 +245,7 @@ namespace WebApplication2.Controllers
         public ActionResult CheckRadio(FormCollection frm)
         {
             String[] choises = new String[35];
-
+            
             for (int i = 1; i < 36; i++)
             {
                 choises[i - 1] = frm["g" + i.ToString()].ToString();
@@ -295,9 +294,11 @@ namespace WebApplication2.Controllers
                 if (choises[i] == "Yes")
                 {
                     lastform.Add(questions[i]);
+
                 }
             }
             ViewBag.value = lastform;
+            TempData["Qes"] = lastform;
             return View();
         }
 
@@ -326,33 +327,69 @@ namespace WebApplication2.Controllers
                     break;
                 i++;
             }
+            
 
-            builder.Bold = true;
-            builder.Font.NameBi="David";
+            builder.Font.NameBi = "David";
+            builder.Font.Name = "David";
 
-             builder.Font.Bold = true;
-            // builder.Font.Name = "David";
-          //  builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+
+
             builder.ParagraphFormat.Bidi = true;
-            builder.Font.Bidi = true;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+
+            var x = (List<String>)TempData["Qes"];
+
+
+            int ssss = x.Count;
+            int ffff = ques.Count;
+            for(i=0;i<ques.Count;i++)
+            {
+                // the qestions:
+
+
+                builder.Font.SizeBi = 14;
+                builder.Font.Size = 14;
+
+                builder.Font.Underline = Underline.Single;
+                builder.Font.Color = Color.Black;
+
+                builder.Font.BoldBi = true;
+                builder.Font.Bold = true;
+
+                builder.ListFormat.ApplyBulletDefault();
+
+
+                builder.Writeln(x[i]);
 
 
 
-            foreach (String q in ques)
-                {
-                    builder.Writeln(q);
-                }
 
 
+                // the answer
+                builder.Font.Color = Color.Blue;
+
+                builder.ListFormat.List = null;
+                builder.Font.Underline = Underline.None;
+
+                builder.Font.Size = 12;
+                builder.Font.SizeBi = 12;
+
+                builder.Font.BoldBi = false;
+                builder.Font.Bold = false;
+
+                builder.Writeln("          " + ques[i] + "           ");
+
+                builder.Writeln();
+
+            }
 
             ViewBag.File = dataDir;
-
-                string path = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
-                if (!Directory.Exists(path))
-                {
-                    Directory.CreateDirectory(path);
-                }
-                doc.Save(path + ProjectNameOwner + ".docx");
+            string path = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            doc.Save(path + ProjectNameOwner + ".docx");
             //////////////////////////////////////////////////////////////////
 
             /*  Application ap = new Application();
