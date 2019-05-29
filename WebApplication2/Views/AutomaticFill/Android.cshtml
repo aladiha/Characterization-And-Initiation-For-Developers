@@ -1,7 +1,155 @@
 ﻿
 @{
-    ViewBag.Title = "Android";
+    ViewBag.Title = "GetChoise";
 }
 
-<h2>Android</h2>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Pure CSS Letterpress Effect</title>
+
+    <style type="text/css">
+
+        * {
+            margin , padding: 0;
+        }
+
+        body {
+            background: #474747 url(bg.png);
+            margin: 70px;
+        }
+
+        h1 a {
+            display: block;
+            text-decoration: none;
+            font: 50px Helvetica, Arial, Sans-Serif;
+            letter-spacing: -5px;
+            color: white;
+            text-shadow: 0px 3px 8px #2a2a2a;
+        }
+
+            h1 a:hover {
+                color: #a0a0a0;
+                text-shadow: 0px 5px 8px #2a2a2a;
+            }
+
+        h2 {
+            font: 40px Tahoma, Helvetica, Arial, Sans-Serif;
+            text-align: center;
+            color: #222;
+            text-shadow: 0px 2px 3px #555;
+        }
+
+        pre {
+            width: 1000px;
+            margin: 0 auto;
+            background: #222;
+            padding: 20px;
+            font-size: 22px;
+            color: #a0a0a0;
+            text-shadow: 0px 2px 3px #171717;
+            -webkit-box-shadow: 0px 2px 3px #555;
+            -moz-box-shadow: 0px 2px 3px #555;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+        }
+
+
+        .containers {
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70vh;
+        }
+
+            .containers .skewBtn {
+                width: 270px;
+                height: 80px;
+                outline: none;
+                cursor: pointer;
+                background: none;
+                transition: .5s;
+                font-size: 20px;
+                border-radius: 5px;
+                font-family: "Lato",sans-serif;
+            }
+
+                .containers .skewBtn:hover {
+                    border: none;
+                    color: black;
+                    font-size: 28px;
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+
+        /* Buttons */
+        .white {
+            border: 2px solid white;
+            color: white;
+        }
+
+            .white:hover {
+                background-color: white;
+                transition: all 0.3s ease-in-out;
+            }
+    </style>
+</head>
+
+<body>
+
+    <h1><a>We found some information on the net</a></h1>
+    <h2>SQLite</h2><br />
+    <pre><br />
+SQLite is the most used database engine in the world and its open source as 
+    <br />well. It implements a transactional SQL database engine with no configuration
+    <br />and no server required. SQLite is accessible on Mac OS-X, iOS, Android, 
+    <br />Linux, and Windows.
+    <br /><br />It delivers a simple and user-friendly programming interface as it is written
+    <br />in ANSI-C. SQLite is also very small and light and the complete database can 
+    <br />be stored in one cross-platform disk file.
+    <br /><br />The reasons for the great popularity of SQLite are its:<ul class="containers">
+    <li>Independence from a server</li>
+    <li>Zero-configuration</li>
+    <li>Safe access from multiple processes and threads</li>
+    <li>Stores data in tables with one or more columns that contain a specific<br />type of data.</li>
+    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+</ul>  
+<br />
+
+</pre>
+    <br />
+    <br />
+    <h2>FireBase</h2><br />
+                     <pre><br />
+
+Firebase gives you functionality like analytics, databases, messaging and crash 
+     <br />reporting so you can move quickly and focus on your users. 
+     <br />Firebase is built on Google infrastructure and scales automatically, 
+     <br />for even the largest apps. 
+     <br />Firebase products work great individually but share data and insights, 
+     <br />so they work even better together.
+     <br /><br />Advantages:<ul class="containers">
+    <li>Build apps fast, without managing infrastructure</li>
+    <li>Backed by Google, trusted by top apps</li>
+    <li>One platform, with products that work better together</li>
+    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+</ul></pre>
+    <br />
+    <br />
+    <h2>Realm</h2><br />
+    <pre><br />
+
+There’s a new(ish) player in town called Realm. Realm was designed to be faster 
+    <br />and more efficient than the previous database solutions. This new solution is 
+    <br />a cross-platform mobile database called Realm. It is available in Objective-C and Swift, 
+    <br />and it’s designed for iOS and Android.
+    <br /><br />The major upsides of Realm are:<ul class="containers">
+    <li>It’s absolutely free of charge,</li>
+    <li>Fast, and easy to use.</li>
+    <li>Unlimited use.</li>
+    <li>Work on its own persistence engine for speed and performance.</li>
+    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+</ul><br /></pre>
+</body>
+</html>

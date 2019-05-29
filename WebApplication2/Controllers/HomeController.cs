@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+        { 
             String lic = @"c:\Aspose.Words.lic";
             try
             {
