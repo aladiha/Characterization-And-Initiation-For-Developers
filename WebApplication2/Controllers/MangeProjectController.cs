@@ -96,6 +96,28 @@ namespace WebApplication2.Controllers
 
 
             builder.ParagraphFormat.Bidi = true;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+
+            builder.Font.SizeBi = 26;
+
+            builder.Font.Bold = true;
+            builder.Font.BoldBi = true;
+
+            builder.Font.ItalicBi = true;
+            builder.Font.Italic = true;
+            builder.Writeln("מסמך איפיון וייזום");
+            builder.Writeln();
+
+
+            builder.Font.SizeBi = 18;
+            builder.Font.Size = 18;
+            builder.Font.ItalicBi = false;
+            builder.Font.Italic = false;
+
+            builder.Writeln(proj.ProjectName);
+            builder.Writeln();
+            builder.Writeln();
+
             builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
 
 
