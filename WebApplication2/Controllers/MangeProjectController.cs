@@ -347,9 +347,10 @@ namespace WebApplication2.Controllers
             DocumentBuilder builder = new DocumentBuilder(doc);
             builder.MoveToDocumentEnd();
             var dal = new ProjectsDal();
+            TempData["Idp"] = ProjectId;
             var proj = dal.GetPrijectByPrjectId(ProjectId);
             String ProjectNameOwner = proj.UserName + "_" + proj.ProjectName;
-                String dataDir = "C:/" + ProjectNameOwner + ".docx";
+            String dataDir = "C:/" + ProjectNameOwner + ".docx";
             // var proj = (new ProjectsDal()).GetPrijectByPrjectId(int.Parse(ProjectId.ToString()));
            
 
