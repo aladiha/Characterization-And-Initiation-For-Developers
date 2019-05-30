@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using WebApplication2.DAL;
 using System.IO;
 
-enum WebSecurty { Arachni = 1, Grabber, IronWasp, Nogotofail, SonarQube, SQLMap, W3af ,Wapiti,Wfuzz,ZedAttackProxy};
+enum WebSecurty {Wapiti=1,Wfuzz,ZedAttackProxy};
 enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 
@@ -135,23 +135,45 @@ namespace WebApplication2.Controllers
             {
                 Random random = new Random();
                 int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
+                List<String> Inputs = new List<String>();
+
                 switch (generaterandom)
                 {
 
                     case (int)WebSecurty.Wapiti:
+                        {
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
 
-                        return View();
-
+                            return View();
+                        }
 
                     case (int)WebSecurty.Wfuzz:
+                        {
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
 
-                        return View();
-
-
+                            return View();
+                        }
                     case (int)WebSecurty.ZedAttackProxy:
+                        {
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
 
-                        return View();
-
+                            return View();
+                        }
                 }
             }
             else if(platform.Equals("Ios"))
