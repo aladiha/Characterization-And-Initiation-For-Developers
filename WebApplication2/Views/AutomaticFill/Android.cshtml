@@ -97,59 +97,68 @@
 </head>
 
 <body>
+    @using (Html.BeginForm("Database", "AutomaticFill", FormMethod.Post))
+    {
+        <h1><a>We found some information on the net</a></h1>
+        <h2>SQLite</h2><br />
+        <pre><br />
 
-    <h1><a>We found some information on the net</a></h1>
-    <h2>SQLite</h2><br />
-    <pre><br />
 SQLite is the most used database engine in the world and its open source as 
-    <br />well. It implements a transactional SQL database engine with no configuration
-    <br />and no server required. SQLite is accessible on Mac OS-X, iOS, Android, 
-    <br />Linux, and Windows.
-    <br /><br />It delivers a simple and user-friendly programming interface as it is written
-    <br />in ANSI-C. SQLite is also very small and light and the complete database can 
-    <br />be stored in one cross-platform disk file.
-    <br /><br />The reasons for the great popularity of SQLite are its:<ul class="containers">
-    <li>Independence from a server</li>
-    <li>Zero-configuration</li>
-    <li>Safe access from multiple processes and threads</li>
-    <li>Stores data in tables with one or more columns that contain a specific<br />type of data.</li>
-    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+        <br />well. It implements a transactional SQL database engine with no configuration
+        <br />and no server required. SQLite is accessible on Mac OS-X, iOS, Android, 
+        <br />Linux, and Windows.
+        <br /><br />It delivers a simple and user-friendly programming interface as it is written
+        <br />in ANSI-C. SQLite is also very small and light and the complete database can 
+        <br />be stored in one cross-platform disk file.
+        <br /><br />The reasons for the great popularity of SQLite are its:<ul class="containers">
+        <li>Independence from a server</li>
+        <li>Zero-configuration</li>
+        <li>Safe access from multiple processes and threads</li>
+        <li>Stores data in tables with one or more columns that contain a specific<br />type of data.</li>
+        <button class="skewBtn white" name="submit" type="submit" value="SQLite">Use This Database</button>
 </ul>  
 <br />
 
+
+
 </pre>
-    <br />
-    <br />
-    <h2>FireBase</h2><br />
-                     <pre><br />
+        <br />
+        <br />
+        <h2>FireBase</h2><br />
+        <pre><br />
+
+
 
 Firebase gives you functionality like analytics, databases, messaging and crash 
-     <br />reporting so you can move quickly and focus on your users. 
-     <br />Firebase is built on Google infrastructure and scales automatically, 
-     <br />for even the largest apps. 
-     <br />Firebase products work great individually but share data and insights, 
-     <br />so they work even better together.
-     <br /><br />Advantages:<ul class="containers">
-    <li>Build apps fast, without managing infrastructure</li>
-    <li>Backed by Google, trusted by top apps</li>
-    <li>One platform, with products that work better together</li>
-    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+        <br />reporting so you can move quickly and focus on your users. 
+        <br />Firebase is built on Google infrastructure and scales automatically, 
+        <br />for even the largest apps. 
+        <br />Firebase products work great individually but share data and insights, 
+        <br />so they work even better together.
+        <br /><br />Advantages:<ul class="containers">
+        <li>Build apps fast, without managing infrastructure</li>
+        <li>Backed by Google, trusted by top apps</li>
+        <li>One platform, with products that work better together</li>
+        <button class="skewBtn white" name="submit" type="submit" value="FireBase">Use This Database</button>
 </ul></pre>
-    <br />
-    <br />
-    <h2>Realm</h2><br />
-    <pre><br />
+        <br />
+        <br />
+        <h2>Realm</h2><br />
+        <pre><br />
+
+
 
 There’s a new(ish) player in town called Realm. Realm was designed to be faster 
-    <br />and more efficient than the previous database solutions. This new solution is 
-    <br />a cross-platform mobile database called Realm. It is available in Objective-C and Swift, 
-    <br />and it’s designed for iOS and Android.
-    <br /><br />The major upsides of Realm are:<ul class="containers">
-    <li>It’s absolutely free of charge,</li>
-    <li>Fast, and easy to use.</li>
-    <li>Unlimited use.</li>
-    <li>Work on its own persistence engine for speed and performance.</li>
-    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+        <br />and more efficient than the previous database solutions. This new solution is 
+        <br />a cross-platform mobile database called Realm. It is available in Objective-C and Swift, 
+        <br />and it’s designed for iOS and Android.
+        <br /><br />The major upsides of Realm are:<ul class="containers">
+        <li>It’s absolutely free of charge,</li>
+        <li>Fast, and easy to use.</li>
+        <li>Unlimited use.</li>
+        <li>Work on its own persistence engine for speed and performance.</li>
+        <button class="skewBtn white" name="submit" type="submit" value="Realm">Use This Database</button>
 </ul><br /></pre>
-</body>
+    }
+    </body>
 </html>

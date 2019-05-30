@@ -11,6 +11,7 @@ namespace WebApplication2.Controllers
         // GET: AutomaticFill
         public ActionResult Start()
         {
+           
             return View();
         }
 
@@ -28,8 +29,43 @@ namespace WebApplication2.Controllers
                 return View("Android");
         }
 
-        public ActionResult Database()
+        public ActionResult Database(string submit)
         {
+            String path = TempData["pa"].ToString();
+            switch (submit)
+            {
+               
+                case "SQLite":
+                    Console.WriteLine("1");
+                    break;
+                case "Mysql":
+                    Console.WriteLine("1");
+                    // Do something
+                    break;
+                case "Realm":
+                    Console.WriteLine("1");
+                    // Do something
+                    break;
+                case "CoreData":
+                    Console.WriteLine("1");
+                    // Do something
+                    break;
+                case "FireBase":
+                    Console.WriteLine("1");
+                    // Do something
+                    break;
+                case "Server":
+                    Console.WriteLine("1");
+                    // Do something
+                    break;
+                case "Access":
+                    Console.WriteLine("1");
+                    // Do something
+                    break;
+                default:
+                    throw new Exception();
+                    
+            }
             return View();
         }
 

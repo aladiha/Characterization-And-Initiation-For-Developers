@@ -97,54 +97,61 @@
 </head>
 
 <body>
+    @using (Html.BeginForm("Database", "AutomaticFill", FormMethod.Post))
+    {
+        <h1><a>We found some information on the net</a></h1>
+        <h2>MySql</h2><br />
+        <pre><br />
 
-    <h1><a>We found some information on the net</a></h1>
-    <h2>MySql</h2><br />
-                  <pre><br />
 MySQL is the world's most popular open source database. Whether you are a fast 
-   <br />growing web property, technology ISV or large enterprise, MySQL can 
-   <br />cost-effectivelyhelp you deliver high performance, scalable database applications.
-   <br /><br />MySQL Community Edition is the freely downloadable 
-   <br />version of the world's most popular open source database
-   <br /><br />Commercial customers have the flexibility of choosing from multiple editions 
-   <br />to meet specific business and technical requirements:<ul class="containers">
-   <li>MySQL Standard Edition</li>
-   <li>MySQL Enterprise Edition</li>
-   <li>MySQL Cluster Carrier Grade Edition</li>
-   <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+        <br />growing web property, technology ISV or large enterprise, MySQL can 
+        <br />cost-effectivelyhelp you deliver high performance, scalable database applications.
+        <br /><br />MySQL Community Edition is the freely downloadable 
+        <br />version of the world's most popular open source database
+        <br /><br />Commercial customers have the flexibility of choosing from multiple editions 
+        <br />to meet specific business and technical requirements:<ul class="containers">
+        <li>MySQL Standard Edition</li>
+        <li>MySQL Enterprise Edition</li>
+        <li>MySQL Cluster Carrier Grade Edition</li>
+        <button class="skewBtn white" name="submit" type="submit" value="MySql">Use This Database</button>
 </ul><br /></pre>
-    <br />
-    <br />
-    <h2>Microsoft SQL Server Express</h2><br />
-    <pre><br />
+        <br />
+        <br />
+        <h2>Microsoft SQL Server Express</h2><br />
+        <pre><br />
+
+
 
 Core Data is the second main iOS storage technology available to app developers. 
-    <br />Depending on the type of data and the amount of data you need to manage and store, 
-    <br />both SQLite and Core Data have their pros and cons. Core Data focuses more on objects 
-    <br />than the traditional table database methods. With Core Data, you are actually storing 
-    <br />contents of an object which is represented by a class in Objective-C.
-    <br /><br />Although they are fundamentally different, Core data:<ul class="containers">
-    <li>Uses more memory than SQLite</li>
-    <li>Uses more storage space than SQLite</li>
-    <li>Faster in fetching records than SQLite.</li>
-    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button></ul></pre>
-    <br />
-    <br />
-    <h2>
-        Microsoft Access
-    </h2><br />
-    <pre><br />
+        <br />Depending on the type of data and the amount of data you need to manage and store, 
+        <br />both SQLite and Core Data have their pros and cons. Core Data focuses more on objects 
+        <br />than the traditional table database methods. With Core Data, you are actually storing 
+        <br />contents of an object which is represented by a class in Objective-C.
+        <br /><br />Although they are fundamentally different, Core data:<ul class="containers">
+        <li>Uses more memory than SQLite</li>
+        <li>Uses more storage space than SQLite</li>
+        <li>Faster in fetching records than SQLite.</li>
+        <button class="skewBtn white" name="submit" type="submit" value="Server">Use This Database</button></ul></pre>
+        <br />
+        <br />
+        <h2>
+            Microsoft Access
+        </h2><br />
+        <pre><br />
+
+
 
 There’s a new(ish) player in town called Realm. Realm was designed to be faster 
-    <br />and more efficient than the previous database solutions. This new solution is 
-    <br />a cross-platform mobile database called Realm. It is available in Objective-C and Swift, 
-    <br />and it’s designed for iOS and Android.
-    <br /><br />The major upsides of Realm are:<ul class="containers">
-    <li>It’s absolutely free of charge,</li>
-    <li>Fast, and easy to use.</li>
-    <li>Unlimited use.</li>
-    <li>Work on its own persistence engine for speed and performance.</li>
-    <button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("Database", "AutomaticFill") + "'");">Use This Database</button>
+        <br />and more efficient than the previous database solutions. This new solution is 
+        <br />a cross-platform mobile database called Realm. It is available in Objective-C and Swift, 
+        <br />and it’s designed for iOS and Android.
+        <br /><br />The major upsides of Realm are:<ul class="containers">
+        <li>It’s absolutely free of charge,</li>
+        <li>Fast, and easy to use.</li>
+        <li>Unlimited use.</li>
+        <li>Work on its own persistence engine for speed and performance.</li>
+        <button class="skewBtn white" name="submit" type="submit" value="Access">Use This Database</button>
 </ul><br /></pre>
-</body>
+    }
+    </body>
 </html>

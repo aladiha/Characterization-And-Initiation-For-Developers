@@ -55,7 +55,6 @@ namespace WebApplication2.Controllers
             return View(pm);
         }
 
-
         [HttpPost]
         public ActionResult Submit([ModelBinder(typeof(ProjectBinder))] Project project)
         {

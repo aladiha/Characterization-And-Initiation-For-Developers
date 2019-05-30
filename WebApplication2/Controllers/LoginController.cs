@@ -31,10 +31,9 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-
+        
         public ActionResult Submit()
         {
-
             Contact newContact = new Contact();
 
             newContact.name = Request.Form["name"];
