@@ -255,6 +255,11 @@ namespace WebApplication2.Controllers
             if (postedFile != null)
             {
                 string fileName = Path.GetFileName(postedFile.FileName);
+                if(!fileName.Contains(".doc") || !fileName.Contains(".docx"))
+                {
+                    ViewBag.Erorr = "Only Doucment File allowed";
+                    return View("UploadPage");
+                }
                 postedFile.SaveAs(path + fileName);
                 ViewBag.Message += string.Format("<b>{0}</b> uploaded.<br />", fileName);
             }

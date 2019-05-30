@@ -10,7 +10,7 @@ namespace WebApplication2.Models
     {
 
             [Required(ErrorMessage = "Please select file.")]
-            [RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx)$", ErrorMessage = "Only Word Documents allowed.")]
+            //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.doc|.docx)$", ErrorMessage = "Only Word Documents allowed.")]
             public HttpPostedFileBase PostedFile { get; set; }
     }
 }

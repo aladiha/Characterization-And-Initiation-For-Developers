@@ -480,6 +480,8 @@
     <Content Include="Views\AutomaticFill\Database.cshtml" />
     <Content Include="Views\AutomaticFill\Android.cshtml" />
     <Content Include="Views\AutomaticFill\Web.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\AutomaticFill\AutoFillDataSecurty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
