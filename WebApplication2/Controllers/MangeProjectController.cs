@@ -109,7 +109,6 @@ namespace WebApplication2.Controllers
                 string title = parser[0];
 
                 builder.ListFormat.ApplyBulletDefault();
-
                 builder.Font.SizeBi = 14;
                 builder.Font.Size = 14;
 
@@ -142,8 +141,8 @@ namespace WebApplication2.Controllers
 
                     foreach (var x in subtitle)
                         builder.Writeln(x);
-
                     builder.ListFormat.ListOutdent();
+
                 }
                 else
                 {
@@ -155,7 +154,6 @@ namespace WebApplication2.Controllers
                 }
 
                 builder.Font.Color = Color.Blue;
-
                 builder.ListFormat.List = null;
                 
                 builder.Font.Underline = Underline.None;
@@ -166,10 +164,25 @@ namespace WebApplication2.Controllers
                 builder.Font.BoldBi = false;
                 builder.Font.Bold = false;
                 if(l1==2)
-                builder.Writeln("                     " + ques[i]+ "                     ");
-                else
-                builder.Writeln("          " + ques[i]+"           ");
+                {
 
+                    String[] lines = ques[i].Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
+                    foreach (var x in lines)
+                    {
+                            builder.Writeln("                     "+x + "                     ");
+                    }
+
+                }
+                else
+                {
+
+                    String[] lines = ques[i].Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
+                    foreach (var x in lines)
+                    {
+                        builder.Writeln("       "+x + "       ");
+                    }
+
+                }
                 builder.Writeln();
             }
             //  doc.Save(dataDir);
@@ -374,7 +387,11 @@ namespace WebApplication2.Controllers
                 builder.Font.BoldBi = false;
                 builder.Font.Bold = false;
 
-                builder.Writeln("          " + ques[i] + "           ");
+                String[] lines = ques[i].Split(new String[] { Environment.NewLine }, StringSplitOptions.None);
+                foreach (var line in lines)
+                {
+                    builder.Writeln("          " + line + "          ");
+                }
 
                 builder.Writeln();
 
