@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+enum WebSecurty { Arachni = 1, Grabber, IronWasp, Nogotofail, SonarQube, SQLMap, W3af ,Wapiti,Wfuzz,ZedAttackProxy};
+enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
+enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
+
 namespace WebApplication2.Controllers
 {
     public class AutomaticFillController : Controller
@@ -20,7 +24,7 @@ namespace WebApplication2.Controllers
         {
             string ba;
             ba=frm["App"].ToString();
-
+            TempData["Platform"] = ba;
             if (ba == "Ios")
                 return View("Ios");
             else if (ba == "Web")
@@ -66,6 +70,45 @@ namespace WebApplication2.Controllers
                     throw new Exception();
                     
             }
+
+            // Auto Filling of datasecury devends on key of platform of project
+            String platform = TempData["Platform"].ToString();
+            if(platform.Equals("Web"))
+            {
+                Random random = new Random();
+                int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
+                switch (generaterandom)
+                {
+
+                    case (int)WebSecurty.Wapiti:
+
+                        return View();
+
+
+                    case (int)WebSecurty.Wfuzz:
+
+                        return View();
+
+
+                    case (int)WebSecurty.ZedAttackProxy:
+
+                        return View();
+
+                }
+            }
+            else if(platform.Equals("Ios"))
+            {
+
+            }
+            else
+            {
+
+            }
+
+            return View();
+        }
+        public ActionResult AutoFillDataSecurty()
+        {
             return View();
         }
 
