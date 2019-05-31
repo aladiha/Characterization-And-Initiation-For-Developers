@@ -129,6 +129,15 @@ namespace WebApplication2.Controllers
                     
             }
 
+            builder.Writeln();
+            ViewBag.File = dataDir;
+            string paths = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
+            if (!Directory.Exists(paths))
+            {
+                Directory.CreateDirectory(paths);
+            }
+            doc.Save(paths + ProjectNameOwner + ".docx");
+
             // Auto Filling of datasecury devends on key of platform of project
             String platform = TempData["Platform"].ToString();
 
@@ -189,7 +198,7 @@ namespace WebApplication2.Controllers
 
             }
 
-            return View();
+            return View();//
         }
         public ActionResult AutoFillDataSecurty()
         {
