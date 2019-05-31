@@ -4,64 +4,71 @@
 
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
-    body, h1, h2, h3, h4, h5, h6 {
-        font-family: "Raleway", sans-serif
-    }
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById("audio_mp3").play();
+        }
+    </script>
 
-    body {
-        background-image: url("../img/black.jpg"); /* The image used */
-        background-color: #cccccc; /* Used if the image is unavailable */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Do not repeat the image */
-        background-size: cover; /* Resize the background image to cover the entire container */
-    }
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Raleway", sans-serif
+        }
 
-    /* Full height image header */
-.bgimg-1 { 
-    background-position: center; 
-    background-size: cover; 
-    background-image: url("../img/2277.jpg"); 
-    min-height: 100%; 
+        body {
+            background-image: url("../img/black.jpg"); /* The image used */
+            background-color: #cccccc; /* Used if the image is unavailable */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire container */
+        }
 
-}
+        /* Full height image header */
+        .bgimg-1 {
+            background-position: center;
+            background-size: cover;
+            background-image: url("../img/2277.jpg");
+            min-height: 100%;
+        }
 
-    .w3-bar .w3-button {
-        padding: 16px;
-    }
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
 
-    .cool {
-        font-family: times, Times New Roman, times-roman, georgia, serif;
-        font-size: 20px;
-        line-height: 20px;
-        text-transform: uppercase;
-        color: #444;
-    }
+        .cool {
+            font-family: times, Times New Roman, times-roman, georgia, serif;
+            font-size: 20px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #444;
+        }
 
-    .w3-container {
-        padding: 128px 16px;
-        color: white;
-        font-family: Tahoma;
-    }
-</style>
+        .w3-container {
+            padding: 128px 16px;
+            color: white;
+            font-family: Tahoma;
+        }
+    </style>
+</head>
 <body>
 
 
-
+    <audio id="audio_mp3" src="~/Audio/bella.mp3" loop="loop"></audio>
     <div class="w3-container" id="team">
         <h1 class="w3-center">
             Project Characterization And Initiation For Developers
         </h1>
         <p class="w3-center w3-large">Start Something That Matters</p>
 
-      
+
     </div>
 
 
