@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using WebApplication2.DAL;
 using System.IO;
 
-enum WebSecurty {Wapiti=1,Wfuzz,ZedAttackProxy};
+enum WebSecurty {ParrotSecurity=1,Wfuzz,ZedAttackProxy};
 enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 
@@ -131,16 +131,20 @@ namespace WebApplication2.Controllers
 
             // Auto Filling of datasecury devends on key of platform of project
             String platform = TempData["Platform"].ToString();
+
             if(platform.Equals("Web"))
             {
                 Random random = new Random();
                 int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
                 List<String> Inputs = new List<String>();
 
+
+
+
                 switch (generaterandom)
                 {
 
-                    case (int)WebSecurty.Wapiti:
+                    case (int)WebSecurty.ParrotSecurity:
                         {
                             Inputs.Add("");
                             Inputs.Add("");
