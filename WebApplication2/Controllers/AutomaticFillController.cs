@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using WebApplication2.DAL;
 using System.IO;
 
-enum WebSecurty { Arachni = 1, Grabber, IronWasp, Nogotofail, SonarQube, SQLMap, W3af ,Wapiti,Wfuzz,ZedAttackProxy};
+enum WebSecurty {Wapiti=1,Wfuzz,ZedAttackProxy};
 enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 
