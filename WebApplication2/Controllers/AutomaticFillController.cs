@@ -77,23 +77,45 @@ namespace WebApplication2.Controllers
             {
                 Random random = new Random();
                 int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
+                List<String> Inputs = new List<String>();
+
                 switch (generaterandom)
                 {
 
                     case (int)WebSecurty.Wapiti:
+                        {
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
 
-                        return View();
-
+                            return View();
+                        }
 
                     case (int)WebSecurty.Wfuzz:
+                        {
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
 
-                        return View();
-
-
+                            return View();
+                        }
                     case (int)WebSecurty.ZedAttackProxy:
+                        {
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
+                            Inputs.Add("");
 
-                        return View();
-
+                            return View();
+                        }
                 }
             }
             else if(platform.Equals("Ios"))
