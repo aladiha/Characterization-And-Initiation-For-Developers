@@ -156,7 +156,7 @@ namespace WebApplication2.Controllers
                     builder.Font.Underline = Underline.None;
 
                     builder.Font.SizeBi = 14;
-                    builder.Font.SizeBi = 14;
+                    builder.Font.Size = 14;
 
                     builder.Font.BoldBi = false;
                     builder.Font.Bold = false;
@@ -181,7 +181,7 @@ namespace WebApplication2.Controllers
                 builder.Font.Underline = Underline.None;
 
                 builder.Font.SizeBi = 14;
-                builder.Font.SizeBi = 14;
+                builder.Font.Size = 14;
 
                 builder.Font.BoldBi = false;
                 builder.Font.Bold = false;
@@ -389,7 +389,7 @@ namespace WebApplication2.Controllers
 
                 builder.ListFormat.ApplyBulletDefault();
                 builder.Font.Size = 16;
-                builder.Font.Size = 16;
+                builder.Font.SizeBi = 16;
 
                 builder.Font.Underline = Underline.Single;
                 builder.Font.Color = Color.Black;
@@ -411,7 +411,7 @@ namespace WebApplication2.Controllers
                 builder.Font.Underline = Underline.None;
 
                 builder.Font.SizeBi = 14;
-                builder.Font.SizeBi = 14;
+                builder.Font.Size = 14;
 
                 builder.Font.BoldBi = false;
                 builder.Font.Bold = false;
