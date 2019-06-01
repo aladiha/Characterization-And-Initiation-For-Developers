@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "GetChoise1";
+}
+
+@Html.ActionLink("back to my projects", "imanagerp", "Project")
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Pure CSS Letterpress Effect</title>
+
+    <style type="text/css">
+
+        * {
+            margin, padding: 0;
+        }
+
+        body {
+            background: #474747 url(bg.png);
+            margin: 70px;
+        }
+
+        h1 a {
+            display: block;
+            text-decoration: none;
+            font: 50px Helvetica, Arial, Sans-Serif;
+            letter-spacing: -5px;
+            color: white;
+            text-shadow: 0px 3px 8px #2a2a2a;
+        }
+
+            h1 a:hover {
+                color: #a0a0a0;
+                text-shadow: 0px 5px 8px #2a2a2a;
+            }
+
+        h2 {
+            font: 40px Tahoma, Helvetica, Arial, Sans-Serif;
+            text-align: center;
+            color: #222;
+            text-shadow: 0px 2px 3px #555;
+        }
+
+        pre {
+            width: 1000px;
+            margin: 0 auto;
+            background: #222;
+            padding: 20px;
+            font-size: 22px;
+            color: #a0a0a0;
+            text-shadow: 0px 2px 3px #171717;
+            -webkit-box-shadow: 0px 2px 3px #555;
+            -moz-box-shadow: 0px 2px 3px #555;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+        }
+
+
+        .containers {
+            align-items: center;
+            flex-wrap: wrap;
+            height: 70vh;
+        }
+
+            .containers .skewBtn {
+                width: 270px;
+                height: 80px;
+                outline: none;
+                cursor: pointer;
+                background: none;
+                transition: .5s;
+                font-size: 20px;
+                border-radius: 5px;
+                font-family: "Lato",sans-serif;
+            }
+
+                .containers .skewBtn:hover {
+                    border: none;
+                    color: black;
+                    font-size: 28px;
+                    -webkit-transform: scale(1.1);
+                    transform: scale(1.1);
+                }
+
+        /* Buttons */
+        .white {
+            border: 2px solid white;
+            color: white;
+        }
+
+            .white:hover {
+                background-color: white;
+                transition: all 0.3s ease-in-out;
+            }
+    </style>
+</head>
+
+<body>
+
+    @using (Html.BeginForm("Database", "AutomaticFill", FormMethod.Post))
+    {
+
+        <h1><a></a></h1>
+        <h2>תיחום כללי</h2><br />
+
+
+        <img src="../AutomaticFillimg/dfd.png" alt="Italian Trulli" />
+
+
+
+        <h2>משתמשים</h2><br />
+
+
+        <img src="../AutomaticFillimg/pct-cust.png" alt="Italian Trulli" />
+
+
+        <h2>מערכות משיקות</h2><br />
+
+
+        <img src="../AutomaticFillimg/app.jpg" alt="Italian Trulli" />
+
+
+
+
+
+
+    }
+
+
+
+
+
+</body>
+</html>

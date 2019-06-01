@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication2.DAL;
 using System.IO;
+using Google.Apis.Customsearch;
 
 enum WebSecurty {ParrotSecurity=1,Wfuzz,ZedAttackProxy};
 enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
@@ -36,6 +37,25 @@ namespace WebApplication2.Controllers
             else
                 return View("Android");
         }
+        public ActionResult GetChoise1(FormCollection frm)
+        {
+            string ba;
+            ba = frm["App1"].ToString();
+            TempData["Platform"] = ba;
+            if (ba == "Entertaiment") 
+                return View("Entertaiment");
+            
+            else if (ba == "Social")
+                return View("Social");
+
+            else 
+
+                return View("Entertaiment");
+
+            
+           
+        }
+
 
         public ActionResult Database(string submit)
         {
