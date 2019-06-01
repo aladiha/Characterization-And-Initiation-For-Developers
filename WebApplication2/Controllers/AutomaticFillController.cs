@@ -9,7 +9,7 @@ using WebApplication2.DAL;
 using System.IO;
 using Google.Apis.Customsearch;
 
-enum WebSecurty {ParrotSecurity=1,Wfuzz,ZedAttackProxy};
+enum WebSecurty {ParrotSecurity=1,ZedAttackProxy, Cisco };
 enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 
@@ -251,53 +251,73 @@ namespace WebApplication2.Controllers
             // Auto Filling of datasecury devends on key of platform of project
             String platform = TempData["Platform"].ToString();
 
-            if(platform.Equals("Web"))
+
+            builder.ListFormat.ApplyBulletDefault();
+            builder.Font.SizeBi = 14;
+            builder.Font.Size = 14;
+
+            builder.Font.Underline = Underline.Single;
+            builder.Font.Color = Color.Black;
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+
+            builder.Writeln("אבטחת מידע");
+
+            builder.Font.Underline = Underline.None;
+
+            builder.Font.Size = 12;
+            builder.Font.SizeBi = 12;
+
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            List<String> Part1 = new List<String>();
+            List<String> Part2 = new List<String>();
+            List<String> Part3 = new List<String>();
+
+            if(TempData["Is3ske"].ToString()!=null)
+                Part3.Add("בגלל שהפרויקט הוא פרויקט עסקי - כלומר אפשרי דרכו לקבל כסף , אז התוקף יכול לפרוץ חשבון של משתמשים ולקבל את הפרטים שלהם ");
+            Part3.Add("Phishing - כלומק שליחת מייל המשתמש כאילנו אנחנו החברה או האחראים על האפליקצייה/אתר שבתוך ההודעה מתבקש להכביס את הפרטים שלו בכדי לגנוב אותם.");
+
+            if (platform.Equals("Web"))
             {
                 Random random = new Random();
-                int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
-                List<String> Inputs = new List<String>();
-
-
-
+                int generaterandom = random.Next(1,4);  // randrom form 1 to 3.
 
                 switch (generaterandom)
                 {
 
                     case (int)WebSecurty.ParrotSecurity:
-                        {
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
+                        Part1.Add("פארוט סקיוריטי-Parrot Security");
 
-                            return View();
-                        }
 
-                    case (int)WebSecurty.Wfuzz:
-                        {
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
+                        Part2.Add("המיועדת לבדיקות חדירה ופגיעויות, לגלישה אנונימית ולזיהוי פלילי דיגיטלי.");
+                        Part2.Add("הוא כולל ארסנל נייד מלא עבור אבטחת IT וניתוח פלילי דיגיטלי, אבל זה כולל גם את כל מה שאתה צריך כדי לפתח תוכניות משלך או להגן על הפרטיות שלך תוך גלישה באינטרנט.");
 
-                            return View();
-                        }
+                        break;
+                    
+
                     case (int)WebSecurty.ZedAttackProxy:
-                        {
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
+                        Part1.Add("Zed Attack Proxy(ZAP)");
 
-                            return View();
-                        }
+                        Part2.Add("Active Scan-כללי סריקה התוקפים את הרשת");
+                        Part2.Add("Alerts - אזהרות לגבי פגיעויות העשויות להימצא באתר ודרגת החומרה שלהן.");
+
+
+                        break;
+
+                    default:
+                            break;
+
+                      
                 }
+                Part3.Add("פרצות אבטחה – באגים במערכות הפעלה ובתוכנות אשר עלולות להיות מנוצלות על ידי פורצים. כשפגיעות כזו מתפרסמת, מתחיל מרוץ נגד השעון: ההאקרים מפתחים פיסות קוד שמטרתן לחדור דרכה (נוצלות – Exploits), בעוד המתכנתים מנסים להפיץ תיקון כדי לסגור את פרצת האבטחה.");
+                Part3.Add("SQL Injection Attack - זריקת קוד זדוני לשרת כדי לגשת לתאך מאגר הנתונים");
+
+                Part3.Add("MITM - התוקף/הפורץ הירה את הבאקיטים העוברים בין השרת למשתמש והוא יכול לעשות את התקפת MITM כדי לקחת את הנתונים הללו.");
+
+
             }
             else if(platform.Equals("Ios"))
             {
@@ -307,6 +327,41 @@ namespace WebApplication2.Controllers
             {
 
             }
+
+
+            builder.Writeln("סיכוני אבטחת מידע:");
+
+
+            foreach (var x in Part3)
+                builder.Writeln(x);
+
+
+            // fill sesion
+
+            builder.Writeln("אמצעי אבחטת מידע:");
+
+            foreach (var x in Part1)
+                builder.Writeln(x);
+
+
+            // fill sesion
+            builder.Writeln("ניהול אבטחת המידע:");
+
+            foreach (var x in Part2)
+                builder.Writeln(x);
+
+            // fill sesion
+
+
+
+            ViewBag.File = dataDir;
+
+            paths = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
+            if (!Directory.Exists(paths))
+            {
+                Directory.CreateDirectory(paths);
+            }
+            doc.Save(paths + ProjectNameOwner + ".docx");
 
             return View();//
         }
