@@ -292,6 +292,7 @@
       <DependentUpon>BOOKS.mdf</DependentUpon>
     </Content>
     <Content Include="Audio\bella.mp3" />
+    <Content Include="Audio\Way.mp3" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />

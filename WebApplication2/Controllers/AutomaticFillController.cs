@@ -116,7 +116,7 @@ namespace WebApplication2.Controllers
             builder.Font.Bold = false;
 
             builder.ListFormat.ListIndent();
-            builder.Font.Color = Color.Blue;
+            builder.Font.Color = Color.DimGray; 
             if (ba == "Gaming")
             {
                 builder.Writeln();

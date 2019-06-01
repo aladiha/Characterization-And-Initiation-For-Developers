@@ -3,7 +3,7 @@
     ViewBag.Title = "GetChoise1";
 }
 
-@Html.ActionLink("back to my projects", "imanagerp", "Project")
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,7 +26,7 @@
             display: block;
             text-decoration: none;
             font: 50px Helvetica, Arial, Sans-Serif;
-            letter-spacing: -5px;
+            text-align:center;
             color: white;
             text-shadow: 0px 3px 8px #2a2a2a;
         }
@@ -99,33 +99,13 @@
 
 <body>
 
-    @using (Html.BeginForm("Database", "AutomaticFill",FormMethod.Post))
-    {
+    <h1><a>CONGRATS!!</a></h1>
+    <h1><a>Your file is ready go to the projects section to download it!</a></h1>
+    <br />
+    <div class="containers">
+        <p align="center"><button class="skewBtn white" onclick="@("window.location.href='" + @Url.Action("imanagerp", "Project") + "'");">Projects Section</button></p><br />
 
-        <h1><a></a></h1>
-        <h2>תיחום כללי</h2><br />
-
-
-        <img src="../AutomaticFillimg/dfd.png" alt="Italian Trulli" />
-
-
-
-        <h2>משתמשים</h2><br />
-
-
-        <img src="../AutomaticFillimg/pct-cust.png" alt="Italian Trulli" />
-
-
-        <h2>מערכות משיקות</h2><br />
-
-
-        <img src="../AutomaticFillimg/app.jpg" alt="Italian Trulli" />
-
-    }
-
-
-
-
+    </div>
 
 </body>
 </html>
