@@ -59,8 +59,8 @@ namespace WebApplication2.Controllers
             // the qestions:
 
             builder.ListFormat.ApplyBulletDefault();
-            builder.Font.SizeBi = 14;
-            builder.Font.Size = 14;
+            builder.Font.SizeBi = 16;
+            builder.Font.Size = 16;
 
             builder.Font.Underline = Underline.Single;
             builder.Font.Color = Color.Black;
@@ -70,13 +70,13 @@ namespace WebApplication2.Controllers
 
             builder.Writeln("תיחום חיצוני, משתמשים, מערכות משיקות");
 
-            builder.Font.Color = Color.Blue;
+            builder.Font.Color = Color.DimGray;
 
             builder.ListFormat.List = null;
             builder.Font.Underline = Underline.None;
 
-            builder.Font.Size = 12;
-            builder.Font.SizeBi = 12;
+            builder.Font.Size = 14;
+            builder.Font.SizeBi = 14;
 
             builder.Font.BoldBi = false;
             builder.Font.Bold = false;
@@ -213,8 +213,8 @@ namespace WebApplication2.Controllers
             // the qestions:
 
             builder.ListFormat.ApplyBulletDefault();
-            builder.Font.SizeBi = 14;
-            builder.Font.Size = 14;
+            builder.Font.SizeBi = 16;
+            builder.Font.Size = 16;
 
             builder.Font.Underline = Underline.Single;
             builder.Font.Color = Color.Black;
@@ -224,13 +224,13 @@ namespace WebApplication2.Controllers
 
             builder.Writeln("השתמשות בבסיס נתונים Data Base");
 
-            builder.Font.Color = Color.Blue;
+            builder.Font.Color = Color.DimGray;
 
             builder.ListFormat.List = null;
             builder.Font.Underline = Underline.None;
 
-            builder.Font.Size = 12;
-            builder.Font.SizeBi = 12;
+            builder.Font.Size = 14;
+            builder.Font.SizeBi = 14;
 
             builder.Font.BoldBi = false;
             builder.Font.Bold = false;
@@ -304,8 +304,8 @@ namespace WebApplication2.Controllers
 
 
             builder.ListFormat.ApplyBulletDefault();
-            builder.Font.SizeBi = 14;
-            builder.Font.Size = 14;
+            builder.Font.SizeBi = 16;
+            builder.Font.Size = 16;
 
             builder.Font.Underline = Underline.Single;
             builder.Font.Color = Color.Black;
@@ -317,8 +317,8 @@ namespace WebApplication2.Controllers
 
             builder.Font.Underline = Underline.None;
 
-            builder.Font.Size = 12;
-            builder.Font.SizeBi = 12;
+            builder.Font.Size = 14;
+            builder.Font.SizeBi = 14;
 
             List<String> Part1 = new List<String>();
             List<String> Part2 = new List<String>();
@@ -391,7 +391,7 @@ namespace WebApplication2.Controllers
             builder.Font.Bold = false;
 
             builder.ListFormat.ListIndent();
-            builder.Font.Color = Color.Blue;
+            builder.Font.Color = Color.DimGray;
 
             foreach (var x in Part3)
                 builder.Writeln(x);
@@ -408,7 +408,7 @@ namespace WebApplication2.Controllers
             builder.Font.Bold = false;
 
             builder.ListFormat.ListIndent();
-            builder.Font.Color = Color.Blue;
+            builder.Font.Color = Color.DimGray;
 
             foreach (var x in Part1)
                 builder.Writeln(x);
@@ -427,7 +427,7 @@ namespace WebApplication2.Controllers
             builder.Font.Bold = false;
 
             builder.ListFormat.ListIndent();
-            builder.Font.Color = Color.Blue;
+            builder.Font.Color = Color.DimGray;
 
             foreach (var x in Part2)
                 builder.Writeln(x);

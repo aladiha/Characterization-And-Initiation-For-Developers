@@ -131,8 +131,8 @@ namespace WebApplication2.Controllers
                 string title = parser[0];
 
                 builder.ListFormat.ApplyBulletDefault();
-                builder.Font.SizeBi = 14;
-                builder.Font.Size = 14;
+                builder.Font.SizeBi = 16;
+                builder.Font.Size = 16;
 
                 builder.Font.Underline = Underline.Single;
                 builder.Font.Color = Color.Black;
@@ -155,8 +155,8 @@ namespace WebApplication2.Controllers
 
                     builder.Font.Underline = Underline.None;
 
-                    builder.Font.Size = 12;
-                    builder.Font.SizeBi = 12;
+                    builder.Font.SizeBi = 14;
+                    builder.Font.Size = 14;
 
                     builder.Font.BoldBi = false;
                     builder.Font.Bold = false;
@@ -175,13 +175,13 @@ namespace WebApplication2.Controllers
                     }
                 }
 
-                builder.Font.Color = Color.Blue;
+                builder.Font.Color = Color.DimGray;
                 builder.ListFormat.List = null;
                 
                 builder.Font.Underline = Underline.None;
 
-                builder.Font.Size = 12;
-                builder.Font.SizeBi = 12;
+                builder.Font.SizeBi = 14;
+                builder.Font.Size = 14;
 
                 builder.Font.BoldBi = false;
                 builder.Font.Bold = false;
@@ -388,8 +388,8 @@ namespace WebApplication2.Controllers
                 // the qestions:
 
                 builder.ListFormat.ApplyBulletDefault();
-                builder.Font.SizeBi = 14;
-                builder.Font.Size = 14;
+                builder.Font.Size = 16;
+                builder.Font.SizeBi = 16;
 
                 builder.Font.Underline = Underline.Single;
                 builder.Font.Color = Color.Black;
@@ -405,13 +405,13 @@ namespace WebApplication2.Controllers
 
 
                 // the answer
-                builder.Font.Color = Color.Blue;
+                builder.Font.Color = Color.DimGray;
 
                 builder.ListFormat.List = null;
                 builder.Font.Underline = Underline.None;
 
-                builder.Font.Size = 12;
-                builder.Font.SizeBi = 12;
+                builder.Font.SizeBi = 14;
+                builder.Font.Size = 14;
 
                 builder.Font.BoldBi = false;
                 builder.Font.Bold = false;
