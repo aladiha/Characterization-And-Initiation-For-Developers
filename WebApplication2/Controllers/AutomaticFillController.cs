@@ -186,10 +186,14 @@ namespace WebApplication2.Controllers
             List<String> Part2 = new List<String>();
             List<String> Part3 = new List<String>();
 
+            if(TempData["Is3ske"].ToString()!=null)
+                Part3.Add("בגלל שהפרויקט הוא פרויקט עסקי - כלומר אפשרי דרכו לקבל כסף , אז התוקף יכול לפרוץ חשבון של משתמשים ולקבל את הפרטים שלהם ");
+            Part3.Add("Phishing - כלומק שליחת מייל המשתמש כאילנו אנחנו החברה או האחראים על האפליקצייה/אתר שבתוך ההודעה מתבקש להכביס את הפרטים שלו בכדי לגנוב אותם.");
+
             if (platform.Equals("Web"))
             {
                 Random random = new Random();
-                int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
+                int generaterandom = random.Next(1,4);  // randrom form 1 to 3.
 
                 switch (generaterandom)
                 {
@@ -198,38 +202,19 @@ namespace WebApplication2.Controllers
                         Part1.Add("פארוט סקיוריטי-Parrot Security");
 
 
-                        Part2.Add("");
-                        Part2.Add("");
-                        Part2.Add("");
+                        Part2.Add("המיועדת לבדיקות חדירה ופגיעויות, לגלישה אנונימית ולזיהוי פלילי דיגיטלי.");
+                        Part2.Add("הוא כולל ארסנל נייד מלא עבור אבטחת IT וניתוח פלילי דיגיטלי, אבל זה כולל גם את כל מה שאתה צריך כדי לפתח תוכניות משלך או להגן על הפרטיות שלך תוך גלישה באינטרנט.");
 
-
-                        Part3.Add("");
-                        Part3.Add("");
                         break;
                     
-                    case (int)WebSecurty.Cisco:
-                        Part1.Add("Cisco");
-
-
-                        Part2.Add("");
-                        Part2.Add("");
-                        Part2.Add("");
-
-
-                        Part3.Add("");
-                        Part3.Add("");
-                        break;
 
                     case (int)WebSecurty.ZedAttackProxy:
                         Part1.Add("Zed Attack Proxy(ZAP)");
 
                         Part2.Add("Active Scan-כללי סריקה התוקפים את הרשת");
                         Part2.Add("Alerts - אזהרות לגבי פגיעויות העשויות להימצא באתר ודרגת החומרה שלהן.");
-                        Part2.Add("");
 
 
-                        Part3.Add("פרצות אבטחה – באגים במערכות הפעלה ובתוכנות אשר עלולות להיות מנוצלות על ידי פורצים. כשפגיעות כזו מתפרסמת, מתחיל מרוץ נגד השעון: ההאקרים מפתחים פיסות קוד שמטרתן לחדור דרכה (נוצלות – Exploits), בעוד המתכנתים מנסים להפיץ תיקון כדי לסגור את פרצת האבטחה.");
-                        Part3.Add("");
                         break;
 
                     default:
@@ -237,8 +222,10 @@ namespace WebApplication2.Controllers
 
                       
                 }
+                Part3.Add("פרצות אבטחה – באגים במערכות הפעלה ובתוכנות אשר עלולות להיות מנוצלות על ידי פורצים. כשפגיעות כזו מתפרסמת, מתחיל מרוץ נגד השעון: ההאקרים מפתחים פיסות קוד שמטרתן לחדור דרכה (נוצלות – Exploits), בעוד המתכנתים מנסים להפיץ תיקון כדי לסגור את פרצת האבטחה.");
+                Part3.Add("SQL Injection Attack - זריקת קוד זדוני לשרת כדי לגשת לתאך מאגר הנתונים");
 
-
+                Part3.Add("MITM - התוקף/הפורץ הירה את הבאקיטים העוברים בין השרת למשתמש והוא יכול לעשות את התקפת MITM כדי לקחת את הנתונים הללו.");
 
 
             }
