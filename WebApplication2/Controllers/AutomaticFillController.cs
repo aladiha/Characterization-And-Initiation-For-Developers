@@ -7,11 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication2.DAL;
 using System.IO;
-using Google.Apis.Customsearch;
 
-enum WebSecurty {ParrotSecurity=1,ZedAttackProxy, Cisco };
-enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
-enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
+enum WebSecurty {ParrotSecurity=1,ZedAttackProxy };
 
 namespace WebApplication2.Controllers
 {
@@ -158,6 +155,12 @@ namespace WebApplication2.Controllers
             }
             doc.Save(paths + ProjectNameOwner + ".docx");
 
+            
+            //**************************************************************************************
+            //**************************************************************************************
+            //**************************************************************************************
+
+
             // Auto Filling of datasecury devends on key of platform of project
             String platform = TempData["Platform"].ToString();
 
@@ -179,40 +182,44 @@ namespace WebApplication2.Controllers
             builder.Font.Size = 12;
             builder.Font.SizeBi = 12;
 
-            builder.Font.BoldBi = false;
-            builder.Font.Bold = false;
-
             List<String> Part1 = new List<String>();
             List<String> Part2 = new List<String>();
             List<String> Part3 = new List<String>();
+            int generaterandom,generaterandom2,generaterandom3;
+            if(!platform.Equals("Web"))
+            {
+                Part2.Add("אבטחת יציאת מידע או הכנסת מידע לתוך בסיס הנתונים");
+            }
 
-            if(TempData["Is3ske"].ToString()!=null)
-                Part3.Add("בגלל שהפרויקט הוא פרויקט עסקי - כלומר אפשרי דרכו לקבל כסף , אז התוקף יכול לפרוץ חשבון של משתמשים ולקבל את הפרטים שלהם ");
             Part3.Add("Phishing - כלומק שליחת מייל המשתמש כאילנו אנחנו החברה או האחראים על האפליקצייה/אתר שבתוך ההודעה מתבקש להכביס את הפרטים שלו בכדי לגנוב אותם.");
+
+            Part2.Add("ניהול רישום כניסות ויציאות למערכת");
+            Part1.Add("זיהוי המשתמש - כך שיהיה מוגדר מי המשתמש ומה מוטר לו לעשות");
+            Part2.Add("הצפנת סיסמת המשתמש בעזרת פונקציות HASH אשר נותנים להם את הסיסמה והם יתנו רץף אותיות, מספרים או תווים כך שלא ניתן לשחזר את הסיסמה.");
+            Part1.Add("בעת כניסה למערכת והזנת שם המשתמש והסיסמה אנו נצפין את הסיסמה ונשוואה אותה מול הסיסמה המוצפנת ששמורה בבסיס הנתונים");
 
             if (platform.Equals("Web"))
             {
                 Random random = new Random();
-                int generaterandom = random.Next(1,4);  // randrom form 1 to 3.
-
+                generaterandom = random.Next(1,3);  // randrom form 1 to 2.
+                generaterandom2 = random.Next(1, 4); // random form 1 to 3.
+                generaterandom3 = random.Next(1, 4); // random foom 1 to 3.
                 switch (generaterandom)
                 {
 
                     case (int)WebSecurty.ParrotSecurity:
                         Part1.Add("פארוט סקיוריטי-Parrot Security");
-
-
-                        Part2.Add("המיועדת לבדיקות חדירה ופגיעויות, לגלישה אנונימית ולזיהוי פלילי דיגיטלי.");
-                        Part2.Add("הוא כולל ארסנל נייד מלא עבור אבטחת IT וניתוח פלילי דיגיטלי, אבל זה כולל גם את כל מה שאתה צריך כדי לפתח תוכניות משלך או להגן על הפרטיות שלך תוך גלישה באינטרנט.");
+                        Part1.Add("המיועדת לבדיקות חדירה ופגיעויות, לגלישה אנונימית ולזיהוי פלילי דיגיטלי.");
+                        Part1.Add("הוא כולל ארסנל נייד מלא עבור אבטחת IT וניתוח פלילי דיגיטלי, אבל זה כולל גם את כל מה שאתה צריך כדי לפתח תוכניות משלך או להגן על הפרטיות שלך תוך גלישה באינטרנט.");
 
                         break;
                     
 
                     case (int)WebSecurty.ZedAttackProxy:
                         Part1.Add("Zed Attack Proxy(ZAP)");
-
-                        Part2.Add("Active Scan-כללי סריקה התוקפים את הרשת");
-                        Part2.Add("Alerts - אזהרות לגבי פגיעויות העשויות להימצא באתר ודרגת החומרה שלהן.");
+                        Part1.Add("כדי למצוא מגוון רחב של פגיעויות ביישומי אינטרנט.");
+                        Part1.Add("Active Scan-כללי סריקה התוקפים את הרשת");
+                        Part1.Add("Alerts - אזהרות לגבי פגיעויות העשויות להימצא באתר ודרגת החומרה שלהן.");
 
 
                         break;
@@ -222,44 +229,73 @@ namespace WebApplication2.Controllers
 
                       
                 }
-                Part3.Add("פרצות אבטחה – באגים במערכות הפעלה ובתוכנות אשר עלולות להיות מנוצלות על ידי פורצים. כשפגיעות כזו מתפרסמת, מתחיל מרוץ נגד השעון: ההאקרים מפתחים פיסות קוד שמטרתן לחדור דרכה (נוצלות – Exploits), בעוד המתכנתים מנסים להפיץ תיקון כדי לסגור את פרצת האבטחה.");
-                Part3.Add("SQL Injection Attack - זריקת קוד זדוני לשרת כדי לגשת לתאך מאגר הנתונים");
 
+                Part3.Add("פרצות אבטחה – באגים במערכות הפעלה ובתוכנות אשר עלולות להיות מנוצלות על ידי פורצים. כשפגיעות כזו מתפרסמת, מתחיל מרוץ נגד השעון: ההאקרים מפתחים פיסות קוד שמטרתן לחדור דרכה (נוצלות – Exploits), בעוד המתכנתים מנסים להפיץ תיקון כדי לסגור את פרצת האבטחה.");
+                Part3.Add("SQL Injection Attack - זריקת קוד זדוני כדי לגשת לתוך מאגר הנתונים");
                 Part3.Add("MITM - התוקף/הפורץ הירה את הבאקיטים העוברים בין השרת למשתמש והוא יכול לעשות את התקפת MITM כדי לקחת את הנתונים הללו.");
 
 
-            }
-            else if(platform.Equals("Ios"))
-            {
+                Part2.Add("שימוש בפונקציית ESCAPE_STRING אשר מעטיפה את שורות הפלט ");
 
             }
             else
             {
-
+                Part3.Add("הצלחה לגשת לבסיס הנתונים");
             }
 
+
+            builder.ListFormat.ListIndent();
 
             builder.Writeln("סיכוני אבטחת מידע:");
 
 
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            builder.ListFormat.ListIndent();
+            builder.Font.Color = Color.Blue;
+
             foreach (var x in Part3)
                 builder.Writeln(x);
+            builder.Font.Color = Color.Black;
 
+            builder.ListFormat.ListOutdent();
 
-            // fill sesion
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
 
             builder.Writeln("אמצעי אבחטת מידע:");
 
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            builder.ListFormat.ListIndent();
+            builder.Font.Color = Color.Blue;
+
             foreach (var x in Part1)
                 builder.Writeln(x);
+            builder.Font.Color = Color.Black;
 
+            builder.ListFormat.ListOutdent();
 
             // fill sesion
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+
             builder.Writeln("ניהול אבטחת המידע:");
+
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            builder.ListFormat.ListIndent();
+            builder.Font.Color = Color.Blue;
 
             foreach (var x in Part2)
                 builder.Writeln(x);
+            builder.Font.Color = Color.Black;
 
+            builder.ListFormat.List = null;
             // fill sesion
 
 
