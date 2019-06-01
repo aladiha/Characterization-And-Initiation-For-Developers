@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using WebApplication2.DAL;
 using System.IO;
 
-enum WebSecurty {ParrotSecurity=1,Wfuzz,ZedAttackProxy};
+enum WebSecurty {ParrotSecurity=1,ZedAttackProxy, Cisco };
 enum AndroidSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 enum IosSecurty { Sat, Sun, Mon, Tue, Wed, Thu, Fri };
 
@@ -141,53 +141,86 @@ namespace WebApplication2.Controllers
             // Auto Filling of datasecury devends on key of platform of project
             String platform = TempData["Platform"].ToString();
 
-            if(platform.Equals("Web"))
+
+            builder.ListFormat.ApplyBulletDefault();
+            builder.Font.SizeBi = 14;
+            builder.Font.Size = 14;
+
+            builder.Font.Underline = Underline.Single;
+            builder.Font.Color = Color.Black;
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+
+            builder.Writeln("אבטחת מידע");
+
+            builder.Font.Underline = Underline.None;
+
+            builder.Font.Size = 12;
+            builder.Font.SizeBi = 12;
+
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            List<String> Part1 = new List<String>();
+            List<String> Part2 = new List<String>();
+            List<String> Part3 = new List<String>();
+
+            if (platform.Equals("Web"))
             {
                 Random random = new Random();
                 int generaterandom = random.Next(1,11);  // randrom form 1 to 10.
-                List<String> Inputs = new List<String>();
-
-
-
 
                 switch (generaterandom)
                 {
 
                     case (int)WebSecurty.ParrotSecurity:
-                        {
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
+                        Part1.Add("פארוט סקיוריטי-Parrot Security");
 
-                            return View();
-                        }
 
-                    case (int)WebSecurty.Wfuzz:
-                        {
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
+                        Part2.Add("");
+                        Part2.Add("");
+                        Part2.Add("");
 
-                            return View();
-                        }
+
+                        Part3.Add("");
+                        Part3.Add("");
+                        break;
+                    
+                    case (int)WebSecurty.Cisco:
+                        Part1.Add("Cisco");
+
+
+                        Part2.Add("");
+                        Part2.Add("");
+                        Part2.Add("");
+
+
+                        Part3.Add("");
+                        Part3.Add("");
+                        break;
+
                     case (int)WebSecurty.ZedAttackProxy:
-                        {
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
-                            Inputs.Add("");
+                        Part1.Add("Zed Attack Proxy(ZAP)");
 
-                            return View();
-                        }
+                        Part2.Add("Active Scan-כללי סריקה התוקפים את הרשת");
+                        Part2.Add("Alerts - אזהרות לגבי פגיעויות העשויות להימצא באתר ודרגת החומרה שלהן.");
+                        Part2.Add("");
+
+
+                        Part3.Add("פרצות אבטחה – באגים במערכות הפעלה ובתוכנות אשר עלולות להיות מנוצלות על ידי פורצים. כשפגיעות כזו מתפרסמת, מתחיל מרוץ נגד השעון: ההאקרים מפתחים פיסות קוד שמטרתן לחדור דרכה (נוצלות – Exploits), בעוד המתכנתים מנסים להפיץ תיקון כדי לסגור את פרצת האבטחה.");
+                        Part3.Add("");
+                        break;
+
+                    default:
+                            break;
+
+                      
                 }
+
+
+
+
             }
             else if(platform.Equals("Ios"))
             {
@@ -197,6 +230,41 @@ namespace WebApplication2.Controllers
             {
 
             }
+
+
+            builder.Writeln("סיכוני אבטחת מידע:");
+
+
+            foreach (var x in Part3)
+                builder.Writeln(x);
+
+
+            // fill sesion
+
+            builder.Writeln("אמצעי אבחטת מידע:");
+
+            foreach (var x in Part1)
+                builder.Writeln(x);
+
+
+            // fill sesion
+            builder.Writeln("ניהול אבטחת המידע:");
+
+            foreach (var x in Part2)
+                builder.Writeln(x);
+
+            // fill sesion
+
+
+
+            ViewBag.File = dataDir;
+
+            paths = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
+            if (!Directory.Exists(paths))
+            {
+                Directory.CreateDirectory(paths);
+            }
+            doc.Save(paths + ProjectNameOwner + ".docx");
 
             return View();//
         }
