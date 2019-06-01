@@ -376,9 +376,11 @@
     <Content Include="img2\swan.jpg" />
     <Content Include="img2\tiger.jpg" />
     <Content Include="img\5555.jpg" />
+    <Content Include="img\app.jpg" />
     <Content Include="img\bw.png" />
     <Content Include="img\connect.jpg" />
     <Content Include="img\del.jpg" />
+    <Content Include="img\dfd.png" />
     <Content Include="img\gaming.jpg" />
     <Content Include="img\gaming2.png" />
     <Content Include="img\Gray-swirls-abstract-HD-wallpaper-hd-wallpapers-background-wallpapers-pictures-desktop-wallpapers-samsung-phone-wallpapers-widescreen-1080p-digital-photos-1920x1080.jpg" />
@@ -393,6 +395,7 @@
     <Content Include="img\horror.jpg" />
     <Content Include="img\mess.png" />
     <Content Include="img\messeging.png" />
+    <Content Include="img\pct-cust.png" />
     <Content Include="img\social.jpg" />
     <Content Include="img\social2.png" />
     <Content Include="img\wall.jpg" />

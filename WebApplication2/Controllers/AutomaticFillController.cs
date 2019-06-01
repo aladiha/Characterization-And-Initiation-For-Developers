@@ -43,6 +43,7 @@ namespace WebApplication2.Controllers
             int ProjectId = int.Parse(TempData["al"].ToString());
             DocumentBuilder builder = new DocumentBuilder(doc);
             builder.MoveToDocumentEnd();
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Left;
             var dal = new ProjectsDal();
             var proj = dal.GetPrijectByPrjectId(ProjectId);
             String ProjectNameOwner = proj.UserName + "_" + proj.ProjectName;
@@ -80,14 +81,50 @@ namespace WebApplication2.Controllers
             builder.Font.BoldBi = false;
             builder.Font.Bold = false;
 
+            ///////////////////
+            builder.Font.Color = Color.Black;
+
+            builder.ListFormat.ListOutdent();
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+
+            builder.Writeln("DFD Template");
+
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            builder.ListFormat.ListIndent();
+            builder.Writeln();
+            Image image = Image.FromFile(Server.MapPath("~/img/dfd.png"));
+            builder.InsertImage(image);
+            builder.Font.Color = Color.Red;
+            builder.Writeln();
+            builder.Writeln();
+            builder.Writeln("this DFD is  a template and should be changed to ur DFD!!");
+            builder.Writeln();
+            builder.Writeln();
+            builder.Font.Color = Color.Black;
+
+            builder.ListFormat.ListOutdent();
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+            builder.Writeln("Users and Statistics");
+
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            builder.ListFormat.ListIndent();
+            builder.Font.Color = Color.Blue;
             if (ba == "Gaming")
             {
                 builder.Writeln();
                 builder.Writeln("Our Users ages are not specific");
                 builder.Writeln();
-                builder.Writeln("gaming users and profit encrease as the time pass:");
+                builder.Writeln("gaming users and profit increase as the time pass:");
                 builder.Writeln();
-                Image image = Image.FromFile(Server.MapPath("~/img/gaming2.png"));
+                image = Image.FromFile(Server.MapPath("~/img/gaming2.png"));
                 builder.InsertImage(image);
                 builder.Writeln();
                 builder.Writeln();
@@ -102,9 +139,9 @@ namespace WebApplication2.Controllers
                 builder.Writeln();
                 builder.Writeln("Our Users ages are 13+");
                 builder.Writeln();
-                builder.Writeln("Social Media users encrease as the time pass:");
+                builder.Writeln("Social Media users increase as the time pass:");
                 builder.Writeln();
-                Image image = Image.FromFile(Server.MapPath("~/img/social2.png"));
+                image = Image.FromFile(Server.MapPath("~/img/social2.png"));
                 builder.InsertImage(image);
                 builder.Writeln();
                 builder.Writeln();
@@ -117,9 +154,9 @@ namespace WebApplication2.Controllers
                 builder.Writeln();
                 builder.Writeln("Our Users ages are 8+");
                 builder.Writeln();
-                builder.Writeln("for example wechat messaging application users encrease as the time pass:");
+                builder.Writeln("for example wechat messaging application users increase as the time pass:");
                 builder.Writeln();
-                Image image = Image.FromFile(Server.MapPath("~/img/mess.png"));
+                image = Image.FromFile(Server.MapPath("~/img/mess.png"));
                 builder.InsertImage(image);
                 builder.Writeln();
                 builder.Writeln();
@@ -129,6 +166,18 @@ namespace WebApplication2.Controllers
                 builder.InsertImage(image);
 
             }
+            builder.Font.Color = Color.Black;
+
+            builder.ListFormat.ListOutdent();
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+            builder.Writeln();
+            builder.Writeln();
+            builder.Writeln("Integration Systems");
+            builder.Writeln();
+            image = Image.FromFile(Server.MapPath("~/img/app.jpg"));
+            builder.InsertImage(image);
             builder.Writeln();
             ViewBag.File = dataDir;
             string paths = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
@@ -161,7 +210,6 @@ namespace WebApplication2.Controllers
             builder.Font.Name = "David";
             builder.ParagraphFormat.Bidi = true;
             builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
-
             // the qestions:
 
             builder.ListFormat.ApplyBulletDefault();
