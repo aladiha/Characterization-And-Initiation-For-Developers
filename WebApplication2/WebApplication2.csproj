@@ -378,6 +378,9 @@
     <Content Include="img\5555.jpg" />
     <Content Include="img\bw.png" />
     <Content Include="img\connect.jpg" />
+    <Content Include="img\del.jpg" />
+    <Content Include="img\gaming.jpg" />
+    <Content Include="img\gaming2.png" />
     <Content Include="img\Gray-swirls-abstract-HD-wallpaper-hd-wallpapers-background-wallpapers-pictures-desktop-wallpapers-samsung-phone-wallpapers-widescreen-1080p-digital-photos-1920x1080.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -388,6 +391,10 @@
     <Content Include="img\download.jpg" />
     <Content Include="img\ha.jpg" />
     <Content Include="img\horror.jpg" />
+    <Content Include="img\mess.png" />
+    <Content Include="img\messeging.png" />
+    <Content Include="img\social.jpg" />
+    <Content Include="img\social2.png" />
     <Content Include="img\wall.jpg" />
     <Content Include="img\images %282%29.jpg" />
     <Content Include="img\images.jpg" />
@@ -506,10 +513,9 @@
     <Content Include="Views\AutomaticFill\Android.cshtml" />
     <Content Include="Views\AutomaticFill\Web.cshtml" />
     <Content Include="Views\AutomaticFill\AutoFillDataSecurty.cshtml" />
-    <Content Include="Views\AutomaticFill\Entertaiment.cshtml" />
-    <Content Include="Views\AutomaticFill\Social.cshtml" />
+    <Content Include="Views\AutomaticFill\GetChoise1.cshtml" />
     <Content Include="Views\Busness.cshtml" />
-    <Content Include="Views\AutomaticFill\Bussnis.cshtml" />
+    <Content Include="Views\Project\DeleteProject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

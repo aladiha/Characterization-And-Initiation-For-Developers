@@ -41,27 +41,117 @@ namespace WebApplication2.Controllers
         {
             string ba;
             ba = frm["App1"].ToString();
-            TempData["Platform"] = ba;
-            if (ba == "Entertaiment") 
-                return View("Entertaiment");
-            
+            String path = TempData["pa2"].ToString();
+            Document doc = new Document(path);
+            int ProjectId = int.Parse(TempData["al"].ToString());
+            DocumentBuilder builder = new DocumentBuilder(doc);
+            builder.MoveToDocumentEnd();
+            var dal = new ProjectsDal();
+            var proj = dal.GetPrijectByPrjectId(ProjectId);
+            String ProjectNameOwner = proj.UserName + "_" + proj.ProjectName;
+            String dataDir = "C:/" + ProjectNameOwner + ".docx";
+
+
+            // Word design
+            builder.Font.NameBi = "David";
+            builder.Font.Name = "David";
+            builder.ParagraphFormat.Bidi = true;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+
+            // the qestions:
+
+            builder.ListFormat.ApplyBulletDefault();
+            builder.Font.SizeBi = 14;
+            builder.Font.Size = 14;
+
+            builder.Font.Underline = Underline.Single;
+            builder.Font.Color = Color.Black;
+
+            builder.Font.BoldBi = true;
+            builder.Font.Bold = true;
+
+            builder.Writeln("תיחום חיצוני, משתמשים, מערכות משיקות");
+
+            builder.Font.Color = Color.Blue;
+
+            builder.ListFormat.List = null;
+            builder.Font.Underline = Underline.None;
+
+            builder.Font.Size = 12;
+            builder.Font.SizeBi = 12;
+
+            builder.Font.BoldBi = false;
+            builder.Font.Bold = false;
+
+            if (ba == "Gaming")
+            {
+                builder.Writeln();
+                builder.Writeln("Our Users ages are not specific");
+                builder.Writeln();
+                builder.Writeln("gaming users and profit encrease as the time pass:");
+                builder.Writeln();
+                Image image = Image.FromFile(Server.MapPath("~/img/gaming2.png"));
+                builder.InsertImage(image);
+                builder.Writeln();
+                builder.Writeln();
+                builder.Writeln("Statistics involve our App:");
+                builder.Writeln();
+                image = Image.FromFile(Server.MapPath("~/img/gaming.jpg"));
+                builder.InsertImage(image);
+
+            }
             else if (ba == "Social")
-                return View("Social");
+            {
+                builder.Writeln();
+                builder.Writeln("Our Users ages are 13+");
+                builder.Writeln();
+                builder.Writeln("Social Media users encrease as the time pass:");
+                builder.Writeln();
+                Image image = Image.FromFile(Server.MapPath("~/img/social2.png"));
+                builder.InsertImage(image);
+                builder.Writeln();
+                builder.Writeln();
+                builder.Writeln("Statistics involve our App:");
+                builder.Writeln();
+                image = Image.FromFile(Server.MapPath("~/img/social.jpg"));
+                builder.InsertImage(image);
+            }
+            else {
+                builder.Writeln();
+                builder.Writeln("Our Users ages are 8+");
+                builder.Writeln();
+                builder.Writeln("for example wechat messaging application users encrease as the time pass:");
+                builder.Writeln();
+                Image image = Image.FromFile(Server.MapPath("~/img/mess.png"));
+                builder.InsertImage(image);
+                builder.Writeln();
+                builder.Writeln();
+                builder.Writeln("Statistics involve our App:");
+                builder.Writeln();
+                image = Image.FromFile(Server.MapPath("~/img/messeging.png"));
+                builder.InsertImage(image);
 
-            else 
-
-                return View("Entertaiment");
-
-            
-           
+            }
+            builder.Writeln();
+            ViewBag.File = dataDir;
+            string paths = Server.MapPath("~/Uploads/" + ProjectNameOwner + "/");
+            if (!Directory.Exists(paths))
+            {
+                Directory.CreateDirectory(paths);
+            }
+            doc.Save(paths + ProjectNameOwner + ".docx");
+            return View();
         }
 
 
         public ActionResult Database(string submit)
         {
             String path = TempData["pa"].ToString();
+            TempData["pa2"] = path;
             Document doc = new Document(path);
-            int ProjectId= int.Parse(TempData["Idp"].ToString());
+            String al = TempData["Idp"].ToString();
+            int ProjectId= int.Parse(al);
+            TempData["al"] = al;
             DocumentBuilder builder = new DocumentBuilder(doc);
             builder.MoveToDocumentEnd();
             var dal = new ProjectsDal();
