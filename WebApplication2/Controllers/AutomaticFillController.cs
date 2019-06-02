@@ -12,6 +12,7 @@ enum WebSecurty {ParrotSecurity=1,ZedAttackProxy };
 
 namespace WebApplication2.Controllers
 {
+
     public class AutomaticFillController : Controller
     {
         // GET: AutomaticFill
@@ -20,8 +21,7 @@ namespace WebApplication2.Controllers
            //
             return View();
         }
-
-
+       
         public ActionResult GetChoise(FormCollection frm)
         {
             string ba;
