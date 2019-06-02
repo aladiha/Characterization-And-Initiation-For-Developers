@@ -73,31 +73,28 @@ namespace WebApplication2.DAL
 
         public bool DeleteProject(string UserName, string pname)
         {
-            List<Project> us = GetProjectByUserName(UserName);
+         //   List<Project> us = GetProjectByUserName(UserName);
             // pname = "feras1";
-            int i;
+            // int i;
             //if (us.Count != 0)
+
+            List<Project> us = (from x in projects where 
+                                UserName.Equals(x.UserName) && pname.Equals(x.ProjectName)
+                                select x).ToList<Project>();
 
             var Dal = new ProjectMembersDal();
             var Priv = new PrivateProjectsDal();
 
 
+
+            Priv.DeleteAllMembers(us[0].Id);
+            Dal.DeleteAllMembers(us[0].Id);
+
             projects.Remove(us[0]);
             SaveChanges();
-            for (i = 0; i < us.Count; i++)
-            {
-                if (us[i].ProjectName == pname)
-                {
-                    projects.Remove(us[i]);
-                    SaveChanges();
-                    return true;
+            return true;
 
-                }
-
-
-            }
-
-            return false;
+           // return false;
         }
         public bool ExistProjectId(int id,string user)
         {

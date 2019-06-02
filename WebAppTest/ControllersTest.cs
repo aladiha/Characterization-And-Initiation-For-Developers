@@ -1,12 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WebApplication2.Controllers;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using WebApplication2.Controllers;
 using System.Web.Mvc;
-using WebApplication2.Models;
-using WebApplication2;
-using System;
 
 namespace WebAppTest
 {
