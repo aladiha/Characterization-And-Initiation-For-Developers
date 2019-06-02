@@ -306,13 +306,9 @@ namespace WebApplication2.Controllers
             var usdal = new UserDal();
             var prdal = new ProjectsDal();
 
-            if (usdal.VarifyPassword(Session["UserId"].ToString(), VafifiyPassword) && prdal.DeleteProject(Session["UserId"].ToString(), p.ProjectName) == true)
+            if (usdal.VarifyPassword(Session["UserId"].ToString(), VafifiyPassword) == true)
             {
-                //string projectname = Request.QueryString.Get("Pname");
-                //string Username = Request.QueryString.Get("Mname");
-
                 prdal.DeleteProject(Session["UserId"].ToString(), p.ProjectName);
-                //Session["UserId"] = "";
                 return RedirectToAction("imanagerp", "Project");
 
             }

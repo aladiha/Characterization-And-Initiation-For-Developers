@@ -73,5 +73,18 @@ namespace WebApplication2.DAL
                      select y).ToList<ProjectMembers>();
             return x;
         }
+
+        public bool DeleteAllMembers(int projectId)
+        {
+            var x = (from y in projectMembers
+                     where y.ProjectId == projectId
+                     select y).ToList<ProjectMembers>();
+            foreach (var k in x)
+            {
+                projectMembers.Remove(k);
+            }
+            SaveChanges();
+            return true;
+        }
     }
 }
