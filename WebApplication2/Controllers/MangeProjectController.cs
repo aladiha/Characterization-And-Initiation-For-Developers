@@ -32,11 +32,6 @@ namespace WebApplication2.Controllers
         public ActionResult firstPart()
         {
             string[] ss=new string[50];
-
-
-
-
-
             ProjectId = int.Parse(Request.QueryString.Get("projectid"));
             
             return View();
