@@ -298,7 +298,11 @@ namespace WebApplication2.Controllers
             var p = new Project { ProjectName = name.ProjectName };
 
             string VafifiyPassword = Request.Form["VarifiyPassword"];
+
+
             //string projectname = Request.QueryString.Get("Pname");
+
+
             var usdal = new UserDal();
             var prdal = new ProjectsDal();
 

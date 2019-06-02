@@ -77,6 +77,13 @@ namespace WebApplication2.DAL
             // pname = "feras1";
             int i;
             //if (us.Count != 0)
+
+            var Dal = new ProjectMembersDal();
+            var Priv = new PrivateProjectsDal();
+
+
+            projects.Remove(us[0]);
+            SaveChanges();
             for (i = 0; i < us.Count; i++)
             {
                 if (us[i].ProjectName == pname)
