@@ -208,8 +208,7 @@ namespace WebApplication2.Controllers
             // Word design
             builder.Font.NameBi = "David";
             builder.Font.Name = "David";
-            builder.ParagraphFormat.Bidi = true;
-            builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+
             // the qestions:
 
             builder.ListFormat.ApplyBulletDefault();
@@ -221,9 +220,11 @@ namespace WebApplication2.Controllers
 
             builder.Font.BoldBi = true;
             builder.Font.Bold = true;
-
+            builder.ParagraphFormat.Bidi = true;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
             builder.Writeln("השתמשות בבסיס נתונים Data Base");
-
+            builder.ParagraphFormat.Bidi = false;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Left;
             builder.Font.Color = Color.DimGray;
 
             builder.ListFormat.List = null;
@@ -234,8 +235,6 @@ namespace WebApplication2.Controllers
 
             builder.Font.BoldBi = false;
             builder.Font.Bold = false;
-
-        
 
             switch (submit)
             {
@@ -283,6 +282,9 @@ namespace WebApplication2.Controllers
                     throw new Exception();
                     
             }
+            builder.ParagraphFormat.Bidi = true;
+            builder.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+
 
             builder.Writeln();
             ViewBag.File = dataDir;

@@ -43,7 +43,7 @@ namespace WebAppTest
             var log = new LoginController();
 
 
-            dal.AddUser(user);
+            var x=dal.AddUser(user);
 
             dal.UpdatePassword(user.UserName, ch);
             var newuser = dal.GetUserByUserName(user.UserName);
