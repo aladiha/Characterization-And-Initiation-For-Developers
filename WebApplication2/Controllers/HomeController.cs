@@ -52,7 +52,7 @@ namespace WebApplication2.Controllers
             return View("Thanks");////
         }
 
-
+        //asdasd
         public ActionResult DeleteAccountCompleteMassage()
         {
             return View();
